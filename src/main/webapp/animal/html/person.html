@@ -1,0 +1,168 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../css/myprofile.css">
+    <!--// Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" type="text/css" media="all">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="../css/font-awesome.css" type="text/css" media="all">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="../css/font-awesome.css" type="text/css" media="all">
+    <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="../css/owl.carousel.css" type="text/css" media="all" />
+    <!-- Owl-Carousel-CSS -->
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- //css files -->
+    <!-- web fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Molle:400i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+    <!-- //web fonts -->
+    <script>
+        function YYYYMMDDstart()
+        {
+            MonHead = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+            //先给年下拉框赋内容
+            var y  = new Date().getFullYear();
+            for (var i = (y-30); i < (y+10); i++) //以今年为准，前30年，后30年
+                document.myprofile_form.YYYY.options.add(new Option(" "+ i +" 年", i));
+
+            //赋月份的下拉框
+            for (var i = 1; i < 13; i++)
+                document.myprofile_form.MM.options.add(new Option(" " + i + " 月", i));
+
+            document.myprofile_form.YYYY.value = y;
+            document.myprofile_form.MM.value = new Date().getMonth() + 1;
+            var n = MonHead[new Date().getMonth()];
+            if (new Date().getMonth() ==1 && IsPinYear(YYYYvalue)) n++;
+            writeDay(n); //赋日期下拉框Author:meizz
+            document.myprofile_form.DD.value = new Date().getDate();
+        }
+        if(document.attachEvent)
+            window.attachEvent("onload", YYYYMMDDstart);
+        else
+            window.addEventListener('load', YYYYMMDDstart, false);
+        function YYYYDD(str) //年发生变化时日期发生变化(主要是判断闰平年)
+        {
+            var MMvalue = document.myprofile_form.MM.options[document.myprofile_form.MM.selectedIndex].value;
+            if (MMvalue == ""){ var e = document.myprofile_form.DD; optionsClear(e); return;}
+            var n = MonHead[MMvalue - 1];
+            if (MMvalue ==2 && IsPinYear(str)) n++;
+            writeDay(n)
+        }
+        function MMDD(str)   //月发生变化时日期联动
+        {
+            var YYYYvalue = document.myprofile_form.YYYY.options[document.myprofile_form.YYYY.selectedIndex].value;
+            if (YYYYvalue == ""){ var e = document.myprofile_form.DD; optionsClear(e); return;}
+            var n = MonHead[str - 1];
+            if (str ==2 && IsPinYear(YYYYvalue)) n++;
+            writeDay(n)
+        }
+        function writeDay(n)   //据条件写日期的下拉框
+        {
+            var e = document.myprofile_form.DD; optionsClear(e);
+            for (var i=1; i<(n+1); i++)
+                e.options.add(new Option(" "+ i + " 日", i));
+        }
+        function IsPinYear(year)//判断是否闰平年
+        {     return(0 == year%4 && (year%100 !=0 || year%400 == 0));}
+        function optionsClear(e)
+        {
+            e.options.length = 1;
+        }
+        $(function () {
+            $(".head_title2").click(function () {
+                $("#photo").click();
+            })
+        })
+    </script>
+</head>
+<body class="back">
+<!--导航栏-->
+<!-- sticky navigation -->
+<div class="nav-links">
+    <nav class='navbar navbar-default'>
+        <div class='container'>
+            <div class='collapse navbar-collapse'>
+                <ul  class="navigation_ul">
+                    <li>
+                        <a href="index.html">主页</a>
+                    </li>
+                    <li>
+                        <a href="about.html">宠物知识</a>
+                    </li>
+                    <li>
+                        <a href="services.html">领养中心</a>
+                    </li>
+                    <li>
+                        <a href="blog.html">猫狗日记</a>
+                    </li>
+                    <li>
+                        <a href="team.html">团队信息</a>
+                    </li>
+                    <li>
+                        <a href="gallery.html">猫狗展示</a>
+                    </li>
+                    <li><a href="person.html">个人信息</a></li>
+                    <li>
+                        <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<h1>个人资料</h1>
+<hr>
+<form action="#" method="get" name="myprofile_form">
+    <div class="head_portrait_box">
+        <ul class="portrait_text">
+            <input type="file" name="photo" id="photo" style="display: none"/>
+            <button type="button" class="btn head_title2 btn-success">上传头像</button>
+            <li>支持jpg、gif、png、或bmp格式的图片，文件必须小于1M</li>
+        </ul>
+    </div>
+    <div class="gameID_all" >
+        <div class="game_ID">
+            用户编号：<input type="text" name="staffNumber"/></div>
+        <div class="game_ID">
+            用&nbsp;户&nbsp;名&nbsp;：<input type="text" name="staffName" ></div>
+        <div class="game_ID">
+            生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：<input type="date" name="time">
+        </div>
+        <div class="game_ID">
+            性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;：
+            <select class="sex" name="sex">
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+        </div>
+        <div class="game_ID">
+            邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱&nbsp;：<input type="email" name="email" ></div>
+        <div class="game_ID">
+            电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;：<input type="text" name="telephone" ></div>
+        <div class="game_ID">
+            地址&nbsp;：<input type="text" name="address" ></div>
+        <div class="game_ID">
+            签名&nbsp;：<input type="text" name="message" ></div>
+        <div class="game_ID">
+            是否领养动物&nbsp;：<select  name="adoptPet" >
+            <option value="已领养">未领养</option>
+            <option value="未领养">已领养</option>
+        </select>
+        </div>
+        <div class="submit_box">
+            <input type="submit" value="提交修改">
+        </div>
+    </div>
+</form>
+</body>
+</html>

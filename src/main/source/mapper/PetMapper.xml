@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.PetMapper">
+    <select id="getAllPet" resultType="com.entity.Pet">
+        select * from pet
+    </select>
+    <insert id="addPet" parameterType="com.entity.Pet">
+        insert into pet (petName,age,sex,pic,state) values (#{petName},#{age},#{sex},#{pic},#{state})
+    </insert>
+    <delete id="delPetById" parameterType="int" >
+        delete from pet where id=#{id}
+    </delete>
+    <update id="updatePet" parameterType="com.entity.Pet">
+        update pet set petName=#{petName},age=#{age},sex=#{sex},pic=#{pic},state=#{state} where id=#{id}
+    </update>
+    <select id="findPetById" parameterType="int" resultType="com.entity.Pet">
+        select * fron pet where id=#{id}
+    </select>
+    <select id="findPetByName" parameterType="String" resultType="com.entity.Pet">
+        select * from pet where petName=#{petName}
+    </select>
+</mapper>
