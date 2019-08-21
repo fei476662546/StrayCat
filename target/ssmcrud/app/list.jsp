@@ -124,6 +124,14 @@
                     <th>#</th>
                     <th>username</th>
                     <th>password</th>
+                    <th>#</th>
+                    <th>username</th>
+                    <th>password</th>
+                    <th>#</th>
+                    <th>username</th>
+                    <th>password</th>
+                    <th>#</th>
+                    <th>username</th>
                      <th>操作</th>
                 </tr>
                 </thead>
@@ -162,6 +170,14 @@
             var userIdTd = $("<td></td>").append(user.id);
             var usernameTd = $("<td></td>").append(user.username);
             var passwordTd = $("<td></td>").append(user.password);
+            var ageTd = $("<td></td>").append(user.age);
+            var sexTd = $("<td></td>").append(user.sex);
+            var telTd = $("<td></td>").append(user.tel);
+            var emailTd = $("<td></td>").append(user.email);
+            var picTd = $("<td></td>").append(user.pic);
+            var addressTd = $("<td></td>").append(user.address);
+            var messageTd = $("<td></td>").append(user.message);
+            var stateTd = $("<td></td>").append(user.state);
 
             var editBtn = $("<button></button>").addClass("btn btn-primary btn-sm edit_btn")
                 .append($("<span></span>").addClass("glyphicon glyphicon-pencil")).append("编辑");

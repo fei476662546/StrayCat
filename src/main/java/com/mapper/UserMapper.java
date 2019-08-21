@@ -22,4 +22,5 @@ public interface UserMapper {
     int updateUser(User user);
     int saveUser(User user);//插入用户
     void deleteBatch(@Param("ids") List<Integer> ids);//删除一推
+    User login(@Param("username") String username,@Param("password") String password);
 }

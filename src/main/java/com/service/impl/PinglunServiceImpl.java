@@ -1,7 +1,12 @@
 package com.service.impl;
 
+import com.entity.Pinglun;
+import com.mapper.PinglunMapper;
 import com.service.PinglunService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Create by mysteriousTime
@@ -9,4 +14,20 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PinglunServiceImpl implements PinglunService {
+    @Autowired
+   private PinglunMapper pinglunMapper;
+    @Override
+    public int addPinglun(Pinglun pinglun) {
+        return 0;
+    }
+
+    @Override
+    public int delPinglunById(Integer id) {
+        return 0;
+    }
+
+    @Override
+    public List<Pinglun> getAllPinglun() {
+        return null;
+    }
 }

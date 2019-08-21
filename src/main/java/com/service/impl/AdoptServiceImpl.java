@@ -3,6 +3,7 @@ package com.service.impl;
 import com.entity.Adopt;
 import com.mapper.AdoptMapper;
 import com.service.AdoptService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,4 +14,10 @@ import java.util.List;
  */
 @Service
 public class AdoptServiceImpl implements AdoptService {
+    @Autowired
+    private AdoptMapper adoptMapper;
+    @Override
+    public List<Adopt> getAll() {
+        return null;
+    }
 }

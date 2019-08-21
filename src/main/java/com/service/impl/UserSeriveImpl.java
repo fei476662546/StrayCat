@@ -46,4 +46,11 @@ public class UserSeriveImpl implements UserService {
     public void deleteBatch(List<Integer> ids) {
         userMapper.deleteBatch(ids);
     }
+
+    @Override
+    public User login(String username, String password) {
+     return userMapper.login(username,password);
+
+
+    }
 }

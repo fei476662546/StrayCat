@@ -1,6 +1,7 @@
 package com.service;
 
 import com.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,4 +20,5 @@ public interface UserService {
     int updateUser(User user);
     int saveUser(User user);
     void deleteBatch(List<Integer> ids);
+    User login(@Param("username") String username,@Param("password") String password);
 }
