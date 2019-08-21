@@ -18,16 +18,16 @@ public class PinglunServiceImpl implements PinglunService {
    private PinglunMapper pinglunMapper;
     @Override
     public int addPinglun(Pinglun pinglun) {
-        return 0;
+        return pinglunMapper.addPinglun(pinglun);
     }
 
     @Override
     public int delPinglunById(Integer id) {
-        return 0;
+        return pinglunMapper.delPinglunById(id);
     }
 
     @Override
     public List<Pinglun> getAllPinglun() {
-        return null;
+        return pinglunMapper.getAllPinglun();
     }
 }

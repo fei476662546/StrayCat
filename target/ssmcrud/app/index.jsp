@@ -11,7 +11,7 @@
     <title>Home</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="keywords" content=""/>
 
     <script>
@@ -25,31 +25,37 @@
     </script>
     <!--// Meta tag Keywords -->
     <!-- css files -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css"
+          media="all">
     <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css"
+          media="all">
     <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css"
+          media="all">
     <!-- Font-Awesome-Icons-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/owl.carousel.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/owl.carousel.css" type="text/css"
+          media="all"/>
     <!-- Owl-Carousel-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all"/>
     <!-- Style-CSS -->
     <!-- //css files -->
     <!-- web fonts -->
     <link href="http://fonts.googleapis.com/css?family=Molle:400i&amp;subset=latin-ext" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
+          rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext"
+          rel="stylesheet">
     <!-- //web fonts -->
 </head>
-<body>
+<body onload="hiddenButton()">
 <!--导航栏-->
 <!-- sticky navigation -->
 <div class="nav-links">
     <nav class='navbar navbar-default'>
         <div class='container'>
             <div class='collapse navbar-collapse'>
-                <ul  class="navigation_ul">
+                <ul class="navigation_ul">
                     <li>
                         <a href="${pageContext.request.contextPath}/animal/html/index.html">主页</a>
                     </li>
@@ -65,12 +71,17 @@
                     <li>
                         <a href="${pageContext.request.contextPath}/animal/html/team.html">团队信息</a>
                     </li>
-                    <li>
+                    <li >
                         <a href="${pageContext.request.contextPath}/animal/html/gallery.html">猫狗展示</a>
                     </li>
-                    <li><a href="${pageContext.request.contextPath}/animal/html/person.html">个人信息</a></li>
-                    <li>
-                        <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录</button>
+
+                    <li id="isLogin" style="display: block">
+                        <button  class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login" >注册/登录</button>
+                    </li>
+                    <li> 欢迎你：${User.username}</li>
+                    <li id="isPerson" style="display: block">
+                        欢迎你：${User.username}
+                        <a href="${pageContext.request.contextPath}/animal/html/person.html" >个人信息</a>
                     </li>
                 </ul>
             </div>
@@ -87,11 +98,11 @@
             <div class="logo">
                 <h1>
                     <a href="index.html">
-                        <img class="logo-img center-block" src="../images/logo.png" alt="" /> 猫狗生活
+                        <img class="logo-img center-block" src="../images/logo.png" alt=""/> 猫狗生活
                     </a>
                 </h1>
             </div>
-            <div class="clearfix"> </div>
+            <div class="clearfix"></div>
         </div>
         <!-- //header -->
     </div>
@@ -207,7 +218,7 @@
                     <img src="../images/f6.jpg" alt=" " class="img-responsive">
                 </a>
             </div>
-            <div class="clearfix"> </div>
+            <div class="clearfix"></div>
         </div>
         <!--联系方式-->
         <div class="col-lg-4 col-md-4 col-sm-4 footer-agile1" data-aos="zoom-in">
@@ -275,78 +286,90 @@
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="home">
                     <div class="modal-body">
-                        <form class="form-horizontal" id="user_form" method="post" action="${pageContext.request.contextPath}/user/login" >
+                        <form class="form-horizontal" id="user_form" method="post"
+                              action="${pageContext.request.contextPath}/user/login">
                             <div class="form-group">
                                 <label for="new_loginName" class="col-sm-2 control-label">账号</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="new_loginName" placeholder="账号" name="username">
+                                    <input type="text" class="form-control" id="new_loginName" placeholder="账号"
+                                           name="username">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="new_loginPwd" class="col-sm-2 control-label">密码</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="new_loginPwd" placeholder="密码" name="password">
+                                    <input type="text" class="form-control" id="new_loginPwd" placeholder="密码"
+                                           name="password">
                                     <span>${msg}</span>
                                 </div>
                             </div>
-<%--                            <div class="form-group">--%>
-<%--                                <label for="login_code" class="col-sm-2 control-label">验证码</label>--%>
-<%--                                <div class="col-sm-4">--%>
-<%--                                    <input type="text" class="form-control" id="login_code" placeholder="验证码" name="code">--%>
-<%--                                    <div class="code" style="float: right">--%>
-<%--                                        <img src="${pageContext.request.contextPath}/code" onclick="changeCode()" id="checkCodeImg"/>--%>
-<%--                                        <a href="javascript:changeCode()" >看不清换一张</a><br>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
+                            <%--                            <div class="form-group">--%>
+                            <%--                                <label for="login_code" class="col-sm-2 control-label">验证码</label>--%>
+                            <%--                                <div class="col-sm-4">--%>
+                            <%--                                    <input type="text" class="form-control" id="login_code" placeholder="验证码" name="code">--%>
+                            <%--                                    <div class="code" style="float: right">--%>
+                            <%--                                        <img src="${pageContext.request.contextPath}/code" onclick="changeCode()" id="checkCodeImg"/>--%>
+                            <%--                                        <a href="javascript:changeCode()" >看不清换一张</a><br>--%>
+                            <%--                                    </div>--%>
+                            <%--                                </div>--%>
+                            <%--                            </div>--%>
                             <input type="submit" value="提交" id="dologin" style="display: block">
-
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn1 btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn1 btn-primary"  id="loginbtn" >登录</button>
-                    </div></div></form>
-                <div role="tabpanel" class="tab-pane" id="tab"><div class="modal-body">
-                    <form class="form-horizontal" id="register_user_form" method="post" action="${pageContext.request.contextPath}/register" >
-                        <div class="form-group">
-                            <label for="register_loginName" class="col-sm-2 control-label">账号</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="register_loginName" placeholder="账号" name="loginName">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="register_loginPwd" class="col-sm-2 control-label">密码</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="register_loginPwd" placeholder="密码" name="loginPwd">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="register_gender" class="col-sm-2 control-label">性别</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="register_gender" placeholder="性别" name="gender">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="register_age" class="col-sm-2 control-label">年龄</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="register_age" placeholder="年龄" name="age">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="register_email" class="col-sm-2 control-label">Email</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="register_email" placeholder="Email" name="email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="register_telephone" class="col-sm-2 control-label">电话</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="register_telephone" placeholder="电话" name="telephone">
-                            </div>
-                        </div>
-                        <input type="submit" value="" id="doRegister" style="display: none">
-                    </form>
+                        <button type="button" class="btn1 btn-primary" id="loginbtn">登录</button>
+                    </div>
                 </div>
+                <div role="tabpanel" class="tab-pane" id="tab">
+                    <div class="modal-body">
+                        <form class="form-horizontal" id="register_user_form" method="post"
+                              action="${pageContext.request.contextPath}/register">
+                            <div class="form-group">
+                                <label for="register_loginName" class="col-sm-2 control-label">账号</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="register_loginName" placeholder="账号"
+                                           name="loginName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="register_loginPwd" class="col-sm-2 control-label">密码</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="register_loginPwd" placeholder="密码"
+                                           name="loginPwd">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="register_gender" class="col-sm-2 control-label">性别</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="register_gender" placeholder="性别"
+                                           name="gender">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="register_age" class="col-sm-2 control-label">年龄</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="register_age" placeholder="年龄"
+                                           name="age">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="register_email" class="col-sm-2 control-label">Email</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="register_email" placeholder="Email"
+                                           name="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="register_telephone" class="col-sm-2 control-label">电话</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="register_telephone" placeholder="电话"
+                                           name="telephone">
+                                </div>
+                            </div>
+                            <input type="submit" value="" id="doRegister" style="display: none">
+                        </form>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn1 btn-default" data-dismiss="modal">关闭</button>
                         <button type="button" class="btn1 btn-primary" id="registerBtn">注册</button>
@@ -360,10 +383,22 @@
 </body>
 <%--得到图片--%>
 <script type="text/javascript">
-    function changeCode(){
+    function changeCode() {
         //得到图片元素
         var img = document.getElementById("checkCodeImg");
-        img.src = "${pageContext.request.contextPath}/code?time="+new Date().getTime();
+        img.src = "${pageContext.request.contextPath}/code?time=" + new Date().getTime();
     };
+    //登录成功显示个人信息页面
+    function hiddenButton() {
+        var value=localStorage.getItem("user");
+        if (value!=null){
+
+            document.getElementById("isLogin").style.display="none";
+            document.getElementById("isPerson").style.display="block";
+        }else {
+            document.getElementById("isLogin").style.display="block";
+            document.getElementById("isPerson").style.display="none";
+        }
+    }
 </script>
 </html>

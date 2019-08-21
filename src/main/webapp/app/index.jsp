@@ -48,7 +48,7 @@
           rel="stylesheet">
     <!-- //web fonts -->
 </head>
-<body>
+<body onload="hiddenButton()">
 <!--导航栏-->
 <!-- sticky navigation -->
 <div class="nav-links">
@@ -71,12 +71,17 @@
                     <li>
                         <a href="${pageContext.request.contextPath}/animal/html/team.html">团队信息</a>
                     </li>
-                    <li>
+                    <li >
                         <a href="${pageContext.request.contextPath}/animal/html/gallery.html">猫狗展示</a>
                     </li>
-                    <li><a href="${pageContext.request.contextPath}/animal/html/person.html">个人信息</a></li>
-                    <li>
-                        <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录</button>
+
+                    <li id="isLogin" style="display: block">
+                        <button  class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login" >注册/登录</button>
+                    </li>
+                    <li> 欢迎你：${User.username}</li>
+                    <li id="isPerson" style="display: block">
+                        欢迎你：${User.username}
+                        <a href="${pageContext.request.contextPath}/animal/html/person.html" >个人信息</a>
                     </li>
                 </ul>
             </div>
@@ -383,5 +388,17 @@
         var img = document.getElementById("checkCodeImg");
         img.src = "${pageContext.request.contextPath}/code?time=" + new Date().getTime();
     };
+    //登录成功显示个人信息页面
+    function hiddenButton() {
+        var value=localStorage.getItem("user");
+        if (value!=null){
+
+            document.getElementById("isLogin").style.display="none";
+            document.getElementById("isPerson").style.display="block";
+        }else {
+            document.getElementById("isLogin").style.display="block";
+            document.getElementById("isPerson").style.display="none";
+        }
+    }
 </script>
 </html>

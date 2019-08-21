@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,18 +29,19 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/login")
-    public String login(String username, String password, Model model) {
+    public String login(String username, String password, Model model, HttpServletRequest request) {
        User user= userService.login(username,password);
        if (user!=null){
            model.addAttribute("msg","成功登录");
+          request.setAttribute("User",user);
            return "index";
        }
        model.addAttribute("msg","用户名密码错误");
        return "error";
     }
-    @RequestMapping("/")
+    @RequestMapping("/user/")
     public String index(){
-         return  "list";
+         return "list";
     }
 
 //

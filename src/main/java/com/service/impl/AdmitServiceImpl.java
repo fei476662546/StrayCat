@@ -17,21 +17,21 @@ public class AdmitServiceImpl implements AdmitService {
 
     @Override
     public Admit findAdmitById(int id) {
-        return null;
+        return admitMapper.findAdmitById(id);
     }
 
     @Override
     public int addAdmit(Admit admit) {
-        return 0;
+       return admitMapper.addAdmit(admit);
     }
 
     @Override
     public int delAdmitById(int id) {
-        return 0;
+        return admitMapper.delAdmitById(id);
     }
 
     @Override
     public int updateAdmitById(Admit admit) {
-        return 0;
+        return admitMapper.updateAdmitById(admit);
     }
 }

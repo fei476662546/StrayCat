@@ -18,6 +18,6 @@ public class AdoptServiceImpl implements AdoptService {
     private AdoptMapper adoptMapper;
     @Override
     public List<Adopt> getAll() {
-        return null;
+        return adoptMapper.getAll();
     }
 }
