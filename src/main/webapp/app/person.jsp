@@ -1,23 +1,31 @@
-<html lang="en">
+<%--
+  Created by IntelliJ IDEA.
+  User: 47666
+  Date: 2019/8/22
+  Time: 23:15
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Title</title>
-    <script src="../js/jquery-3.4.1.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <link rel="stylesheet" href="../css/myprofile.css">
+    <script src="${pageContext.request.contextPath}/animal/js/jquery-3.4.1.js"></script>
+    <script src="${pageContext.request.contextPath}/animal/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/myprofile.css">
     <!--// Meta tag Keywords -->
     <!-- css files -->
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" type="text/css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css" media="all">
     <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="../css/font-awesome.css" type="text/css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css" media="all">
     <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="../css/font-awesome.css" type="text/css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css" media="all">
     <!-- Font-Awesome-Icons-CSS -->
-    <link rel="stylesheet" href="../css/owl.carousel.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/owl.carousel.css" type="text/css" media="all" />
     <!-- Owl-Carousel-CSS -->
-    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all" />
     <!-- Style-CSS -->
     <!-- //css files -->
     <!-- web fonts -->

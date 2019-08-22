@@ -15,16 +15,17 @@ public class User {
     private  String pic;
     private String address;
     private String message;
+    private int state;
+
+    public User() {
+    }
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    public User() {
-    }
-
-    public User(Integer id, String username, String password, Integer age, Integer sex, String tel, String email, String pic, String address, String message) {
+    public User(Integer id, String username, String password, Integer age, Integer sex, String tel, String email, String pic, String address, String message, int state) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -35,9 +36,10 @@ public class User {
         this.pic = pic;
         this.address = address;
         this.message = message;
+        this.state = state;
     }
 
-    public User(String username, String password, Integer age, Integer sex, String tel, String email, String pic, String address, String message) {
+    public User(String username, String password, Integer age, Integer sex, String tel, String email, String pic, String address, String message, int state) {
         this.username = username;
         this.password = password;
         this.age = age;
@@ -47,6 +49,15 @@ public class User {
         this.pic = pic;
         this.address = address;
         this.message = message;
+        this.state = state;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
     }
 
     public Integer getId() {

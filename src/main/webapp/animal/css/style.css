@@ -402,12 +402,13 @@ label {
 
 nav.navbar.navbar-default {
     z-index: 10;
-    background: #00cdc1;
+    background: rgba(78, 235, 60, 0.38);
     border: none;
     width: 100%;
     text-align: center;
     margin: 0;
     padding-right: 100px;
+    opacity: 0.5;
 }
 
 nav.navbar.navbar-default ul li {
@@ -2404,7 +2405,7 @@ section.footer-w3 ul.tweet-agile li p.tweet-p2 {
 }
 .nav-links{
     width:1500px;
-
+    background: rgba(78, 235, 60, 0.38);
     position:fixed;/*固定作用*/
 
     /*ie6下样式，加下划线表示只针对ie6 的hack */

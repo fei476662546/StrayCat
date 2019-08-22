@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.service.UserService;
 import com.util.Msg;
+import com.util.QueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,17 +34,65 @@ public class UserController {
        User user= userService.login(username,password);
        if (user!=null){
            model.addAttribute("msg","成功登录");
-          request.setAttribute("User",user);
-           return "index";
+          request.getSession().setAttribute("User", user);
+           return "home";
        }
        model.addAttribute("msg","用户名密码错误");
        return "error";
     }
-    @RequestMapping("/user/")
+    @RequestMapping("/register")
+    public String register(User user, Model model, HttpServletRequest request) {
+
+        if (userService.saveUser(user)>0){
+            model.addAttribute("msg","注册成功");
+            System.out.println("注册对象："+user);
+            return "home";
+        }
+        model.addAttribute("msg","用户名密码错误");
+        return "error";
+    }
+    @RequestMapping("/index")
     public String index(){
-         return "list";
+         return "home";
     }
 
+    @RequestMapping("/batchDelete")
+    @ResponseBody
+    public Msg batchDelete(String ids){
+        //批量删除
+        List<Integer> del_ids = new ArrayList<>();
+        String[] str_ids = ids.split("-");
+        //组装id的集合
+        for (String string : str_ids) {
+            del_ids.add(Integer.parseInt(string));
+        }
+        userService.deleteBatch(del_ids);
+        return  Msg.success();
+    }
+
+    @RequestMapping("/batchUpdate")
+    @ResponseBody
+    public String updateAll(QueryVo queryVo) {
+        List<User> users = queryVo.getUsers();
+        for (User user : users) {
+            userService.updateUser(user);
+        }
+        return "forward:/";
+    }
+    @RequestMapping("/users")
+    @ResponseBody
+    public Msg getUsers(@RequestParam(value = "pn", defaultValue = "1") Integer pn){
+        // 引入PageHelper分页插件
+        // 在查询之前只需要调用，传入页码，以及每页的大小
+        PageHelper.startPage(pn, 4);
+        // startPage后面紧跟的这个查询就是一个分页查询
+        List<User> users = userService.getUsers();
+        // 使用pageInfo包装查询后的结果，只需要将pageInfo交给页面就行了。
+        // 封装了详细的分页信息,包括有我们查询出来的数据，传入连续显示的页数
+        PageInfo page = new PageInfo(users, 3);
+        return  Msg.success().add("pageInfo",page);
+
+    }
 //
 //    @RequestMapping("/users")
 //    @ResponseBody

@@ -48,48 +48,45 @@
           rel="stylesheet">
     <!-- //web fonts -->
 </head>
-<body onload="hiddenButton()">
+<body>
 <!--导航栏-->
 <!-- sticky navigation -->
-<div class="nav-links">
-    <nav class='navbar navbar-default'>
-        <div class='container'>
-            <div class='collapse navbar-collapse'>
-                <ul class="navigation_ul">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/animal/html/index.html">主页</a>
-                    </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/animal/html/about.html">宠物知识</a>
-                    </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/animal/html/services.html">领养中心</a>
-                    </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/animal/html/blog.html">猫狗日记</a>
-                    </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/animal/html/team.html">团队信息</a>
-                    </li>
-                    <li >
-                        <a href="${pageContext.request.contextPath}/animal/html/gallery.html">猫狗展示</a>
-                    </li>
+<%--<div class="nav-links">--%>
+<%--    <nav class='navbar navbar-default'>--%>
+<%--        <div class='container'>--%>
+<%--            <div class='collapse navbar-collapse'>--%>
+<%--                <ul class="navigation_ul">--%>
+<%--                    <li>--%>
+<%--                        <a href="${pageContext.request.contextPath}/user/index">主页</a>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <a href="${pageContext.request.contextPath}/app/about.jsp" target="item_main">宠物知识</a>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <a href="${pageContext.request.contextPath}/app/services.jsp" target="item_main">领养中心</a>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <a href="${pageContext.request.contextPath}/app/blog.jsp" target="item_main">猫狗日记</a>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <a href="${pageContext.request.contextPath}/app/team.jsp" target="item_main">团队信息</a>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <a href="${pageContext.request.contextPath}/app/gallery.jsp" target="item_main">猫狗展示</a>--%>
+<%--                    </li>--%>
 
-                    <li id="isLogin" style="display: block">
-                        <button  class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login" >注册/登录</button>
-                    </li>
-                    <li> 欢迎你：${User.username}</li>
-                    <li id="isPerson" style="display: block">
-                        欢迎你：${User.username}
-                        <a href="${pageContext.request.contextPath}/animal/html/person.html" >个人信息</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<%--                    <li id="isLogin">--%>
+<%--                        <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录</button>--%>
+<%--                    </li>--%>
+<%--                    <span>Hello:${User.username}</span>--%>
+<%--                </ul>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </nav>--%>
+<%--</div>--%>
+
+
 </div>
-
-
 <!-- //sticky navigation 首页轮播图 -->
 <div class="w3l-main" id="home1">
     <div class="container">
@@ -97,8 +94,9 @@
         <div class="header">
             <div class="logo">
                 <h1>
-                    <a href="index.html">
-                        <img class="logo-img center-block" src="../images/logo.png" alt=""/> 猫狗生活
+                    <a href="${pageContext.request.contextPath}/user/index">
+                        <img class="logo-img center-block"
+                             src="${pageContext.request.contextPath}/animal/images/logo.png" alt=""/> 猫狗生活
                     </a>
                 </h1>
             </div>
@@ -190,32 +188,32 @@
             <h3>宠物展示</h3>
             <div class="agileinfo_footer_grid1">
                 <a href="#">
-                    <img src="../images/f1.jpg" alt=" " class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/animal/images/f1.jpg" alt=" " class="img-responsive">
                 </a>
             </div>
             <div class="agileinfo_footer_grid1">
                 <a href="#">
-                    <img src="../images/f2.jpg" alt=" " class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/animal/images/f2.jpg" alt=" " class="img-responsive">
                 </a>
             </div>
             <div class="agileinfo_footer_grid1">
                 <a href="#">
-                    <img src="../images/f3.jpg" alt=" " class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/animal/images/f3.jpg" alt=" " class="img-responsive">
                 </a>
             </div>
             <div class="agileinfo_footer_grid1">
                 <a href="#">
-                    <img src="../images/f4.jpg" alt=" " class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/animal/images/f4.jpg" alt=" " class="img-responsive">
                 </a>
             </div>
             <div class="agileinfo_footer_grid1">
                 <a href="#">
-                    <img src="../images/f5.jpg" alt=" " class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/animal/images/f5.jpg" alt=" " class="img-responsive">
                 </a>
             </div>
             <div class="agileinfo_footer_grid1">
                 <a href="#">
-                    <img src="../images/f6.jpg" alt=" " class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/animal/images/f6.jpg" alt=" " class="img-responsive">
                 </a>
             </div>
             <div class="clearfix"></div>
@@ -388,17 +386,17 @@
         var img = document.getElementById("checkCodeImg");
         img.src = "${pageContext.request.contextPath}/code?time=" + new Date().getTime();
     };
-    //登录成功显示个人信息页面
-    function hiddenButton() {
-        var value=localStorage.getItem("user");
-        if (value!=null){
-
-            document.getElementById("isLogin").style.display="none";
-            document.getElementById("isPerson").style.display="block";
-        }else {
-            document.getElementById("isLogin").style.display="block";
-            document.getElementById("isPerson").style.display="none";
-        }
-    }
+    // //登录成功显示个人信息页面
+    // function hiddenButton() {
+    //     var value=localStorage.getItem("user");
+    //     if (value!=null){
+    //
+    //         document.getElementById("isLogin").style.display="none";
+    //         document.getElementById("isPerson").style.display="block";
+    //     }else {
+    //         document.getElementById("isLogin").style.display="block";
+    //         document.getElementById("isPerson").style.display="none";
+    //     }
+    // }
 </script>
 </html>

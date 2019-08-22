@@ -136,6 +136,7 @@ html{
         z-index: 1;
         position: absolute;
         width: 250px;
+        height: 100%;
         margin-top: 51px;
     }
 
