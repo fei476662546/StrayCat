@@ -35,7 +35,7 @@
 }
 .game_ID {
     font-size: 20px ;
-    color: blue;
+    color: #0b0b0b;
 
     margin-top: 30px;
     margin-left: 20px;
@@ -54,15 +54,13 @@
     cursor: pointer;
     font-size: 15px;
     margin-right: 80px;
-    background-color: #1d20e8;
+    background-color: #0b0b0b;
     height: 50px;
 }
 .gameID_all{
     padding-left: 300px;
 }
-.back{
-    background: url("../images/bg.jpg");
-}
+
 h1{
 
     padding-left: 50%;

@@ -1,6 +1,7 @@
 package com.service;
 
 import com.entity.Admit;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * Create by mysteriousTime
@@ -11,4 +12,5 @@ public interface AdmitService {
     int addAdmit(Admit admit);
     int delAdmitById(int id);
     int updateAdmitById(Admit admit);
+    Admit AdmitLogin(@Param("username") String username, @Param("password") String password);//登录
 }

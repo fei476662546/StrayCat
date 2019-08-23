@@ -31,5 +31,8 @@ public class indexController {
     } @RequestMapping("/person")
     public String person(){
         return "person";
+    }@RequestMapping("/show")
+    public String show(){
+        return "show";
     }
 }

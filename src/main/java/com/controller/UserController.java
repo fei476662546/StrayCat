@@ -1,8 +1,10 @@
 package com.controller;
 
+import com.entity.Admit;
 import com.entity.User;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.service.AdmitService;
 import com.service.UserService;
 import com.util.Msg;
 import com.util.QueryVo;
@@ -28,14 +30,24 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private AdmitService admitService;
+
 
     @RequestMapping("/login")
     public String login(String username, String password, Model model, HttpServletRequest request) {
        User user= userService.login(username,password);
-       if (user!=null){
-           model.addAttribute("msg","成功登录");
-          request.getSession().setAttribute("User", user);
-           return "home";
+       Admit admit=admitService.AdmitLogin(username,password);
+       if (admit==null) {
+           if (user != null) {
+               model.addAttribute("msg", "成功登录");
+               request.getSession().setAttribute("User", user);
+               return "home";
+           }
+       }else {
+           model.addAttribute("msg", "超管登录");
+           request.getSession().setAttribute("Admit", admit);
+           return "admitHome";
        }
        model.addAttribute("msg","用户名密码错误");
        return "error";

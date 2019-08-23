@@ -21,4 +21,10 @@
     <select id="findPetByName" parameterType="String" resultType="com.entity.Pet">
         select * from pet where petName=#{petName}
     </select>
+    <delete id="deleteBatchPet">
+        delete from pet
+        <foreach collection="ids" item="id" separator="," open="where id in (" close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

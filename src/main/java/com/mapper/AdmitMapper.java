@@ -1,6 +1,7 @@
 package com.mapper;
 
 import com.entity.Admit;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface AdmitMapper {
     int addAdmit(Admit admit);
     int delAdmitById(int id);
     int updateAdmitById(Admit admit);
+    Admit AdmitLogin(@Param("username") String username, @Param("password") String password);//登录
 }

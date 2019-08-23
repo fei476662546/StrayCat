@@ -1,6 +1,7 @@
 package com.mapper;
 
 import com.entity.Pet;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,4 +16,5 @@ public interface PetMapper {
     int updatePet(Pet pet);
     Pet findPetById(Integer id);
     Pet findpetByName(String name);
+    void deleteBatchPet(@Param("ids") List<Integer> ids);//删除一推
 }

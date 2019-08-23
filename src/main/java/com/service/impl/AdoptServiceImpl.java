@@ -1,6 +1,7 @@
 package com.service.impl;
 
 import com.entity.Adopt;
+import com.entity.User;
 import com.mapper.AdoptMapper;
 import com.service.AdoptService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,4 +21,11 @@ public class AdoptServiceImpl implements AdoptService {
     public List<Adopt> getAll() {
         return adoptMapper.getAll();
     }
+
+    @Override
+    public int updateAdoptUser(User User) {
+        return adoptMapper.updateAdoptUser(User);
+    }
+
+
 }

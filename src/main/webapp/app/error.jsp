@@ -1,0 +1,90 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 47666
+  Date: 2019/8/23
+  Time: 20:46
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <link href="${pageContext.request.contextPath}/animal/css/error.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css" media="all">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css" media="all">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css" media="all">
+    <!-- Font-Awesome-Icons-CSS -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/owl.carousel.css" type="text/css" media="all" />
+    <!-- Owl-Carousel-CSS -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- //css files -->
+    <!-- web fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Molle:400i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="w3layouts-bg">
+    <div class="agileits-content">
+        <h2><span>error</span></h2>
+    </div>
+    <div class="w3layouts-right">
+        <div class="w3ls-text">
+            <h3>我们很抱歉！</h3>
+            <h4 class="w3-agileits2">您请求的页面无法找到。</h4>
+            <p>请 <a href="${pageContext.request.contextPath}/app/home.jsp">返回首页</a> 或发送邮件 <a href="mailto:support@example.com">support@w3l.com</a> 联系我们</p>
+            <p class="copyright">Copyright &copy; 2017.Company name All rights reserved.</p>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!--<script src="../../js/jquery-3.2.1.js"></script>-->
+<!--<script>-->
+<!--$('#member, #logout').hide();-->
+<!--if ($.cookie('username')) {-->
+<!--$('#member,#logout').show();-->
+<!--$('#reg_a,#login_a').hide();-->
+<!--} else {-->
+<!--$('#member,#logout').hide();-->
+<!--$('#reg_a,#login_a').show();-->
+<!--}-->
+<!--</script>-->
+<!--<div class="double">-->
+<!--    <button class="btn btn-success" data-toggle="modal"-->
+<!--            data-target="#myModal" data-backdrop="static" id="login_a">即刻登陆</button>-->
+<!--    <button class="btn btn-danger" data-toggle="modal"-->
+<!--            data-target="#myModal1" data-backdrop="static" id="reg_a">马上注册</button>-->
+<!--</div>-->
+<!--<div class="user" style="width: 200px; height: 200px; float: right;padding-top: 40px;"-->
+<!--     id="member">-->
+<!--    <div class="dropdown">-->
+<!--        <img src="__PUBLIC__/Uploads/{$userInfo.filename}"-->
+<!--             alt="{$Think.session.username}" width="100px" height="100px"-->
+<!--             class="img-circle dropdown" data-toggle="dropdown"-->
+<!--             aria-haspopup="true" aria-expanded="true"-->
+<!--             style="-moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; overflow: hidden;">-->
+<!--        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
+<!--            <li class="dropdown-header">-->
+<!--                &lt;!&ndash; {$Think.session.username} &ndash;&gt;{$userInfo.username}-->
+<!--            </li>-->
+<!--            <li><a href="#" data-toggle="modal" data-target="#myModal3"-->
+<!--                   data-backdrop="static">账号设置</a></li>-->
+<!--            <li><a href="#">Something else here</a></li>-->
+<!--            <li><a href="__URL__/doLogout" id="logout">退出</a></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
+</body>
+</html>

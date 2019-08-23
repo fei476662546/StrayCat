@@ -1,5 +1,6 @@
 package com.util;
 
+import com.entity.Pet;
 import com.entity.User;
 
 import java.util.List;
@@ -12,6 +13,15 @@ public class QueryVo {
     private int[]ids;
 
     private List<User> users;
+    private List<Pet> pets;
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
+    }
 
     public int[] getIds() {
         return ids;

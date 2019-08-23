@@ -73,7 +73,8 @@
             <div class="animal_me3"><img src="${pageContext.request.contextPath}/animal/images/p10.jpg"></div>
         </div>
         <div class="my_btn">
-            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">想要领养</button>
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">想要领养<span font color="red">${AdoptMsg}</span></button>
+
         </div>
     </div>
     <!-- 模态框（Modal） -->
@@ -89,21 +90,24 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" id="new_department_form">
+                    <form class="form-horizontal" id="new_department_form" action="${pageContext.request.contextPath}/adopt/adoptPet" method="post">
                         <div class="form-group">
                             <label for="new_Name" class="col-sm-2 control-label">
-                                姓名： </label>
+                                真实姓名： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_Name"
-                                       placeholder="name" name="name">
+                                       placeholder="name" name="relName">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="new_Sex" class="col-sm-2 control-label">
                                 性别： </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="new_Sex"
-                                       placeholder="sex" name="sex">
+                                <select class="form-control" id="new_Sex" name="sex">
+                                    <option value="-1">选择</option>
+                                    <option value="0">女</option>
+                                    <option value="1">男</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
@@ -111,7 +115,7 @@
                                 联系方式： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_tel"
-                                       placeholder="telephone" name="telephone">
+                                       placeholder="telephone" name="tel">
                             </div>
                         </div>
                         <div class="form-group">
@@ -119,7 +123,7 @@
                                 邮件： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_Email"
-                                       placeholder="Email" name="new_Email">
+                                       placeholder="Email" name="email">
                             </div>
                         </div>
                         <div class="form-group">
@@ -127,7 +131,7 @@
                                 地址： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_Adress"
-                                       placeholder="adress" name="address">
+                                       placeholder="address" name="address">
                             </div>
                         </div>
                         <div class="form-group">
@@ -138,17 +142,24 @@
                                       placeholder="remark" name="remark"></textarea>
                             </div>
                         </div>
+                        <input type="submit" value="提交" id="doAdopt" style="display: none">
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                     </button>
-                    <button type="button" class="btn btn-primary">提交申请</button>
+                    <button type="button" class="btn btn-primary" id="submitAdopt">提交申请</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
-
+   <script>
+       $(function () {
+           $("#submitAdopt").click( function AdoptPet(){
+               $("#doAdopt").click();
+           });
+       });
+   </script>
     <div class="comment-list">
 
     </div>

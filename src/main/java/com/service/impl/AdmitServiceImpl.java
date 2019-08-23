@@ -34,4 +34,9 @@ public class AdmitServiceImpl implements AdmitService {
     public int updateAdmitById(Admit admit) {
         return admitMapper.updateAdmitById(admit);
     }
+
+    @Override
+    public Admit AdmitLogin(String username, String password) {
+        return admitMapper.AdmitLogin(username,password);
+    }
 }

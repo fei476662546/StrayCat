@@ -7,6 +7,7 @@ package com.entity;
 public class User {
    private Integer id;
    private String username;
+   private String relName;
    private String password;
    private Integer age;
    private Integer sex;//0为女，1为男
@@ -16,8 +17,38 @@ public class User {
     private String address;
     private String message;
     private int state;
+    private String remark;
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getRelName() {
+        return relName;
+    }
+
+    public void setRelName(String relName) {
+        this.relName = relName;
+    }
 
     public User() {
+    }
+/**
+ * 保存领养信息
+ * */
+    public User(String username,String relName,  Integer sex, String tel, String email, String address, String remark) {
+       this.username=username;
+        this.relName = relName;
+        this.sex = sex;
+        this.tel = tel;
+        this.email = email;
+        this.address = address;
+        this.state=1;
+        this.remark = remark;
     }
 
     public User(String username, String password) {

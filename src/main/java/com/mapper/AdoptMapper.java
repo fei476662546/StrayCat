@@ -2,6 +2,8 @@ package com.mapper;
 
 import com.entity.Adopt;
 
+import com.entity.User;
+
 import java.util.List;
 
 /**
@@ -10,4 +12,5 @@ import java.util.List;
  */
 public interface AdoptMapper {
     List<Adopt> getAll();
+    int updateAdoptUser(User User);
 }

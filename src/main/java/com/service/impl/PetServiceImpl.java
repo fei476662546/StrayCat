@@ -45,4 +45,9 @@ public class PetServiceImpl implements PetService {
     public Pet findpetByName(String name) {
         return petMapper.findpetByName(name);
     }
+
+    @Override
+    public void deleteBatchPet(List<Integer> ids) {
+        petMapper.deleteBatchPet(ids);
+    }
 }

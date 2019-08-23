@@ -402,13 +402,13 @@ label {
 
 nav.navbar.navbar-default {
     z-index: 10;
-    background: rgba(78, 235, 60, 0.38);
+    background: rgba(40, 255, 225, 0.78);
     border: none;
     width: 100%;
     text-align: center;
     margin: 0;
     padding-right: 100px;
-    opacity: 0.5;
+    /*opacity: 0.3;*/
 }
 
 nav.navbar.navbar-default ul li {

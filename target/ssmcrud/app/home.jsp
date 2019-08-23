@@ -150,9 +150,9 @@
                             <div class="form-group">
                                 <label for="new_loginPwd" class="col-sm-2 control-label">密码</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="new_loginPwd" placeholder="密码"
-                                           name="password">
-                                    <span>${msg}</span>
+                                   <p> <input type="text" class="form-control" id="new_loginPwd" placeholder="密码"
+                                              name="password"><span style="color: red">${msg}</span></p>
+
                                 </div>
                             </div>
                             <%--                            <div class="form-group">--%>

@@ -19,10 +19,10 @@
  </delete>
     <!-- int updateUser(User user) -->
     <update id="updateUser" parameterType="com.entity.User" >
- update users set username=#{username},password=#{password} where id=#{id}
+ update users set username=#{username},password=#{password},age=#{age},sex=#{sex},tel=#{tel},email=#{email},pic=#{pic},address=#{address},message=#{message},state=#{state} where id=#{id}
  </update>
     <insert id="saveUser" parameterType="com.entity.User">
-        insert into users(username,password) values(#{username},#{password})
+        insert into users(username,password,age,sex,tel,email,pic,address,message,state) values(#{username},#{password},#{age},#{sex},#{tel},#{email},#{pic},#{address},#{message},#{state})
     </insert>
     <delete id="deleteBatch">
       delete from users

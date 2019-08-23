@@ -12,27 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Title</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css">
     <script src="${pageContext.request.contextPath}/animal/js/jquery-3.4.1.js"></script>
     <script src="${pageContext.request.contextPath}/animal/js/bootstrap.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/myprofile.css">
-    <!--// Meta tag Keywords -->
-    <!-- css files -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css" media="all">
-    <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css" media="all">
-    <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css" media="all">
-    <!-- Font-Awesome-Icons-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/owl.carousel.css" type="text/css" media="all" />
-    <!-- Owl-Carousel-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all" />
-    <!-- Style-CSS -->
-    <!-- //css files -->
-    <!-- web fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Molle:400i&amp;subset=latin-ext" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet">
-    <!-- //web fonts -->
     <script>
         function YYYYMMDDstart()
         {
@@ -93,44 +76,55 @@
         })
     </script>
 </head>
-<body class="back">
+<style>
+    .retureIndex{
+        font-size: 20px;
+        float: right;
+        padding-bottom: auto;
+    }
+</style>
+<body>
 <h1>个人资料</h1>
+<a href="${pageContext.request.contextPath}/app/home.jsp" class="retureIndex"><font color="black">返回主页</font> </a>
 <hr>
 <form action="#" method="get" name="myprofile_form">
     <div class="head_portrait_box">
+        <div class="head_portrait">
+            <img src="${pageContext.request.contextPath}/animal/images/c4.jpg">
+        </div>
         <ul class="portrait_text">
-            <input type="file" name="photo" id="photo" style="display: none"/>
+            <input type="file" name="pic" id="photo" style="display: none"/>
             <button type="button" class="btn head_title2 btn-success">上传头像</button>
             <li>支持jpg、gif、png、或bmp格式的图片，文件必须小于1M</li>
         </ul>
     </div>
     <div class="gameID_all" >
         <div class="game_ID">
-            用户编号：<input type="text" name="staffNumber"/></div>
+            用户编号：<input type="text" name="id"/></div>
         <div class="game_ID">
-            用&nbsp;户&nbsp;名&nbsp;：<input type="text" name="staffName" ></div>
+            用&nbsp;户&nbsp;名&nbsp;：<input type="text" name="username" ></div>
         <div class="game_ID">
-            生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：<input type="date" name="time">
+           年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：<input type="text" name="age">
         </div>
         <div class="game_ID">
             性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;：
             <select class="sex" name="sex">
-                <option value="男">男</option>
-                <option value="女">女</option>
+                <option value="0">男</option>
+                <option value="1">女</option>
             </select>
         </div>
         <div class="game_ID">
             邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱&nbsp;：<input type="email" name="email" ></div>
         <div class="game_ID">
-            电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;：<input type="text" name="telephone" ></div>
+            电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;：<input type="text" name="tel" ></div>
         <div class="game_ID">
             地址&nbsp;：<input type="text" name="address" ></div>
         <div class="game_ID">
             签名&nbsp;：<input type="text" name="message" ></div>
         <div class="game_ID">
             是否领养动物&nbsp;：<select  name="adoptPet" >
-            <option value="已领养">未领养</option>
-            <option value="未领养">已领养</option>
+            <option value="0">未领养</option>
+            <option value="1">已领养</option>
         </select>
         </div>
         <div class="submit_box">
@@ -139,4 +133,5 @@
     </div>
 </form>
 </body>
+
 </html>

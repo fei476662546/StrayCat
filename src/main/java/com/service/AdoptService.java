@@ -1,6 +1,7 @@
 package com.service;
 
 import com.entity.Adopt;
+import com.entity.User;
 
 import java.util.List;
 
@@ -10,4 +11,5 @@ import java.util.List;
  */
 public interface AdoptService {
     List<Adopt> getAll();
+    int updateAdoptUser(User User);
 }
