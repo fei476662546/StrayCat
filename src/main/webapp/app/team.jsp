@@ -156,7 +156,7 @@
 <link href='${pageContext.request.contextPath}/animal/css/simplelightbox.min.css' rel='stylesheet' type='text/css'>
 <!-- Light-box css -->
 <!-- //simple-lightbox -->
-
+q'o
 <!-- smoothscroll -->
 <script src=${pageContext.request.contextPath}/animal/js/SmoothScroll.min.js"></script>
 <!-- //smoothscroll -->

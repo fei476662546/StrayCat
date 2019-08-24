@@ -94,7 +94,7 @@
                 <li><a href="crmclass/list.action#"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
                 <li class="divider"></li>
                 <li>
-                    <a href="logout.action">
+                    <a href="${pageContext.request.contextPath}/user/logout">
                         <i class="fa fa-sign-out fa-fw"></i>退出登录
                     </a>
                 </li>
@@ -121,7 +121,7 @@
                     </li>
                     <li class="list-group-item">
                         <a href="${pageContext.request.contextPath}/app/userComment.jsp" target="admit_page">
-                            <i class="fa fa-sitemap fa-fw"></i> 评论管理
+                            <i class="fa fa-comment fa-fw"></i> 评论管理
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -131,7 +131,12 @@
                     </li>
                     <li class="list-group-item">
                         <a href="${pageContext.request.contextPath}/app/adoptMessage.jsp" target="admit_page">
-                            <i class="fa fa-sitemap fa-fw"></i> 领养信息管理
+                            <i class="fa fa-bolt fa-fw"></i> 领养信息管理
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="${pageContext.request.contextPath}/#" target="admit_page">
+                            <i class="fa fa-gamepad fa-fw"></i> 审核领养申请
                         </a>
                     </li>
                 </ul>

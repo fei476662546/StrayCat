@@ -97,12 +97,10 @@
 <%--                                </div>--%>
                             </a>
                         </li>
-                        <li class="nav_item">
-                            <a href="${pageContext.request.contextPath}/exitLogin.user">退出</a>
-                        </li>
+                            <a href="${pageContext.request.contextPath}/user/logout" id="exitLogout">退出</a>
                     </c:if>
                     <c:if test="${!flage}" var="flage"  scope="session">
-                        <li class="nav_item login-rigster">
+                        <li>
                             <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录</button>
                         </li>
                     </c:if>
@@ -198,30 +196,30 @@
                                            name="age">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="register_gender" class="col-sm-2 control-label">性别</label>
-                                <div class="col-sm-8">
-                                    <select class="form-control" id="register_gender" name="sex">
-                                        <option value="-1">--请选择--</option>
-                                        <option value="1">公</option>
-                                        <option value="0">母</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="register_telephone" class="col-sm-2 control-label">电话</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="register_telephone" placeholder="电话"
-                                           name="tel">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="register_email" class="col-sm-2 control-label">Email</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="register_email" placeholder="Email"
-                                           name="email">
-                                </div>
-                            </div>
+<%--                            <div class="form-group">--%>
+<%--                                <label for="register_gender" class="col-sm-2 control-label">性别</label>--%>
+<%--                                <div class="col-sm-8">--%>
+<%--                                    <select class="form-control" id="register_gender" name="sex">--%>
+<%--                                        <option value="-1">--请选择--</option>--%>
+<%--                                        <option value="1">公</option>--%>
+<%--                                        <option value="0">母</option>--%>
+<%--                                    </select>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="form-group">--%>
+<%--                                <label for="register_telephone" class="col-sm-2 control-label">电话</label>--%>
+<%--                                <div class="col-sm-8">--%>
+<%--                                    <input type="text" class="form-control" id="register_telephone" placeholder="电话"--%>
+<%--                                           name="tel">--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="form-group">--%>
+<%--                                <label for="register_email" class="col-sm-2 control-label">Email</label>--%>
+<%--                                <div class="col-sm-8">--%>
+<%--                                    <input type="text" class="form-control" id="register_email" placeholder="Email"--%>
+<%--                                           name="email">--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
                             <input type="submit" value="" id="doRegister" style="display: none">
                         </form>
                     </div>
@@ -241,6 +239,11 @@
         });
         $("#registerBtn").click( function loginUser(){
             $("#doRegister").click();
+        });
+    });
+    $(function () {
+        $("#exitLogout").click(function logoutUser() {
+            alert("确认退出吗");
         });
     });
 </script>

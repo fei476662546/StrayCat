@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -72,10 +73,26 @@
                 我已經準備好當你的好朋友，你能帶我回家給我永遠的溫暖嗎?</p></div>
             <div class="animal_me3"><img src="${pageContext.request.contextPath}/animal/images/p10.jpg"></div>
         </div>
+        <%
+        boolean chickApplyAdopt=true;
+            if (request.getSession().getAttribute("AdoptMsg")!=null){
+                chickApplyAdopt=false;
+                System.out.println("chickApplyAdopt:"+chickApplyAdopt);
+            }
+            request.getSession().setAttribute("chickApplyAdopt",chickApplyAdopt);
+        %>
+        <c:if test="${sessionScope.chickApplyAdopt}" var="flag" scope="session">
         <div class="my_btn">
-            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">想要领养<span font color="red">${AdoptMsg}</span></button>
-
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="adoptApply">想要领养</button>
         </div>
+            <%System.out.println("c:if-----未点击--------------");%>
+        </c:if>
+        <c:if test="${!flag}" var="flag" scope="session">
+        <div class="my_btn">
+        <span><font color="red">${AdoptMsg}</font></span>
+        </div>
+            <%System.out.println("c:if-----已点击--------------");%>
+        </c:if>
     </div>
     <!-- 模态框（Modal） -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

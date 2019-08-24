@@ -37,28 +37,11 @@ public class User {
 
     public User() {
     }
-/**
- * 保存领养信息
- * */
-    public User(String username,String relName,  Integer sex, String tel, String email, String address, String remark) {
-       this.username=username;
-        this.relName = relName;
-        this.sex = sex;
-        this.tel = tel;
-        this.email = email;
-        this.address = address;
-        this.state=1;
-        this.remark = remark;
-    }
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public User(Integer id, String username, String password, Integer age, Integer sex, String tel, String email, String pic, String address, String message, int state) {
+    public User(Integer id, String username, String relName, String password, Integer age, Integer sex, String tel, String email, String pic, String address, String message, int state, String remark) {
         this.id = id;
         this.username = username;
+        this.relName = relName;
         this.password = password;
         this.age = age;
         this.sex = sex;
@@ -68,19 +51,7 @@ public class User {
         this.address = address;
         this.message = message;
         this.state = state;
-    }
-
-    public User(String username, String password, Integer age, Integer sex, String tel, String email, String pic, String address, String message, int state) {
-        this.username = username;
-        this.password = password;
-        this.age = age;
-        this.sex = sex;
-        this.tel = tel;
-        this.email = email;
-        this.pic = pic;
-        this.address = address;
-        this.message = message;
-        this.state = state;
+        this.remark = remark;
     }
 
     public int getState() {
@@ -176,6 +147,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
+                ", relName='" + relName + '\'' +
                 ", password='" + password + '\'' +
                 ", age=" + age +
                 ", sex=" + sex +
@@ -184,6 +156,8 @@ public class User {
                 ", pic='" + pic + '\'' +
                 ", address='" + address + '\'' +
                 ", message='" + message + '\'' +
+                ", state=" + state +
+                ", remark='" + remark + '\'' +
                 '}';
     }
 }

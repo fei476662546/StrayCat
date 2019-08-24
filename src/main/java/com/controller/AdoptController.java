@@ -21,14 +21,14 @@ public class AdoptController {
     @RequestMapping("/adoptPet")
     public String adopt(User user, Model model, HttpServletRequest request){
        User user1= (User) request.getSession().getAttribute("User");
-        user.setUsername(user1.getUsername());
+        user.setId(user1.getId());
        int a= adoptService.updateAdoptUser(user);
-       if (a!=0){
-           model.addAttribute("AdoptMsg","你的信息已提交，请等候管理员审核");
+       if (a>0){
+           request.getSession().setAttribute("AdoptMsg","你的信息已提交，请等候管理员审核");
            System.out.println("领养人："+user);
            return "forward:/show";
        }
-        model.addAttribute("AdoptMsg","申请失败");
+        request.getSession().setAttribute("AdoptMsg","申请失败");
         return "forward:/show";
     }
 

@@ -36,21 +36,21 @@ public class UserController {
 
     @RequestMapping("/login")
     public String login(String username, String password, Model model, HttpServletRequest request) {
-       User user= userService.login(username,password);
-       Admit admit=admitService.AdmitLogin(username,password);
-       if (admit==null) {
-           if (user != null) {
-               model.addAttribute("msg", "成功登录");
-               request.getSession().setAttribute("User", user);
-               return "home";
-           }
-       }else {
-           model.addAttribute("msg", "超管登录");
-           request.getSession().setAttribute("Admit", admit);
-           return "admitHome";
-       }
-       model.addAttribute("msg","用户名密码错误");
-       return "error";
+        User user= userService.login(username,password);
+        Admit admit=admitService.AdmitLogin(username,password);
+        if (admit==null) {
+            if (user != null) {
+                model.addAttribute("msg", "成功登录");
+                request.getSession().setAttribute("User", user);
+                return "home";
+            }
+        }else {
+            model.addAttribute("msg", "超管登录");
+            request.getSession().setAttribute("Admit", admit);
+            return "admitHome";
+        }
+        model.addAttribute("msg","用户名密码错误");
+        return "error";
     }
     @RequestMapping("/register")
     public String register(User user, Model model, HttpServletRequest request) {
@@ -61,6 +61,19 @@ public class UserController {
             return "home";
         }
         model.addAttribute("msg","用户名密码错误");
+        return "error";
+    }
+    @RequestMapping("/logout")
+    public String logout(Model model, HttpServletRequest request) {
+        if (request.getSession().getAttribute("Admit")==null) {
+            if (request.getSession().getAttribute("User") != null) {
+                request.getSession().removeAttribute("User");
+                return "home";
+            }
+        }else {
+            request.getSession().removeAttribute("Admit");
+            return "home";
+        }
         return "error";
     }
     @RequestMapping("/index")
@@ -84,12 +97,12 @@ public class UserController {
 
     @RequestMapping("/batchUpdate")
     @ResponseBody
-    public String updateAll(QueryVo queryVo) {
+    public Msg updateAll(QueryVo queryVo) {
         List<User> users = queryVo.getUsers();
         for (User user : users) {
             userService.updateUser(user);
         }
-        return "forward:/";
+        return Msg.success();
     }
     @RequestMapping("/users")
     @ResponseBody

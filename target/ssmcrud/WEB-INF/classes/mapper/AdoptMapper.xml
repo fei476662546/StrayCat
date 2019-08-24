@@ -7,6 +7,6 @@
         select * from adopt
     </select>
     <update id="updateAdoptUser" parameterType="com.entity.User">
-    update users set relName=#{relName},sex=#{sex},tel=#{tel},email=#{email},address=#{address},remark=#{remark} where username=#{username}
+    update users set relName=#{relName},sex=#{sex},tel=#{tel},email=#{email},address=#{address},remark=#{remark} where id=#{id}
     </update>
 </mapper>
