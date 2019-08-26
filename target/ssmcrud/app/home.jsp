@@ -89,7 +89,7 @@
                     <c:if test="${sessionScope.isLogin}" var="flage" scope="session">
                         <li class="nav_item userinfo"  >
                             <a href="${pageContext.request.contextPath}/app/person.jsp?target=home">
-                                <div class="img"><img src="${pageContext.request.contextPath}/animal/images/${User.getPic()}" alt="" width="60px"
+                                <div class="img"><img src="${pageContext.request.contextPath}/animal/images/update/${User.getPic()}" alt="" width="60px"
                                                       style="border-radius:50% ">
                                 </div>
 <%--                                <div class="info"><span class="leve">${user.getStaffNumber()}</span>--%>

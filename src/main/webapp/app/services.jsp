@@ -12,7 +12,7 @@
     <title>Title</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="keywords" content=""
     />
     <script>
@@ -26,9 +26,10 @@
     </script>
     <!--// Meta tag Keywords -->
     <!-- css files -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css"
+          media="all">
     <!-- Owl-Carousel-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all"/>
 
 </head>
 <body>
@@ -38,25 +39,29 @@
         <h3 class="agile-title">领养中心</h3>
         <div class="w3_agile_services_grids">
             <div class="col-md-4 col-sm-4 col-xs-4 w3_agile_services_grid " data-aos="zoom-in">
-                <div class="ih-item circle effect1 agile_services_grid">
-                    <div class="spinner"></div>
-                    <div class="img">
-                        <a href="${pageContext.request.contextPath}/app/show.jsp">
-                            <img src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" " class="img-responsive" />
-                        </a>
+                <form action="${pageContext.request.contextPath}/adopt/chickPet" method="post">
+                    <div class="ih-item circle effect1 agile_services_grid">
+                        <div class="spinner"></div>
+                        <div class="img">
+                            <input type="text" value="大黑" hidden name="petName">
+                            <img id="pet" src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
+                                 class="img-responsive"/>
+                        </div>
                     </div>
-                </div>
-                <fieldset>
-                    <legend>大白</legend>
-                    黑白色，公猫，八个月，性子温顺，喜欢安静
-                </fieldset>
+                    <fieldset>
+                        <input type="submit" value="详情" >
+                       <legend>大白</legend>
+                        黑白色，公猫，八个月，性子温顺，喜欢安静
+                    </fieldset>
+                </form>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4 w3_agile_services_grid" data-aos="zoom-in">
                 <div class="ih-item circle effect1 agile_services_grid">
                     <div class="spinner"></div>
                     <div class="img">
                         <a href="${pageContext.request.contextPath}/app/show.jsp">
-                            <img src="${pageContext.request.contextPath}/animal/images/cat%20(3).png" alt=" " class="img-responsive" />
+                            <img src="${pageContext.request.contextPath}/animal/images/cat%20(3).png" alt=" "
+                                 class="img-responsive"/>
                         </a>
                     </div>
                 </div>
@@ -70,7 +75,8 @@
                     <div class="spinner"></div>
                     <div class="img">
                         <a href="${pageContext.request.contextPath}/app/show.jsp">
-                            <img src="${pageContext.request.contextPath}/animal/images/dog%20(2).png" alt=" " class="img-responsive" />
+                            <img src="${pageContext.request.contextPath}/animal/images/dog%20(2).png" alt=" "
+                                 class="img-responsive"/>
                         </a>
                     </div>
                 </div>
@@ -79,7 +85,7 @@
                     白色小狗，4个月母狗，聪明粘人，爱玩爱闹
                 </fieldset>
             </div>
-            <div class="clearfix"> </div>
+            <div class="clearfix"></div>
         </div>
         <div class="w3_agile_services_grids">
             <div class="col-md-4 col-sm-4 col-xs-4 w3_agile_services_grid " data-aos="zoom-in">
@@ -87,7 +93,8 @@
                     <div class="spinner"></div>
                     <div class="img">
                         <a href="${pageContext.request.contextPath}/app/show.jsp">
-                            <img src="${pageContext.request.contextPath}/animal/images/dog%20(1).png" alt=" " class="img-responsive" />
+                            <img src="${pageContext.request.contextPath}/animal/images/dog%20(1).png" alt=" "
+                                 class="img-responsive"/>
                         </a>
                     </div>
                 </div>
@@ -101,7 +108,8 @@
                     <div class="spinner"></div>
                     <div class="img">
                         <a href="${pageContext.request.contextPath}/app/show.jsp">
-                            <img src="${pageContext.request.contextPath}/animal/images/dog%20(3).png" alt=" " class="img-responsive" />
+                            <img src="${pageContext.request.contextPath}/animal/images/dog%20(3).png" alt=" "
+                                 class="img-responsive"/>
                         </a>
                     </div>
                 </div>
@@ -115,7 +123,8 @@
                     <div class="spinner"></div>
                     <div class="img">
                         <a href="${pageContext.request.contextPath}/app/show.jsp">
-                            <img src="${pageContext.request.contextPath}/animal/images/cat%20(8).png" alt=" " class="img-responsive" />
+                            <img src="${pageContext.request.contextPath}/animal/images/cat%20(8).png" alt=" "
+                                 class="img-responsive"/>
                         </a>
                     </div>
                 </div>
@@ -124,7 +133,7 @@
                     6个月黑母猫，爱偷吃，粘人
                 </fieldset>
             </div>
-            <div class="clearfix"> </div>
+            <div class="clearfix"></div>
         </div>
     </div>
     <div class="w3_agile_services_grids">
@@ -133,7 +142,8 @@
                 <div class="spinner"></div>
                 <div class="img">
                     <a href="${pageContext.request.contextPath}/app/show.jsp">
-                        <img src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" " class="img-responsive" />
+                        <img src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
+                             class="img-responsive"/>
                     </a>
                 </div>
             </div>
@@ -147,7 +157,8 @@
                 <div class="spinner"></div>
                 <div class="img">
                     <a href="${pageContext.request.contextPath}/app/show.jsp">
-                        <img src="${pageContext.request.contextPath}/animal/images/cat%20(3).png" alt=" " class="img-responsive" />
+                        <img src="${pageContext.request.contextPath}/animal/images/cat%20(3).png" alt=" "
+                             class="img-responsive"/>
                     </a>
                 </div>
             </div>
@@ -161,7 +172,8 @@
                 <div class="spinner"></div>
                 <div class="img">
                     <a href="${pageContext.request.contextPath}/app/show.jsp">
-                        <img src="${pageContext.request.contextPath}/animal/images/dog%20(2).png" alt=" " class="img-responsive" />
+                        <img src="${pageContext.request.contextPath}/animal/images/dog%20(2).png" alt=" "
+                             class="img-responsive"/>
                     </a>
                 </div>
             </div>
@@ -170,7 +182,7 @@
                 白色小狗，4个月母狗，聪明粘人，爱玩爱闹
             </fieldset>
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
     </div>
     <div class="w3_agile_services_grids">
         <div class="col-md-4 col-sm-4 col-xs-4 w3_agile_services_grid " data-aos="zoom-in">
@@ -178,7 +190,8 @@
                 <div class="spinner"></div>
                 <div class="img">
                     <a href="${pageContext.request.contextPath}/app/show.jsp">
-                        <img src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" " class="img-responsive" />
+                        <img src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
+                             class="img-responsive"/>
                     </a>
                 </div>
             </div>
@@ -192,7 +205,8 @@
                 <div class="spinner"></div>
                 <div class="img">
                     <a href="${pageContext.request.contextPath}/app/show.jsp">
-                        <img src="${pageContext.request.contextPath}/animal/images/cat%20(3).png" alt=" " class="img-responsive" />
+                        <img src="${pageContext.request.contextPath}/animal/images/cat%20(3).png" alt=" "
+                             class="img-responsive"/>
                     </a>
                 </div>
             </div>
@@ -206,7 +220,8 @@
                 <div class="spinner"></div>
                 <div class="img">
                     <a href="${pageContext.request.contextPath}/app/show.jsp">
-                        <img src="${pageContext.request.contextPath}/animal/images/dog%20(2).png" alt=" " class="img-responsive" />
+                        <img src="${pageContext.request.contextPath}/animal/images/dog%20(2).png" alt=" "
+                             class="img-responsive"/>
                     </a>
                 </div>
             </div>
@@ -215,7 +230,7 @@
                 白色小狗，4个月母狗，聪明粘人，爱玩爱闹
             </fieldset>
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
     </div>
     <!--    <div class="w3l-img-side">-->
     <!--        <img src="../images/cat11.png" alt="" />-->

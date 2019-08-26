@@ -21,4 +21,5 @@ public interface UserService {
     int saveUser(User user);
     void deleteBatch(List<Integer> ids);
     User login(@Param("username") String username,@Param("password") String password);
+    int updatePic(@Param("pic") String pic,@Param("id") Integer id);
 }

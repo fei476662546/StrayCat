@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.entity.Pet" %><%--
   Created by IntelliJ IDEA.
   User: 47666
   Date: 2019/8/22
@@ -36,18 +36,18 @@
             </div>
             <div class="name">
                 <img src="${pageContext.request.contextPath}/animal/images/p9.jpg">
-                <span>kitty</span>
+                <span>${newPet.petName}</span>
             </div>
         </center>
         <div class="animal">
             <div class="group">
                 <div class="animalX1">
                     <img src="${pageContext.request.contextPath}/animal/images/P7.jpg"><span>编号</span><br>
-                    <p>123123</p>
+                    <p>${newPet.id}</p>
                 </div>
                 <div class="animalX2">
-                    <img src="${pageContext.request.contextPath}/animal/images/p6.jpg"><span>生日</span><br>
-                    <p>2019/09/23</p>
+                    <img src="${pageContext.request.contextPath}/animal/images/p6.jpg"><span>年龄</span><br>
+                    <p>${newPet.age}</p>
                 </div>
             </div>
             <div class="group">
@@ -56,20 +56,31 @@
                     <p>波斯猫</p>
                 </div>
                 <div class="animalX4">
+                    <%
+                        Pet pet = (Pet) request.getSession().getAttribute("newPet");
+                        int sexNumber = pet.getSex();
+                        if (sexNumber == 1) {
+                            request.getSession().setAttribute("petSex", "公");
+                        } else if (sexNumber == 0) {
+                            request.getSession().setAttribute("petSex", "母");
+                        } else {
+                            request.getSession().setAttribute("petSex", "");
+                        }
+                    %>
                     <img src="${pageContext.request.contextPath}/animal/images/p4.jpg"><span>性别</span><br>
-                    <p>雄性</p>
+                    <p>${petSex}</p>
                 </div>
             </div>
             <div class="group">
                 <div class="animalX5">
                     <img src="${pageContext.request.contextPath}/animal/images/p8.jpg"><span>备注</span><br>
-                    <p>好动</p>
+                    <p>${newPet.remark}</p>
                 </div>
             </div>
         </div>
         <div class="animal_me">
             <div class="animal_me1"><img src="${pageContext.request.contextPath}/animal/images/p11.jpg"></div>
-            <div class="animal_me2"><p>大家好，我是Salon。我的特徵是一豎一摺的耳朵和會說話的眼神。我非常有活力，最愛和人玩耍逛街做運動。我很喜歡認識朋友，我有自信能和大部份狗狗友好相處。
+            <div class="animal_me2"><p>我的特徵是一豎一摺的耳朵和會說話的眼神。我非常有活力，最愛和人玩耍逛街做運動。我很喜歡認識朋友，我有自信能和大部份狗狗友好相處。
                 我已經準備好當你的好朋友，你能帶我回家給我永遠的溫暖嗎?</p></div>
             <div class="animal_me3"><img src="${pageContext.request.contextPath}/animal/images/p10.jpg"></div>
         </div>
@@ -113,7 +124,7 @@
                                 真实姓名： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_Name"
-                                       placeholder="name" name="relName">
+                                       placeholder="name" name="relName" value="${User.relName}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -132,7 +143,7 @@
                                 联系方式： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_tel"
-                                       placeholder="telephone" name="tel">
+                                       placeholder="telephone" name="tel" value="${User.tel}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -148,7 +159,7 @@
                                 地址： </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="new_Adress"
-                                       placeholder="address" name="address">
+                                       placeholder="address" name="address" value="${User.address}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -156,7 +167,7 @@
                                 备注： </label>
                             <div class="col-sm-10">
                             <textarea type="text" class="form-control" id="new_remark"
-                                      placeholder="remark" name="remark"></textarea>
+                                      placeholder="remark" name="remark" ></textarea>
                             </div>
                         </div>
                         <input type="submit" value="提交" id="doAdopt" style="display: none">

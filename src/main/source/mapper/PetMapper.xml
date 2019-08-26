@@ -13,7 +13,7 @@
         delete from pet where id=#{id}
     </delete>
     <update id="updatePet" parameterType="com.entity.Pet">
-        update pet set petName=#{petName},age=#{age},sex=#{sex},pic=#{pic},state=#{state} where id=#{id}
+        update pet set petName=#{petName},age=#{age},sex=#{sex},pic=#{pic},state=#{state},petType=#{petType},remark=#{remark} where id=#{id}
     </update>
     <select id="findPetById" parameterType="int" resultType="com.entity.Pet">
         select * fron pet where id=#{id}

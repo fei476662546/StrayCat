@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .peopleMessage1 {
+        width: 1000px;
+        height: 1000px;
+        background: rgba(220, 220, 220, 0.72);
+    }
+
+    .groupX {
+        width: 800px;
+        height: 200px;
+    }
+
+    .MessageX1 {
+        width: 200px;
+        height: 50px;
+    }
+
+    .btnSearch {
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+    }
+
+    .txtSearch {
+
+    }
+
+    .group1 {
+        padding-left: 100px;
+        float: left;
+
+    }
+
+    .inputLeft {
+        padding-left: 80px;
+    }
+</style>
+<body>
+<div class="peopleMessage1">
+    <div class="groupX">
+        <div class="MessageX1">
+            <div>
+                <div class="group1">
+                    <font color="#87ceeb">用户编号：</font><img src="${pageContext.request.contextPath}/animal/images/P7.jpg"
+                                                           class="btnSearch">
+                </div>
+                <div class="inputLeft"><input type="text" name="id" value="${User.id}" readonly class="txtSearch"></div>
+            </div>
+            <div>
+                <div class="group1">
+                    <font color="#87ceeb">用户名：</font><img src="${pageContext.request.contextPath}/animal/images/p6.jpg"
+                                                          class="btnSearch"></div>
+                <div class="inputLeft"><input type="text" name="username" value="${User.username}" readonly
+                                              class="txtSearch">
+                </div>
+            </div>
+            <div>
+                <div class="group1">
+                    <font color="#87ceeb">真实姓名：</font><img
+                        src="${pageContext.request.contextPath}/animal/images/catsm1.jpg"
+                        class="btnSearch"></div>
+                <div class="inputLeft"><input type="text" name="relName" value="${User.relName}" readonly
+                                              class="txtSearch">
+                </div>
+            </div>
+            <div>
+                <div class="group1">
+                    <font color="#87ceeb">年龄：</font><img
+                        src="${pageContext.request.contextPath}/animal/images/catsm1.jpg"
+                        class="btnSearch"></div>
+                <div class="inputLeft"><input type="text" name="age" value="${User.age}" readonly
+                                              class="txtSearch">
+                </div>
+            </div>
+            <div>
+                <div class="group1">
+                    <font color="#87ceeb">性别：</font><img
+                        src="${pageContext.request.contextPath}/animal/images/catsm1.jpg"
+                        class="btnSearch"></div>
+                <div class="inputLeft"><input type="text" name="sex" value="${User.sex}" readonly
+                                              class="txtSearch">
+                </div>
+            </div>
+            <div>
+                <div class="group1">
+                    <font color="#87ceeb">邮箱：</font> <img
+                        src="${pageContext.request.contextPath}/animal/images/p8.jpg"
+                        class="btnSearch"></div>
+                <div class="inputLeft"><input type="email" name="email" value="${User.email}" readonly
+                                              class="txtSearch">
+                </div>
+            </div>
+            <div>
+                <div class="group1">
+                    <font color="#87ceeb">电话：</font><img
+                        src="${pageContext.request.contextPath}/animal/images/catsm1.jpg"
+                        class="btnSearch"></div>
+                <div class="inputLeft"><input type="text" name="tel" value="${User.tel}" readonly
+                                              class="txtSearch">
+                </div>
+            </div>
+            <div>
+                <div class="group1">
+                    <font color="#87ceeb">地址：</font><img
+                        src="${pageContext.request.contextPath}/animal/images/p8.jpg"
+                        class="btnSearch"></div>
+                <div class="inputLeft"><input type="text" name="address" value="${User.address}" readonly
+                                              class="txtSearch">
+                </div>
+            </div>
+            <div>
+                <div class="group1">
+                    <font color="#87ceeb">个性签名：</font> <img
+                        src="${pageContext.request.contextPath}/animal/images/p8.jpg"
+                        class="btnSearch"></div>
+                <div class="inputLeft"><input type="text" name="message" value="${User.message}" readonly
+                                              class="txtSearch">
+                </div>
+            </div>
+            <div>
+                <div class="group1">
+                    <font color="#87ceeb">领养状态：</font><img
+                        src="${pageContext.request.contextPath}/animal/images/p8.jpg"
+                        class="btnSearch"></div>
+                <div class="inputLeft"><input type="text" name="state" value="${userState}" readonly
+                                              class="txtSearch">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

@@ -15,6 +15,6 @@ public interface PetMapper {
     int delPetById(Integer id);
     int updatePet(Pet pet);
     Pet findPetById(Integer id);
-    Pet findpetByName(String name);
+    Pet findPetByName(String name);
     void deleteBatchPet(@Param("ids") List<Integer> ids);//删除一推
 }

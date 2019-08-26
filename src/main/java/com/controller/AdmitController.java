@@ -123,6 +123,10 @@ public class AdmitController {
         return Msg.success().add("pageInfo", page);
 
     }
+    @RequestMapping("/apply")
+    public String apply(){
+        return "";
+    }
 
     //    ----------------------------------pet-----------------------------------------------------------
 //    @RequestMapping("/pets")

@@ -183,6 +183,14 @@
       <artifactId>pagehelper</artifactId>
       <version>5.1.9</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+    <!--引入文件上传的依赖-->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.4</version>
+    </dependency>
+
   </dependencies>
 
   <build>

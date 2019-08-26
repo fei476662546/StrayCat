@@ -538,7 +538,7 @@
     $("#user_save_btn").click(function () {
         //2、发送ajax请求修改员工
         // console.log(123312312);
-        console.log($("#userAddModal form").serialize());
+        console.log($("#userAddModal form").serialize());//在控制台输出
         $.ajax({
             url: "${pageContext.request.contextPath}/admit/addUser",
             type: "POST",

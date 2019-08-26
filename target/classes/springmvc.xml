@@ -12,12 +12,28 @@
      <mvc:annotation-driven/>
      <!-- 解决静态资源无法被springMVC处理的问题 -->
      <mvc:default-servlet-handler />
+<!--     &lt;!&ndash; 配置类型转换器 &ndash;&gt;-->
+<!--     <mvc:annotation-driven conversion-service="conversionService"/>-->
+<!--     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">-->
+<!--          <property name="converters">-->
+<!--               <set>-->
+<!--                    <bean class="convert.DateConvert"></bean>-->
+<!--               </set>-->
+<!--          </property>-->
+<!--     </bean>-->
      <!--视图解析器-->
      <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
           <property name="suffix" value=".jsp"></property>
           <property name="prefix" value="/app/"></property>
      </bean>
+     <bean  id="multipartResolver"
+            class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+          <!-- 文件大小最大值 -->
+          <property name="maxUploadSize" value="10485760000"></property>
+          <!-- 默认编码 -->
+          <property name="defaultEncoding" value="utf-8" />
 
+     </bean>
 
 
 </beans>

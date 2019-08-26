@@ -14,13 +14,21 @@ import java.util.List;
 public interface UserMapper {
     // 查询某个用户
     User getUserById(Integer id);
+
     // 查询所有用户信息
     List<User> getUsers();
+
     // 删除用户
     int deleteUserById(Integer id);
+
     // 修改
     int updateUser(User user);
+
     int saveUser(User user);//插入用户
+
     void deleteBatch(@Param("ids") List<Integer> ids);//删除一推
-    User login(@Param("username") String username,@Param("password") String password);
+
+    User login(@Param("username") String username, @Param("password") String password);
+
+    int updatePic(@Param("pic") String pic, @Param("id") Integer id);
 }

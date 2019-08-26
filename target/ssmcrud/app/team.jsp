@@ -212,15 +212,16 @@ q'o
 <!-- contact -->
 <div class="contact" id="contact">
     <div class="container">
-        <h3 class="agile-title">联系我们</h3>
+        <h3 class="agile-title">加入我们</h3>
         <div class="col-md-9 col-sm-9 contact-right">
-            <form action="#" method="post">
+            <form action="${pageContext.request.contextPath}/admit/apply" method="post">
                 <input type="text" name="name" placeholder="姓名" required="">
                 <input type="email" name="email" placeholder="邮箱" required="">
                 <input type="text" name="subject" placeholder="类型" required="">
                 <input type="text" name="phone number" placeholder="电话号码" required="">
                 <textarea name="message" placeholder="您的信息" required=""></textarea>
                 <input type="submit" value="发送">
+
             </form>
         </div>
         <div class="col-md-3 col-sm-3 contact-left">

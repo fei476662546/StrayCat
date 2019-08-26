@@ -21,6 +21,9 @@
     <update id="updateUser" parameterType="com.entity.User" >
  update users set username=#{username},password=#{password},age=#{age},sex=#{sex},tel=#{tel},email=#{email},pic=#{pic},address=#{address},message=#{message},state=#{state} where id=#{id}
  </update>
+    <update id="updatePic" >
+        update users set pic=#{pic} where id=#{id}
+    </update>
     <insert id="saveUser" parameterType="com.entity.User">
         insert into users(username,password,age) values(#{username},#{password},#{age})
     </insert>

@@ -14,11 +14,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author yyh
@@ -64,7 +69,7 @@ public class UserController {
         return "error";
     }
     @RequestMapping("/logout")
-    public String logout(Model model, HttpServletRequest request) {
+    public String logout( HttpServletRequest request) {
         if (request.getSession().getAttribute("Admit")==null) {
             if (request.getSession().getAttribute("User") != null) {
                 request.getSession().removeAttribute("User");
@@ -118,6 +123,45 @@ public class UserController {
         return  Msg.success().add("pageInfo",page);
 
     }
+    @RequestMapping("/upload")
+    public String uploadUserPic(MultipartFile file, Model model){
+        String picName = UUID.randomUUID().toString();
+        //获取上传文件的元素名字
+        String name=file.getOriginalFilename();
+        String extname=name.substring(name.lastIndexOf("."));
+        //上传文件
+        try {
+//            file.transferTo(new File("F:/idea/spring_workspace/petHome/target/ssmcrud/animal/images/update/" +picName+extname));
+            file.transferTo(new File("F:/idea/spring_workspace/petHome/src/main/webapp/animal/images/" +picName+extname));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String filename=picName+extname;
+        //存储数据库，只需要把filename写入数据库
+
+        model.addAttribute("pic",filename);
+        return "person";
+
+    }
+    @RequestMapping("/doUpload")
+    public ModelAndView doUpload(MultipartFile pic ,HttpServletRequest request)
+            throws IOException{
+        //获取文件名以及文件大小，检测是否获得文件相关数据
+        String fileName=pic.getOriginalFilename();
+        long size=pic.getSize();
+        System.out.println(fileName+"/"+size);
+        //构建文件目标对象，这个对象对应的文件路径必须是存在的或者通过file对象自己创建
+        File dest=new File("F:/idea/spring_workspace/petHome/src/main/webapp/animal/images/update/"+fileName);
+        //transferto实现文件上传
+        pic.transferTo(dest);
+        //封装数据返回
+        ModelAndView mv=new ModelAndView("person");
+        mv.addObject("updateMsg", "上传成功！");
+       User user= (User) request.getSession().getAttribute("User");
+        userService.updatePic(fileName,user.getId());
+        return mv;
+    }
+
 //
 //    @RequestMapping("/users")
 //    @ResponseBody

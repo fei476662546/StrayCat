@@ -53,4 +53,11 @@ public class UserSeriveImpl implements UserService {
 
 
     }
+
+    @Override
+    public int updatePic(String pic, Integer id) {
+        return userMapper.updatePic(pic,id);
+    }
+
+
 }

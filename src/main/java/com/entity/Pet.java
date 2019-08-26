@@ -11,27 +11,21 @@ public class Pet {
     private Integer sex;//0为母，1为公
     private String pic;
     private Integer state;//0为未被领养，1为已被领养
+    private String petType;
+    private String remark;
 
-    public Pet(Integer id, String petName, Integer age, Integer sex, String pic, Integer state) {
+    public Pet() {
+    }
+
+    public Pet(Integer id, String petName, Integer age, Integer sex, String pic, Integer state, String petType, String remark) {
         this.id = id;
         this.petName = petName;
         this.age = age;
         this.sex = sex;
         this.pic = pic;
         this.state = state;
-    }
-
-    public Pet(String petName, Integer age) {
-        this.petName = petName;
-        this.age = age;
-    }
-
-    public Pet(String petName, Integer age, Integer sex, String pic, Integer state) {
-        this.petName = petName;
-        this.age = age;
-        this.sex = sex;
-        this.pic = pic;
-        this.state = state;
+        this.petType = petType;
+        this.remark = remark;
     }
 
     public Integer getId() {
@@ -82,6 +76,22 @@ public class Pet {
         this.state = state;
     }
 
+    public String getPetType() {
+        return petType;
+    }
+
+    public void setPetType(String petType) {
+        this.petType = petType;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
     @Override
     public String toString() {
         return "Pet{" +
@@ -91,6 +101,8 @@ public class Pet {
                 ", sex=" + sex +
                 ", pic='" + pic + '\'' +
                 ", state=" + state +
+                ", petType='" + petType + '\'' +
+                ", remark='" + remark + '\'' +
                 '}';
     }
 }

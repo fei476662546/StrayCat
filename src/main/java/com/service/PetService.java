@@ -14,6 +14,6 @@ public interface PetService {
     int delPetById(Integer id);
     int updatePet(Pet pet);
     Pet findPetById(Integer id);
-    Pet findpetByName(String name);
+    Pet findPetByName(String name);
     void deleteBatchPet(List<Integer> ids);
 }
