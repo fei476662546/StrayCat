@@ -88,10 +88,10 @@
                 <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="crmclass/list.action#"><i class="fa fa-user fa-fw"></i>
-                    用户：</a>
+                <li><a href="#"><i class="fa fa-user fa-fw"></i>
+                    管理员：${Admit.name}</a>
                 </li>
-                <li><a href="crmclass/list.action#"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
+                <li><a href="${pageContext.request.contextPath}/app/home.jsp"><i class="fa fa-gear fa-fw"></i>到达主页</a></li>
                 <li class="divider"></li>
                 <li>
                     <a href="${pageContext.request.contextPath}/user/logout">
@@ -135,7 +135,7 @@
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="${pageContext.request.contextPath}/#" target="admit_page">
+                        <a href="${pageContext.request.contextPath}/adopt/adoptApply" target="admit_page">
                             <i class="fa fa-gamepad fa-fw"></i> 审核领养申请
                         </a>
                     </li>

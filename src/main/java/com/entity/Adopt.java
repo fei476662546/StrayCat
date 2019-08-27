@@ -9,19 +9,60 @@ import java.util.Date;
 public class Adopt {
     private Integer id;
     private Integer user_id;
-    private Integer pet_id;
+    private String petName;
     private Date time;
-    private Integer type;//1为到点带走，2为快递邮寄
+    private Integer apply;//1为已通过，0为未通过，-1为拒绝
 
     public Adopt() {
     }
 
-    public Adopt(Integer id, Integer user_id, Integer pet_id, Date time, Integer type) {
+    public Adopt(Integer id, Integer user_id, String petName, Date time, Integer apply) {
         this.id = id;
         this.user_id = user_id;
-        this.pet_id = pet_id;
+        this.petName = petName;
         this.time = time;
-        this.type = type;
+        this.apply = apply;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getPetName() {
+        return petName;
+    }
+
+    public void setPetName(String petName) {
+        this.petName = petName;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
+    }
+
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public Integer getApply() {
+        return apply;
+    }
+
+    public void setApply(Integer apply) {
+        this.apply = apply;
     }
 
     @Override
@@ -29,9 +70,9 @@ public class Adopt {
         return "Adopt{" +
                 "id=" + id +
                 ", user_id=" + user_id +
-                ", pet_id=" + pet_id +
+                ", petName=" + petName +
                 ", time=" + time +
-                ", type=" + type +
+                ", apply=" + apply +
                 '}';
     }
 }

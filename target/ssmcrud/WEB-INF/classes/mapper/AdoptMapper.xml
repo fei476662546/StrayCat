@@ -9,4 +9,19 @@
     <update id="updateAdoptUser" parameterType="com.entity.User">
     update users set relName=#{relName},sex=#{sex},tel=#{tel},email=#{email},address=#{address},remark=#{remark} where id=#{id}
     </update>
+    <select id="adoptApply" resultType="com.entity.Adopt">
+        select  * from adopt
+    </select>
+    <select id="findApplyUser" resultType="com.entity.User" parameterType="int">
+        select users.* from adopt,users where users.id=adopt.user_id and adopt.id=#{adopt.id}
+    </select>
+    <update id="updateUserState" >
+        update users set state=#{state} where id=#{id}
+    </update>
+    <update id="updatePetState">
+        update pet set state=#{state} where petName=#{petName}
+    </update>
+    <update id="updateApply">
+        update adopt set apply=#{apply} where id=#{id}
+    </update>
 </mapper>

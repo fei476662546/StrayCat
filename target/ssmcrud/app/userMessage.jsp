@@ -21,7 +21,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/sb-admin-2.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>学员关系管理系统CRM</title>
+    <title>用户信息</title>
     <!-- 引入css样式文件 -->
     <!-- Bootstrap Core CSS -->
     <script type="text/javascript"

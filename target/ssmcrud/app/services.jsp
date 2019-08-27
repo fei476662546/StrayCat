@@ -44,94 +44,104 @@
                         <div class="spinner"></div>
                         <div class="img">
                             <input type="text" value="大黑" hidden name="petName">
-                            <img id="pet" src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
+                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
                                  class="img-responsive"/>
                         </div>
                     </div>
                     <fieldset>
                         <input type="submit" value="详情" >
-                       <legend>大白</legend>
+                       <legend>大黑</legend>
                         黑白色，公猫，八个月，性子温顺，喜欢安静
                     </fieldset>
                 </form>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4 w3_agile_services_grid" data-aos="zoom-in">
-                <div class="ih-item circle effect1 agile_services_grid">
-                    <div class="spinner"></div>
-                    <div class="img">
-                        <a href="${pageContext.request.contextPath}/app/show.jsp">
-                            <img src="${pageContext.request.contextPath}/animal/images/cat%20(3).png" alt=" "
+                <form action="${pageContext.request.contextPath}/adopt/chickPet" method="post">
+                    <div class="ih-item circle effect1 agile_services_grid">
+                        <div class="spinner"></div>
+                        <div class="img">
+                            <input type="text" value="二黑" hidden name="petName">
+                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
                                  class="img-responsive"/>
-                        </a>
+                        </div>
                     </div>
-                </div>
-                <fieldset>
-                    <legend>小艾</legend>
-                    棕黄色，4个月，母猫，粘人爱闹
-                </fieldset>
+                    <fieldset>
+                        <input type="submit" value="详情" >
+                        <legend>二黑</legend>
+                        黑白色，公猫，八个月，性子温顺，喜欢安静
+                    </fieldset>
+                </form>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4 w3_agile_services_grid" data-aos="zoom-in">
-                <div class="ih-item circle effect1 agile_services_grid">
-                    <div class="spinner"></div>
-                    <div class="img">
-                        <a href="${pageContext.request.contextPath}/app/show.jsp">
-                            <img src="${pageContext.request.contextPath}/animal/images/dog%20(2).png" alt=" "
+                <form action="${pageContext.request.contextPath}/adopt/chickPet" method="post">
+                    <div class="ih-item circle effect1 agile_services_grid">
+                        <div class="spinner"></div>
+                        <div class="img">
+                            <input type="text" value="大白" hidden name="petName">
+                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
                                  class="img-responsive"/>
-                        </a>
+                        </div>
                     </div>
-                </div>
-                <fieldset>
-                    <legend>旺财</legend>
-                    白色小狗，4个月母狗，聪明粘人，爱玩爱闹
-                </fieldset>
+                    <fieldset>
+                        <input type="submit" value="详情" >
+                        <legend>大白</legend>
+                        黑白色，公猫，八个月，性子温顺，喜欢安静
+                    </fieldset>
+                </form>
             </div>
             <div class="clearfix"></div>
         </div>
         <div class="w3_agile_services_grids">
             <div class="col-md-4 col-sm-4 col-xs-4 w3_agile_services_grid " data-aos="zoom-in">
-                <div class="ih-item circle effect1 agile_services_grid">
-                    <div class="spinner"></div>
-                    <div class="img">
-                        <a href="${pageContext.request.contextPath}/app/show.jsp">
-                            <img src="${pageContext.request.contextPath}/animal/images/dog%20(1).png" alt=" "
+                <form action="${pageContext.request.contextPath}/adopt/chickPet" method="post">
+                    <div class="ih-item circle effect1 agile_services_grid">
+                        <div class="spinner"></div>
+                        <div class="img">
+                            <input type="text" value="二白" hidden name="petName">
+                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
                                  class="img-responsive"/>
-                        </a>
+                        </div>
                     </div>
-                </div>
-                <fieldset>
-                    <legend>二黄</legend>
-                    黄色母小狗，八个月，安静听话。
-                </fieldset>
+                    <fieldset>
+                        <input type="submit" value="详情" >
+                        <legend>二白</legend>
+                        黑白色，公猫，八个月，性子温顺，喜欢安静
+                    </fieldset>
+                </form>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4 w3_agile_services_grid" data-aos="zoom-in">
-                <div class="ih-item circle effect1 agile_services_grid">
-                    <div class="spinner"></div>
-                    <div class="img">
-                        <a href="${pageContext.request.contextPath}/app/show.jsp">
-                            <img src="${pageContext.request.contextPath}/animal/images/dog%20(3).png" alt=" "
+                <form action="${pageContext.request.contextPath}/adopt/chickPet" method="post">
+                    <div class="ih-item circle effect1 agile_services_grid">
+                        <div class="spinner"></div>
+                        <div class="img">
+                            <input type="text" value="大橘" hidden name="petName">
+                            <img src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
                                  class="img-responsive"/>
-                        </a>
+                        </div>
                     </div>
-                </div>
-                <fieldset>
-                    <legend>大黄</legend>
-                    3个月小柯基，公狗，欢快活泼，不怕生
-                </fieldset>
+                    <fieldset>
+                        <input type="submit" value="详情" >
+                        <legend>大橘</legend>
+                        黑白色，公猫，八个月，性子温顺，喜欢安静
+                    </fieldset>
+                </form>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4 w3_agile_services_grid" data-aos="zoom-in">
-                <div class="ih-item circle effect1 agile_services_grid">
-                    <div class="spinner"></div>
-                    <div class="img">
-                        <a href="${pageContext.request.contextPath}/app/show.jsp">
-                            <img src="${pageContext.request.contextPath}/animal/images/cat%20(8).png" alt=" "
+                <form action="${pageContext.request.contextPath}/adopt/chickPet" method="post">
+                    <div class="ih-item circle effect1 agile_services_grid">
+                        <div class="spinner"></div>
+                        <div class="img">
+                            <input type="text" value="二橘" hidden name="petName">
+                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
                                  class="img-responsive"/>
-                        </a>
+                        </div>
                     </div>
-                </div>
-                <fieldset>
-                    <legend>大黑</legend>
-                    6个月黑母猫，爱偷吃，粘人
-                </fieldset>
+                    <fieldset>
+                        <input type="submit" value="详情" >
+                        <legend>二橘</legend>
+                        黑白色，公猫，八个月，性子温顺，喜欢安静
+                    </fieldset>
+                </form>
             </div>
             <div class="clearfix"></div>
         </div>

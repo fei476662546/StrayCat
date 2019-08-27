@@ -85,7 +85,7 @@
     </div>
     <table>
         <tr>
-            <td>  <div class="group1"><img src="${pageContext.request.contextPath}/animal/images/update/${User.pic}" width="70px"
+            <td>  <div class="group1"><img src="${pageContext.request.contextPath}/animal/images/update/${User.pic}" width="60px"
                      style="border-radius: 50%"><font color="#87ceeb">头像：</font>
             </div>
             </td>
