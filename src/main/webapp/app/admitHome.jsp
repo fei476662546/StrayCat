@@ -10,12 +10,22 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>学员关系管理系统CRM</title>
+    <!-- 引入js文件 -->
+    <!-- jQuery -->
+    <script type="text/javascript"
+            src="${pageContext.request.contextPath}/animal/JQuery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="${pageContext.request.contextPath}/animal/houtai/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="${pageContext.request.contextPath}/animal/houtai/js/metisMenu.min.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="${pageContext.request.contextPath}/animal/houtai/js/jquery.dataTables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/animal/houtai/js/dataTables.bootstrap.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="${pageContext.request.contextPath}/animal/houtai/js/sb-admin-2.js"></script>
     <!-- 引入css样式文件 -->
     <!-- Bootstrap Core CSS -->
-
-    <script type="text/javascript"
-            src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.min.js"></script>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="${pageContext.request.contextPath}/animal/houtai/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
     <link href="${pageContext.request.contextPath}/animal/houtai/css/metisMenu.min.css" rel="stylesheet">
@@ -147,20 +157,7 @@
 </nav>
 <div class="container4">
     <iframe src="${pageContext.request.contextPath}/app/userMessage.jsp" name="admit_page" frameborder="0" width="100%" height="100%">
-
     </iframe>
-    <!-- 引入js文件 -->
-    <!-- jQuery -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/jquery-1.11.3.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/metisMenu.min.js"></script>
-    <!-- DataTables JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/jquery.dataTables.min.js"></script>
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/dataTables.bootstrap.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/sb-admin-2.js"></script>
     <!-- 编写js代码 -->
     <script type="text/javascript">
         $(function () {

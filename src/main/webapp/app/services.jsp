@@ -61,7 +61,7 @@
                         <div class="spinner"></div>
                         <div class="img">
                             <input type="text" value="二黑" hidden name="petName">
-                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
+                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(3).png" alt=" "
                                  class="img-responsive"/>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                         <div class="spinner"></div>
                         <div class="img">
                             <input type="text" value="大白" hidden name="petName">
-                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
+                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(4).png" alt=" "
                                  class="img-responsive"/>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                         <div class="spinner"></div>
                         <div class="img">
                             <input type="text" value="二白" hidden name="petName">
-                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
+                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(5).png" alt=" "
                                  class="img-responsive"/>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                         <div class="spinner"></div>
                         <div class="img">
                             <input type="text" value="大橘" hidden name="petName">
-                            <img src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
+                            <img src="${pageContext.request.contextPath}/animal/images/cat%20(6).png" alt=" "
                                  class="img-responsive"/>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                         <div class="spinner"></div>
                         <div class="img">
                             <input type="text" value="二橘" hidden name="petName">
-                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
+                            <img  src="${pageContext.request.contextPath}/animal/images/cat%20(7).png" alt=" "
                                  class="img-responsive"/>
                         </div>
                     </div>
@@ -152,7 +152,7 @@
                 <div class="spinner"></div>
                 <div class="img">
                     <a href="${pageContext.request.contextPath}/app/show.jsp">
-                        <img src="${pageContext.request.contextPath}/animal/images/cat%20(2).png" alt=" "
+                        <img src="${pageContext.request.contextPath}/animal/images/cat%20(8).png" alt=" "
                              class="img-responsive"/>
                     </a>
                 </div>

@@ -1,6 +1,6 @@
 package com.entity;
 
-import java.util.Date;
+
 
 /**
  * Create by mysteriousTime
@@ -10,18 +10,26 @@ public class Adopt {
     private Integer id;
     private Integer user_id;
     private String petName;
-    private Date time;
+    private String time;
     private Integer apply;//1为已通过，0为未通过，-1为拒绝
 
     public Adopt() {
     }
 
-    public Adopt(Integer id, Integer user_id, String petName, Date time, Integer apply) {
+    public Adopt(Integer id, Integer user_id, String petName, String time, Integer apply) {
         this.id = id;
         this.user_id = user_id;
         this.petName = petName;
         this.time = time;
         this.apply = apply;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public Integer getId() {
@@ -49,13 +57,7 @@ public class Adopt {
     }
 
 
-    public Date getTime() {
-        return time;
-    }
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
 
     public Integer getApply() {
         return apply;

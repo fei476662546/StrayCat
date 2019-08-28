@@ -151,8 +151,10 @@ public class UserController {
         long size=pic.getSize();
         System.out.println(fileName+"/"+size);
         //构建文件目标对象，这个对象对应的文件路径必须是存在的或者通过file对象自己创建
-        File dest=new File("F:/idea/spring_workspace/petHome/src/main/webapp/animal/images/update/"+fileName);
-        //transferto实现文件上传
+        File dest=new File("F:/MyUpload/"+fileName);
+//        File dest1=new File("F:/idea/spring_workspace/petHome/target/ssmcrud/animal/images/update/"+fileName);
+//        //transferto实现文件上传
+//        pic.transferTo(dest1);
         pic.transferTo(dest);
         //封装数据返回
         ModelAndView mv=new ModelAndView("person");

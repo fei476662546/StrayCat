@@ -10,15 +10,10 @@
 <html>
 
 <head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+    <!-- jQuery -->
     <script type="text/javascript"
-            src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.min.js"></script>
-    <link
-            href="${pageContext.request.contextPath}/static/bootstrap-3.3.7-dist/css/bootstrap.min.css"
-            rel="stylesheet">
-    <script
-            src="${pageContext.request.contextPath}/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+            src="${pageContext.request.contextPath}/animal/JQuery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/bootstrap.min.js"></script>
     <!-- Metis Menu Plugin JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/metisMenu.min.js"></script>
@@ -27,29 +22,34 @@
     <script src="${pageContext.request.contextPath}/animal/houtai/js/dataTables.bootstrap.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/sb-admin-2.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>用户信息</title>
+    <!-- 引入css样式文件 -->
+    <!-- Bootstrap Core CSS -->
+    <link href="${pageContext.request.contextPath}/animal/houtai/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="${pageContext.request.contextPath}/animal/houtai/css/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="${pageContext.request.contextPath}/animal/houtai/css/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="${pageContext.request.contextPath}/animal/houtai/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="${pageContext.request.contextPath}/animal/houtai/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
+    <link href="${pageContext.request.contextPath}/animal/houtai/css/boot-crm.css" rel="stylesheet" type="text/css">
 </head>
-<script>
-    function btn(num) {
-        if (num == 1) {
-            var form = document.getElementById("form1");
-            form.action = "${pageContext.request.contextPath}/adopt/applyOK";
-            form.submit();
-        } else if (num == 2) {
-            var form = document.getElementById("form1");
-            form.action = "${pageContext.request.contextPath}/adopt/applyNO";
-            form.submit();
-        }
-
+<style>
+    input{
+        border: hidden;
     }
-    $(function () {
-        $("#applyOK1").click( function applyOK(){
-            $("#applyOK").click();
-        });
-        $("#applyNO1").click( function loginUser(){
-            $("#applyNO").click();
-        });
-    });
-</script>
+    table{
+        width: 900px;
+        height: 500px;
+    }
+    input{
+        width: 100px;
+    }
+</style>
 <body>
 <div id="wrapper">
     <div id="page-wrapper">
@@ -58,36 +58,38 @@
         <div class="container">
             <!-- 标题 -->
             <center>
-                <h2>Hello World!</h2>
+                <h2>领养申请表</h2>
                 <form method="post" id="form1">
-                    <table border="1">
+                    <table>
                         <tr>
-                            <td>#</td>
                             <td>id</td>
                             <td>User_id</td>
                             <td>petName</td>
-                            <td hidden>审核拒绝</td>
-                            <td>审核</td>
-                            <td>操作</td>
+                            <td style="padding-left: 10px">审核</td>
+                            <td style="padding-left: 30px">操作</td>
+                            <td>是否审核 (0为否，1为是，-1为拒绝)</td>
                         </tr>
                         <c:forEach items="${AdoptList}" var="acc" varStatus="s">
                             <tr>
-                                <td><input type="checkbox" name="id" value="${acc.id}"></td>
+                                <td hidden><input type="checkbox" name="id" value="${acc.id}" ></td>
                                 <td><input type="text" name="id" value="${acc.id}"></td>
                                     <%-- 有疑问--%>
                                 <td><input type="text" name="user_id" value="${acc.user_id}"></td>
                                 <td><input type="text" name="petName" value="${acc.petName}"></td>
-                                <td hidden><input type="text" name="apply" value="1" id="applyOK" onclick="btn(1)">
-                                    <input type="text" name="apply" value="-1" id="applyNO" onclick="btn(2)"></td>
-                                <td>
-                                    <button id="applyOK1">审核通过</button>
-                                    <button id="applyNO1">审核拒绝</button>
-                                    </td>
                                 <td>
                                     <a href="${pageContext.request.contextPath}/adopt/edit?id=${acc.id}">修改</a><%-- 有疑问--%>
                                     <span>${msg}</span>
-                                    <a href="${pageContext.request.contextPath}/adopt/delete?id=${acc.id}">删除</a><%-- 有疑问--%>
+                                    <a href="${pageContext.request.contextPath}/adopt/delete?id=${acc.id}">删除</a>
                                     <span>${msg}</span>
+                                </td>
+                                <td>
+                                    <a href="${pageContext.request.contextPath}/adopt/applyOK?id=${acc.id}">审核通过</a><%-- 有疑问--%>
+                                    <span>${msg}</span>
+                                    <a href="${pageContext.request.contextPath}/adopt/applyNO?id=${acc.id}">审核拒绝</a>
+                                    <span>${msg}</span>
+                                </td>
+                                <td>
+                                    <input type="text" name="apply" value="${acc.apply}" style="padding-left: 80px">
                                 </td>
                             </tr>
                         </c:forEach>
@@ -101,4 +103,5 @@
     <!-- 班级列表查询部分  end-->
 </div>
 </body>
+
 </html>

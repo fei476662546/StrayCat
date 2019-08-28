@@ -15,13 +15,28 @@
     <select id="findApplyUser" resultType="com.entity.User" parameterType="int">
         select users.* from adopt,users where users.id=adopt.user_id and adopt.id=#{adopt.id}
     </select>
-    <update id="updateUserState" >
+    <update id="updateUserState" parameterType="com.entity.User">
         update users set state=#{state} where id=#{id}
     </update>
-    <update id="updatePetState">
-        update pet set state=#{state} where petName=#{petName}
+    <update id="updatePetState" parameterType="com.entity.Pet">
+       update pet set state=#{state} where petName=#{petName}
     </update>
-    <update id="updateApply">
+    <update id="updateApply" parameterType="com.entity.Adopt">
         update adopt set apply=#{apply} where id=#{id}
     </update>
+    <insert id="addApplyAdopt" parameterType="com.entity.Adopt">
+        insert into adopt (user_id,petName,apply,time) values (#{user_id},#{petName},#{apply},#{time})
+    </insert>
+    <delete id="delAdoptById" parameterType="int">
+       delete from adopt where id=#{id}
+    </delete>
+    <select id="getAdoptById" parameterType="int" resultType="com.entity.Adopt">
+        select * from adopt where id=#{id}
+    </select>
+    <update id="updateAdopt" parameterType="com.entity.Adopt">
+        update adopt set user_id=#{user_id}, petName=#{petName},apply=#{apply},time=#{time} where id=#{id}
+    </update>
+    <select id="findApplyByPetName" resultType="int" parameterType="String">
+        select apply from adopt where petName=#{petName}
+    </select>
 </mapper>

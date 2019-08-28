@@ -8,52 +8,53 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<head>
-    <title>Home</title>
-    <!-- Meta tag Keywords -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8"/>
-    <meta name="keywords" content=""/>
 
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <!-- js -->
-    <script src="${pageContext.request.contextPath}/animal/js/jquery-2.2.3.min.js"></script>
-    <script src="${pageContext.request.contextPath}/animal/bootstrap/js/bootstrap.js"></script>
-    <!-- Necessary-JavaScript-File-For-Bootstrap -->
-    <!-- //js -->
-    <!--// Meta tag Keywords -->
-    <!-- css files -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css"
-          media="all">
-    <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css"
-          media="all">
-    <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css"
-          media="all">
-    <!-- Font-Awesome-Icons-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/owl.carousel.css" type="text/css"
-          media="all"/>
-    <!-- Owl-Carousel-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all"/>
-    <!-- Style-CSS -->
-    <!-- //css files -->
-    <!-- web fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Molle:400i&amp;subset=latin-ext" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
-          rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext"
-          rel="stylesheet">
-    <!-- //web fonts -->
-</head>
+    <head>
+        <title>Home</title>
+        <!-- Meta tag Keywords -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8"/>
+        <meta name="keywords" content=""/>
+
+        <script>
+            addEventListener("load", function () {
+                setTimeout(hideURLbar, 0);
+            }, false);
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+        </script>
+        <!-- js -->
+        <script src="${pageContext.request.contextPath}/animal/js/jquery-2.2.3.min.js"></script>
+        <script src="${pageContext.request.contextPath}/animal/bootstrap/js/bootstrap.js"></script>
+        <!-- Necessary-JavaScript-File-For-Bootstrap -->
+        <!-- //js -->
+        <!--// Meta tag Keywords -->
+        <!-- css files -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css"
+              media="all">
+        <!-- Bootstrap-Core-CSS -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css"
+              media="all">
+        <!-- Bootstrap-Core-CSS -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css"
+              media="all">
+        <!-- Font-Awesome-Icons-CSS -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/owl.carousel.css" type="text/css"
+              media="all"/>
+        <!-- Owl-Carousel-CSS -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all"/>
+        <!-- Style-CSS -->
+        <!-- //css files -->
+        <!-- web fonts -->
+        <link href="http://fonts.googleapis.com/css?family=Molle:400i&amp;subset=latin-ext" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
+              rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext"
+              rel="stylesheet">
+        <!-- //web fonts -->
+    </head>
 <body>
 <div class="nav-links">
     <nav class='navbar navbar-default'>
@@ -89,7 +90,7 @@
                     <c:if test="${sessionScope.isLogin}" var="flage" scope="session">
                         <li class="nav_item userinfo"  >
                             <a href="${pageContext.request.contextPath}/app/person.jsp?target=home">
-                                <div class="img"><img src="${pageContext.request.contextPath}/animal/images/update/${User.getPic()}" alt="" width="60px"
+                                <div class="img"><img src="/myImg/${User.getPic()}" alt="" width="60px"
                                                       style="border-radius:50% ">
                                 </div>
 <%--                                <div class="info"><span class="leve">${user.getStaffNumber()}</span>--%>
@@ -196,16 +197,16 @@
                                            name="age">
                                 </div>
                             </div>
-<%--                            <div class="form-group">--%>
-<%--                                <label for="register_gender" class="col-sm-2 control-label">性别</label>--%>
-<%--                                <div class="col-sm-8">--%>
-<%--                                    <select class="form-control" id="register_gender" name="sex">--%>
-<%--                                        <option value="-1">--请选择--</option>--%>
-<%--                                        <option value="1">公</option>--%>
-<%--                                        <option value="0">母</option>--%>
-<%--                                    </select>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
+                            <div class="form-group">
+                            <label for="register_gender" class="col-sm-2 control-label">性别</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="register_gender" name="sex">
+                                    <option value="-1">--请选择--</option>
+                                    <option value="1">男</option>
+                                    <option value="0">女</option>
+                                </select>
+                            </div>
+                        </div>
 <%--                            <div class="form-group">--%>
 <%--                                <label for="register_telephone" class="col-sm-2 control-label">电话</label>--%>
 <%--                                <div class="col-sm-8">--%>

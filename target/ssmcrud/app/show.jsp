@@ -284,6 +284,7 @@
                                       placeholder="remark" name="remark"></textarea>
                             </div>
                         </div>
+                        <input type="text" name="petName" value="${newPet.petName}" hidden>
                         <input type="submit" value="提交" id="doAdopt" style="display: none">
                     </form>
                 </div>

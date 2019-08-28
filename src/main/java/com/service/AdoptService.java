@@ -1,6 +1,7 @@
 package com.service;
 
 import com.entity.Adopt;
+import com.entity.Pet;
 import com.entity.User;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,7 +16,12 @@ public interface AdoptService {
     int updateAdoptUser(User User);
     List<Adopt> adoptApply();
     User findApplyUser(Integer AdoptId);
-     int updateUserState(@Param("state") Integer state,@Param("id")Integer id);
-    int updatePetState(@Param("state") Integer state,@Param("petName")String petName);
-    int updateApply(@Param("apply") Integer apply, @Param("id")Integer id);
+    int updateUserState(User user);
+    int updatePetState(Pet pet);
+    int updateApply(Adopt adopt);
+    int addApplyAdopt(Adopt adopt);
+    int delAdoptById(Integer id);
+    Adopt getAdoptById(Integer id);
+    int updateAdopt(Adopt adopt);
+    int findApplyByPetName(String petName);
 }

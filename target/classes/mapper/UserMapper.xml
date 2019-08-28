@@ -25,7 +25,7 @@
         update users set pic=#{pic} where id=#{id}
     </update>
     <insert id="saveUser" parameterType="com.entity.User">
-        insert into users(username,password,age) values(#{username},#{password},#{age})
+        insert into users(username,password,age,sex) values(#{username},#{password},#{age},#{sex})
     </insert>
     <delete id="deleteBatch">
       delete from users
