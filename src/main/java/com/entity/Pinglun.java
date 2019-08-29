@@ -1,5 +1,6 @@
 package com.entity;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -8,20 +9,50 @@ import java.util.Date;
  */
 public class Pinglun {
     private Integer id;
-    private Integer user_id;
-    private String words;
-    private Date time;
-    private String comObject;
+    private String img;//评论用户头像
+    private String replyName;//评论人用户名
+    private String beReplyName;//回复人用户名
+    private String content;
+    private String time;
+    private String pinglunObj;//评论对象
+    private Pinglun[] relyBody;
 
     public Pinglun() {
     }
 
-    public Pinglun(Integer id, Integer user_id, String words, Date time, String comObject) {
+    public Pinglun(Integer id, String img, String replyName, String beReplyName, String content, String time, String pinglunObj, Pinglun[] relyBody) {
         this.id = id;
-        this.user_id = user_id;
-        this.words = words;
+        this.img = img;
+        this.replyName = replyName;
+        this.beReplyName = beReplyName;
+        this.content = content;
         this.time = time;
-        this.comObject = comObject;
+        this.pinglunObj = pinglunObj;
+        this.relyBody = relyBody;
+    }
+
+    public String getPinglunObj() {
+        return pinglunObj;
+    }
+
+    public void setPinglunObj(String pinglunObj) {
+        this.pinglunObj = pinglunObj;
+    }
+
+    public String getReplyName() {
+        return replyName;
+    }
+
+    public void setReplyName(String replyName) {
+        replyName = replyName;
+    }
+
+    public String getBeReplyName() {
+        return beReplyName;
+    }
+
+    public void setBeReplyName(String beReplyName) {
+        this.beReplyName = beReplyName;
     }
 
     public Integer getId() {
@@ -32,46 +63,51 @@ public class Pinglun {
         this.id = id;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public String getImg() {
+        return img;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setImg(String img) {
+        this.img = img;
     }
 
-    public String getWords() {
-        return words;
+
+
+    public String getContent() {
+        return content;
     }
 
-    public void setWords(String words) {
-        this.words = words;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
-    public String getComObject() {
-        return comObject;
+    public Pinglun[] getRelyBody() {
+        return relyBody;
     }
 
-    public void setComObject(String comObject) {
-        this.comObject = comObject;
+    public void setRelyBody(Pinglun[] relyBody) {
+        this.relyBody = relyBody;
     }
 
     @Override
     public String toString() {
         return "Pinglun{" +
                 "id=" + id +
-                ", user_id=" + user_id +
-                ", words='" + words + '\'' +
-                ", time=" + time +
-                ", comObject='" + comObject + '\'' +
+                ", img='" + img + '\'' +
+                ", replyName='" + replyName + '\'' +
+                ", beReplyName='" + beReplyName + '\'' +
+                ", content='" + content + '\'' +
+                ", time='" + time + '\'' +
+                ", pinglunObj='" + pinglunObj + '\'' +
+                ", relyBody=" + Arrays.toString(relyBody) +
                 '}';
     }
 }

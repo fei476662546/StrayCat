@@ -588,7 +588,6 @@
             success: function (result) {
                 //填充用户信息
                 console.log(result);
-
                 $("#userId_modify_input").val(result.extend.user.id);
                 $("#username_modify_input").val(result.extend.user.name);
                 $("#password_modify_input").val(result.extend.user.pwd);

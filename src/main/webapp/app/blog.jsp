@@ -8,7 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
+    <script src="${pageContext.request.contextPath}/animal/js/jquery-3.4.1.js"></script>
+    <script src="${pageContext.request.contextPath}/animal/bootstrap/js/bootstrap.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Title</title>
     <!-- Meta tag Keywords -->
@@ -45,10 +48,10 @@
                 </div>
                 <div class="blog-right-agileits-w3layouts">
                     <h4>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">eoquie int temporant 2018</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">大黑短记 2018</a>
                     </h4>
                     <p>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">Cat Life</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">悠闲生活</a>
                     </p>
                 </div>
                 <div class="clearfix"> </div>
@@ -60,10 +63,10 @@
                 </div>
                 <div class="blog-right-agileits-w3layouts">
                     <h4>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">eoquie int temporant 2018</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">二黑短记 2018</a>
                     </h4>
                     <p>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">Cat Life</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">猫狗大战</a>
                     </p>
                 </div>
                 <div class="clearfix"> </div>
@@ -75,10 +78,10 @@
                 </div>
                 <div class="blog-right-agileits-w3layouts">
                     <h4>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">eoquie int temporant 2018</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">二橘短记 2018</a>
                     </h4>
                     <p>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">Cat Life</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">甜梦时光</a>
                     </p>
                 </div>
                 <div class="clearfix"> </div>
@@ -92,10 +95,10 @@
                 </div>
                 <div class="blog-right-agileits-w3layouts">
                     <h4>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">eoquie int temporant 2018</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">二白短记 2018</a>
                     </h4>
                     <p>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">Cat Life</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">家里酣睡</a>
                     </p>
                 </div>
                 <div class="clearfix"> </div>
@@ -107,10 +110,10 @@
                 </div>
                 <div class="blog-right-agileits-w3layouts">
                     <h4>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">eoquie int temporant 2018</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">二狗日记</a>
                     </h4>
                     <p>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">Cat Life</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">睡觉</a>
                     </p>
                 </div>
                 <div class="clearfix"> </div>
@@ -122,7 +125,7 @@
                 </div>
                 <div class="blog-right-agileits-w3layouts">
                     <h4>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">eoquie int temporant 2018</a>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">田地笔记 2018</a>
                     </h4>
                     <p>
                         <a href="#" data-toggle="modal" data-target="#myModal2">Cat Life</a>
@@ -157,8 +160,7 @@
 <!-- //Modal5 -->
 <!-- //blog -->
 <!-- js -->
-<script src="${pageContext.request.contextPath}/animal/js/jquery-3.4.1.js"></script>
-<script src="${pageContext.request.contextPath}/animal/bootstrap/js/bootstrap.js"></script>
+
 <!-- Necessary-JavaScript-File-For-Bootstrap -->
 <!-- //js -->
 </body>

@@ -30,4 +30,9 @@ public class PinglunServiceImpl implements PinglunService {
     public List<Pinglun> getAllPinglun() {
         return pinglunMapper.getAllPinglun();
     }
+
+    @Override
+    public List<Pinglun> getPinglunByPetName(String petName) {
+        return pinglunMapper.getPinglunByPetName(petName);
+    }
 }

@@ -1,4 +1,6 @@
-<%@ page import="com.entity.Pet" %><%--
+<%@ page import="com.entity.Pet" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %><%--
   Created by IntelliJ IDEA.
   User: 47666
   Date: 2019/8/22
@@ -87,7 +89,7 @@
                 </div>
             </c:if>
             <c:if test="${sessionScope.petId3}" var="flag3" scope="session">
-                <div id="demo1"  class="slideBox">
+                <div id="demo1" class="slideBox">
                     <ul class="items">
                         <li><a href=""><img class="my-img"
                                             src="${pageContext.request.contextPath}/animal/images/dog%20(2).png"></a>
@@ -105,47 +107,59 @@
                 </div>
             </c:if>
             <c:if test="${sessionScope.petId4}" var="flag4" scope="session">
-            <div id="demo1"  class="slideBox">
-                <ul class="items">
-                    <li><a href=""><img class="my-img"
-                                        src="${pageContext.request.contextPath}/animal/images/dog%20(6).png"></a></li>
-                    <li><a href=""><img class="my-img"
-                                        src="${pageContext.request.contextPath}/animal/images/dog%20(7).png"></a></li>
-                    <li><a href=""><img class="my-img"
-                                        src="${pageContext.request.contextPath}/animal/images/dog%20(8).png"></a></li>
-                    <li><a href=""><img class="my-img"
-                                        src="${pageContext.request.contextPath}/animal/images/dog%20(9).png"></a></li>
-                </ul>
-            </div>
-        </c:if>
+                <div id="demo1" class="slideBox">
+                    <ul class="items">
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(6).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(7).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(8).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(9).png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
             <c:if test="${sessionScope.petId5}" var="flag5" scope="session">
-            <div id="demo1"  class="slideBox">
-                <ul class="items">
-                    <li><a href=""><img class="my-img"
-                                        src="${pageContext.request.contextPath}/animal/images/cat%20(14).png"></a></li>
-                    <li><a href=""><img class="my-img"
-                                        src="${pageContext.request.contextPath}/animal/images/cat%20(15).png"></a></li>
-                    <li><a href=""><img class="my-img"
-                                        src="${pageContext.request.contextPath}/animal/images/cat%20(16).png"></a></li>
-                    <li><a href=""><img class="my-img"
-                                        src="${pageContext.request.contextPath}/animal/images/cat%20(13).png"></a></li>
-                </ul>
-            </div>
-        </c:if>
+                <div id="demo1" class="slideBox">
+                    <ul class="items">
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/cat%20(14).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/cat%20(15).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/cat%20(16).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/cat%20(13).png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
             <c:if test="${sessionScope.petId6}" var="flag6" scope="session">
-            <div id="demo1"  class="slideBox">
-                <ul class="items">
-                    <li><a href=""><img class="my-img"
-                                        src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a></li>
-                    <li><a href=""><img class="my-img"
-                                        src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a></li>
-                    <li><a href=""><img class="my-img"
-                                        src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a></li>
-                    <li><a href=""><img class="my-img"
-                                        src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a></li>
-                </ul>
-            </div>
-        </c:if>
+                <div id="demo1" class="slideBox">
+                    <ul class="items">
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
             <div class="name">
                 <img src="${pageContext.request.contextPath}/animal/images/p9.jpg">
                 <span>${newPet.petName}</span>
@@ -296,22 +310,56 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
-    <script>
-        $(function () {
-            $("#submitAdopt").click(function AdoptPet() {
-                $("#doAdopt").click();
-            });
-        });
-    </script>
+
     <div class="comment-list">
-
     </div>
+<%--    <c:forEach items="${pinglunList}" var="pinglun" varStatus="s">--%>
+<%--<script>--%>
+<%--    var arr1 = [--%>
+<%--        {--%>
+<%--            id:${pinglun.id},--%>
+<%--            img: "/myImg/${pinglun.img}",--%>
+<%--            replyName: "${pinglun.replyName}",--%>
+<%--            beReplyName: "${pinglun.beReplyName}",--%>
+<%--            content: "${pinglun.content}",--%>
+<%--            time: "${pinglun.time}",--%>
+<%--            replyBody: [{--%>
+<%--                id: 3,--%>
+<%--                img: "",--%>
+<%--                replyName: "帅大叔",--%>
+<%--                beReplyName: "匿名",--%>
+<%--                content: "来啊，我们一起吃鸡",--%>
+<%--                time: "2017-10-17 11:42:53",--%>
+<%--            }]--%>
+<%--        },--%>
+<%--    ];--%>
+<%--    $(function () {--%>
+<%--        $(".comment-list").addCommentList({date:arr1,add:""});--%>
+<%--    })--%>
+<%--</script>--%>
+<%--    </c:forEach>--%>
     <div class="container">
-        <div class="commentbox">
-            <textarea cols="80" rows="50" placeholder="来说几句吧......" class="mytextarea" id="content"></textarea>
-            <div class="btn btn-info pull-right" id="comment">评论</div>
-        </div>
+        <form  method="post" id="form1">
+            <%
+                //我要获取当前的日期
+                Date date = new Date();
+                //设置要获取到什么样的时间
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                //获取String类型的时间
+                String createdate = sdf.format(date);
+                request.getSession().setAttribute("NowTime", createdate);
+            %>
+            <div class="commentbox">
+                <input type="text" name="img" value="${User.pic}" id="new_pinglun_img" hidden>
+                <input type="text" name="replyName" value="${User.username}" id="new_pinglun_replyName" hidden>
+                <input type="text" name="beReplyName" value="" id="new_pinglun_beReplyName" hidden>
+                <input type="text" name="time" value="${NowTime}" id="new_pinglun_time" hidden>
+                <input type="text" name="pinglunObj" value="${newPet.petName}" hidden>
 
+                <textarea cols="80" rows="50" placeholder="来说几句吧......" name="content" class="mytextarea" id="content"></textarea>
+                <div class="btn btn-info pull-right" id="comment">评论</div>
+            </div>
+        </form>
     </div>
 </div>
 <script>
@@ -319,30 +367,20 @@
         $('#demo1').slideBox();
 
     });
-
+    $(function () {
+        $("#submitAdopt").click(function AdoptPet() {
+            $("#doAdopt").click();
+        });
+    });
+    // =======================================评论====================================================
     var arr = [
         {
-            id: 1,
-            img: "${pageContext.request.contextPath}/animal/images/img.jpg",
-            replyName: "帅大叔",
-            beReplyName: "匿名",
-            content: "同学聚会，看到当年追我的屌丝开着宝马车带着他老婆来了，他老婆是我隔壁宿舍的同班同学，心里后悔极了。",
-            time: "2017-10-17 11:42:53",
-            address: "深圳",
-            osname: "",
-            browse: "谷歌",
-            replyBody: []
-        },
-        {
-            id: 2,
-            img: "${pageContext.request.contextPath}/animal/images/img.jpg",
+            id:2,
+            img: "${pageContext.request.contextPath}/animal/images/p4.jpg",
             replyName: "匿名",
             beReplyName: "",
             content: "到菜市场买菜，看到一个孩子在看摊，我问：“一只鸡多少钱？” 那孩子回答：“23。” 我又问：“两只鸡多少钱？” 孩子愣了一下，一时间没算过来，急中生智大吼一声：“一次只能买一只！”",
             time: "2017-10-17 11:42:53",
-            address: "深圳",
-            osname: "",
-            browse: "谷歌",
             replyBody: [{
                 id: 3,
                 img: "",
@@ -350,38 +388,39 @@
                 beReplyName: "匿名",
                 content: "来啊，我们一起吃鸡",
                 time: "2017-10-17 11:42:53",
-                address: "",
-                osname: "",
-                browse: "谷歌"
             }]
         },
-        {
-            id: 3,
-            img: "${pageContext.request.contextPath}/animal/images/img.jpg",
-            replyName: "帅大叔",
-            beReplyName: "匿名",
-            content: "同学聚会，看到当年追我的屌丝开着宝马车带着他老婆来了，他老婆是我隔壁宿舍的同班同学，心里后悔极了。",
-            time: "2017-10-17 11:42:53",
-            address: "深圳",
-            osname: "win10",
-            browse: "谷歌",
-            replyBody: []
-        }
     ];
+
     $(function () {
+
         $(".comment-list").addCommentList({data: arr, add: ""});
         $("#comment").click(function () {
             var obj = new Object();
-            obj.img = "./images/img.jpg";
-            obj.replyName = "匿名";
+            obj.img = "/myImg/${User.pic}";
+            obj.replyName = $("#new_pinglun_replyName").val();
             obj.content = $("#content").val();
-            obj.browse = "深圳";
-            obj.osname = "win10";
+            obj.time = $("#new_pinglun_time").val();
             obj.replyBody = "";
             $(".comment-list").addCommentList({data: [], add: obj});
+            $.ajax({
+                url:"${pageContext.request.contextPath}/pinglunAdd",
+                type:"post",
+                data:$("#form1 form").serialize(),
+
+                success: function (result) {
+                    if (result.code==100) {
+                        $("#content").val('');
+                    }else {
+                        console.log(result);
+                    }
+                }
+            })
         });
     })
+
 </script>
+
 </body>
 
 </html>

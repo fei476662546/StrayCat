@@ -64,7 +64,7 @@ public class AdoptController {
         Pet pet = petService.findPetByName(petName);
         request.getSession().setAttribute("newPet", pet);
         System.out.println("pet:" + pet);
-        return "forward:/show";
+        return "forward:/pinglunShow";
     }
 
     @RequestMapping("/adoptPet")
@@ -93,13 +93,6 @@ public class AdoptController {
     @RequestMapping("/adoptApply")
     public String adoptApply(Model model,HttpServletRequest request) {
         List<Adopt> adoptList = adoptService.adoptApply();
-//        for (Adopt adopt :adoptList){
-//            if ( adopt.getApply()==0){
-//                request.getSession().setAttribute("noLook","未审核");
-//            }else {
-//                request.getSession().setAttribute("isLook","已审核");
-//            }
-//        }
         System.out.println("领养：" + adoptList);
         model.addAttribute("AdoptList", adoptList);
         return "adoptApply";

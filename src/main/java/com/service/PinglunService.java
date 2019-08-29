@@ -12,4 +12,5 @@ public interface PinglunService {
     int addPinglun(Pinglun pinglun);
     int delPinglunById(Integer id);
     List<Pinglun> getAllPinglun();
+    List<Pinglun> getPinglunByPetName(String petName);
 }
