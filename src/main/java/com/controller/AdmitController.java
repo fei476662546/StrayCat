@@ -1,9 +1,11 @@
 package com.controller;
 
 import com.entity.Pet;
+import com.entity.Team;
 import com.entity.User;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.service.AdmitService;
 import com.service.PetService;
 import com.service.UserService;
 
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.MappingMatch;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +32,8 @@ import java.util.List;
 public class AdmitController {
     @Autowired
     private UserService userService;
-
+    @Autowired
+    private AdmitService admitService;
 
 
     @RequestMapping("/admitHome")
@@ -123,9 +127,14 @@ public class AdmitController {
         return Msg.success().add("pageInfo", page);
 
     }
-    @RequestMapping("/apply")
-    public String apply(){
-        return "";
+    @RequestMapping("/teamApply")
+    public String apply(Team team,Model model){
+      if (admitService.addTeamApply(team)>0){
+         model.addAttribute("teamMsg", "信息提交成功");
+         return "team";
+      }
+        model.addAttribute("teamMsg", "信息提交失败");
+      return "team";
     }
 
     //    ----------------------------------pet-----------------------------------------------------------

@@ -91,7 +91,7 @@
             <!-- 标题 -->
             <div class="row">
                 <div class="col-md-12">
-                    <h1>CRUD</h1>
+
                 </div>
             </div>
             <!-- 按钮 -->

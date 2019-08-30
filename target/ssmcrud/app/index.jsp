@@ -69,7 +69,7 @@
 <%--                        <a href="${pageContext.request.contextPath}/app/blog.jsp" target="item_main">猫狗日记</a>--%>
 <%--                    </li>--%>
 <%--                    <li>--%>
-<%--                        <a href="${pageContext.request.contextPath}/app/team.jsp" target="item_main">团队信息</a>--%>
+<%--                        <a href="${pageContext.request.contextPath}/app/Team.jsp" target="item_main">团队信息</a>--%>
 <%--                    </li>--%>
 <%--                    <li>--%>
 <%--                        <a href="${pageContext.request.contextPath}/app/gallery.jsp" target="item_main">猫狗展示</a>--%>

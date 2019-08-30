@@ -91,7 +91,7 @@
             <!-- 标题 -->
             <div class="row">
                 <div class="col-md-12">
-                    <h1>CRUD</h1>
+
                 </div>
             </div>
             <!-- 按钮 -->
@@ -292,8 +292,10 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">sex</label>
                         <div class="col-sm-10">
-                            <input type="text" name="sex" class="form-control" id="sex_modify_input" value="${user.sex}"
-                                   placeholder="sex">
+                            <select class="form-control" id="sex_modify_input" name="sex">
+                                <option value="0">女</option>
+                                <option value="1">男</option>
+                            </select>
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -340,8 +342,10 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">state</label>
                         <div class="col-sm-10">
-                            <input type="text" name="state" class="form-control" id="state_modify_input"
-                                   value="${user.state}" placeholder="state">
+                            <select class="form-control" id="state_modify_input" name="sex">
+                                <option value="0">未领养</option>
+                                <option value="1">已领养</option>
+                            </select>
                             <span class="help-block"></span>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 package com.service.impl;
 
 import com.entity.Admit;
+import com.entity.Team;
 import com.mapper.AdmitMapper;
 import com.service.AdmitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,10 @@ public class AdmitServiceImpl implements AdmitService {
     @Override
     public Admit AdmitLogin(String username, String password) {
         return admitMapper.AdmitLogin(username,password);
+    }
+
+    @Override
+    public int addTeamApply(Team team) {
+        return admitMapper.addTeamApply(team);
     }
 }

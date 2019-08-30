@@ -14,6 +14,7 @@
     <!-- jQuery -->
     <script type="text/javascript"
             src="${pageContext.request.contextPath}/animal/JQuery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/animal/houtai/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/animal/houtai/js/metisMenu.min.js"></script>
     <script src="${pageContext.request.contextPath}/animal/houtai/js/sb-admin-2.js"></script>
     <!-- 引入css样式文件 -->

@@ -13,17 +13,10 @@
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <meta name="keywords" content=""
-    />
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
+    <meta name="keywords" content=""/>
+    <script src="${pageContext.request.contextPath}/animal/js/jquery-3.4.1.js"></script>
+    <script src="${pageContext.request.contextPath}/animal/js/bootstrap.js"></script>
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
     <!--// Meta tag Keywords -->
     <!-- css files -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css" media="all">
@@ -33,21 +26,26 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/owl.carousel.css" type="text/css" media="all" />
     <!-- Owl-Carousel-CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all" />
-
-    <!-- Style-CSS -->
-    <!-- //css files -->
-    <!-- web fonts -->
     <link href="http://fonts.googleapis.com/css?family=Molle:400i&amp;subset=latin-ext" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext"
           rel="stylesheet">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
     <!-- //web fonts -->
 
 </head>
 <body>
 
 
-<!-- team -->
+<!-- Team -->
 <div class="team" id="team">
     <div class="container">
         <h3 class="agile-title">Our Team</h3>
@@ -100,11 +98,7 @@
         </div>
     </div>
 </div>
-<!-- //team -->
-<!-- js -->
-<script src="${pageContext.request.contextPath}/animal/js/jquery-3.4.1.js"></script>
-<script src="${pageContext.request.contextPath}/animal/js/bootstrap.js"></script>
-<!-- Necessary-JavaScript-File-For-Bootstrap -->
+<!-- //Team -->
 <!-- //js -->
 
 <!-- Banner Slider -->
@@ -214,15 +208,15 @@ q'o
     <div class="container">
         <h3 class="agile-title">加入我们</h3>
         <div class="col-md-9 col-sm-9 contact-right">
-            <form action="${pageContext.request.contextPath}/admit/apply" method="post">
-                <input type="text" name="name" placeholder="姓名" required="">
-                <input type="email" name="email" placeholder="邮箱" required="">
-                <input type="text" name="subject" placeholder="类型" required="">
-                <input type="text" name="phone number" placeholder="电话号码" required="">
-                <textarea name="message" placeholder="您的信息" required=""></textarea>
+            <form action="${pageContext.request.contextPath}/admit/teanApply" method="post">
+                <input type="text" name="team_name" placeholder="姓名" required="">
+                <input type="email" name="team_email" placeholder="邮箱" required="">
+                <input type="text" name="team_reason" placeholder="理由" required="">
+                <input type="text" name="team_tel" placeholder="电话号码" required="">
+                <textarea name="team_message" placeholder="您的自荐" required=""></textarea>
                 <input type="submit" value="发送">
-
             </form>
+            <font color="red">${teamMsg}</font>
         </div>
         <div class="col-md-3 col-sm-3 contact-left">
             <div class="address">
@@ -251,15 +245,6 @@ q'o
     </div>
 </div>
 <!-- map -->
-<div class="map-w3ls">
-    <iframe src=""
-            allowfullscreen></iframe>
-</div>
-<!-- //map -->
-<!-- //contact -->
-<!-- js -->
-<script src="${pageContext.request.contextPath}/animal/js/jquery-3.4.1.js"></script>
-<script src="${pageContext.request.contextPath}/animal/js/bootstrap.js"></script>
 <!-- Necessary-JavaScript-File-For-Bootstrap -->
 <!-- //js -->
 </body>
