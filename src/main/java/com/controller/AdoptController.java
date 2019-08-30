@@ -7,6 +7,7 @@ import com.service.AdoptService;
 import com.service.PetService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.util.Msg;
+import com.util.showByPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,7 +65,7 @@ public class AdoptController {
         Pet pet = petService.findPetByName(petName);
         request.getSession().setAttribute("newPet", pet);
         System.out.println("pet:" + pet);
-        return "forward:/pinglunShow";
+        return "forward:/pinglun/pinglunShow";
     }
 
     @RequestMapping("/adoptPet")
@@ -92,7 +93,8 @@ public class AdoptController {
 
     @RequestMapping("/adoptApply")
     public String adoptApply(Model model,HttpServletRequest request) {
-        List<Adopt> adoptList = adoptService.adoptApply();
+        showByPage showByPage=new showByPage();
+        List<Adopt> adoptList = adoptService.getAll();
         System.out.println("领养：" + adoptList);
         model.addAttribute("AdoptList", adoptList);
         return "adoptApply";
@@ -139,8 +141,37 @@ public class AdoptController {
         }
         request.setAttribute("applyResult", "发生错误");
         System.out.println("审核拒绝失败了,数据库发生错误？");
-        return "redirect:/adopt/adoptApply";
+        return "redirect:/adopt/showApplyByPage";
     }
-
+//    @RequestMapping("/showApplyByPage")
+//    public String helpPage( int currPage, HttpServletRequest request,Model model){
+//        System.out.println("----当前页码传递----"+currPage);
+//      List<Adopt> adopts=adoptService.getAll();
+//      int rowCount=0;//记录总数
+//      for (Adopt adopt : adopts){
+//         rowCount++;
+//
+//      }
+//        System.out.println(adopts);
+//        int pageSize=5;//每页的记录数
+//        int pageCount=0;//一共有几页
+//        if (rowCount%pageSize==0){
+//            pageCount=rowCount/pageSize;
+//        }else {
+//            pageCount=rowCount/pageSize+1;
+//        }
+//        if (currPage<=0){//传递当前页码
+//                currPage=1;
+//            }else if (currPage>pageCount){
+//            currPage=pageCount;
+//        }
+//        request.setAttribute("rowCount",rowCount);//总记录数
+//        request.setAttribute("pageSize",pageSize);//每页记录数
+//        request.setAttribute("pageCount",pageCount);//总页数
+//           List<Adopt> list= adoptService.findPage((currPage-1)*pageSize,pageSize);//查询当前页数信息
+//        request.setAttribute("currPage", currPage);//当前页码
+//        model.addAttribute("currList", list);//当前页码的信息
+//        return "redirect:adoptApply";
+//    }
 
 }

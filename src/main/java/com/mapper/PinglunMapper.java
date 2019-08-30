@@ -13,5 +13,8 @@ public interface PinglunMapper {
     int delPinglunById(Integer id);
     List<Pinglun> getAllPinglun();
     List<Pinglun> getPinglunByPetName(String petName);
+    Pinglun getPinglunById(Integer id);
+    int updatePinglun(Pinglun pinglun);
+    void deleteBatch(List<Integer> ids);
 
 }

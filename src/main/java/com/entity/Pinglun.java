@@ -44,7 +44,7 @@ public class Pinglun {
     }
 
     public void setReplyName(String replyName) {
-        replyName = replyName;
+        this.replyName = replyName;
     }
 
     public String getBeReplyName() {
@@ -70,9 +70,6 @@ public class Pinglun {
     public void setImg(String img) {
         this.img = img;
     }
-
-
-
     public String getContent() {
         return content;
     }

@@ -12,4 +12,19 @@
     <select id="getPinglunByPetName" parameterType="String" resultType="com.entity.Pinglun" >
         select pinglun.* from pinglun,pet where pet.petName=pinglun.pinglunObj and pet.petName=#{pet.petName}
     </select>
+    <delete id="delPinglunById" parameterType="int">
+        delete from pinglun where id=#{id}
+    </delete>
+    <select id="getPinglunById" parameterType="int" resultType="com.entity.Pinglun">
+        select * from pinglun where id=#{id}
+    </select>
+    <update id="updatePinglun" parameterType="com.entity.Pinglun">
+        update pinglun set replyName=#{replyName},content=#{content},time=#{time},pinglunObj=#{pinglunObj} where id=#{id}
+    </update>
+    <delete id="deleteBatch">
+        delete from pinglun
+        <foreach collection="ids" item="id" separator="," open="where id in (" close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

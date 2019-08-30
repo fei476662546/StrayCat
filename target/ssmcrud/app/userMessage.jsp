@@ -591,13 +591,13 @@
                 $("#userId_modify_input").val(result.extend.user.id);
                 $("#username_modify_input").val(result.extend.user.name);
                 $("#password_modify_input").val(result.extend.user.pwd);
-                ("#age_modify_input").val(result.extend.user.age);
+                $("#age_modify_input").val(result.extend.user.age);
                 $("#sex_modify_input").val(result.extend.user.sex);
                 $("#tel_modify_input").val(result.extend.user.tel);
-                ("#email_modify_input").val(result.extend.user.email);
+               $("#email_modify_input").val(result.extend.user.email);
                 $("#pic_modify_input").val(result.extend.user.pic);
                 $("#address_modify_input").val(result.extend.user.address);
-                ("#message_modify_input").val(result.extend.user.message);
+                $("#message_modify_input").val(result.extend.user.message);
                 $("#state_modify_input").val(result.extend.user.state);
             }
         });

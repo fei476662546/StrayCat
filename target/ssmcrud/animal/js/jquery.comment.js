@@ -63,7 +63,7 @@
 	//返回每个回复体内容
 	function createReplyComment(reply){
 		var replyEl = "<div class='reply'><div><a href='javascript:void(0)' class='replyname'>"+reply.replyName+"</a>:<a href='javascript:void(0)'>@"+reply.beReplyName+"</a><span>"+reply.content+"</span></div>"
-						+ "<p><span>"+reply.time+"</span> <span class='reply-list-btn'>回复</span></p></div>";
+						+ "<p><span>"+reply.time+"</span> <span class='reply-list-btn'><font color='black'>回复</font></span></p></div>";
 		return replyEl;
 	}
 	function getNowDateFormat(){

@@ -310,58 +310,41 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
-
-    <div class="comment-list">
-    </div>
-<%--    <c:forEach items="${pinglunList}" var="pinglun" varStatus="s">--%>
-<%--<script>--%>
-<%--    var arr1 = [--%>
-<%--        {--%>
-<%--            id:${pinglun.id},--%>
-<%--            img: "/myImg/${pinglun.img}",--%>
-<%--            replyName: "${pinglun.replyName}",--%>
-<%--            beReplyName: "${pinglun.beReplyName}",--%>
-<%--            content: "${pinglun.content}",--%>
-<%--            time: "${pinglun.time}",--%>
-<%--            replyBody: [{--%>
-<%--                id: 3,--%>
-<%--                img: "",--%>
-<%--                replyName: "帅大叔",--%>
-<%--                beReplyName: "匿名",--%>
-<%--                content: "来啊，我们一起吃鸡",--%>
-<%--                time: "2017-10-17 11:42:53",--%>
-<%--            }]--%>
-<%--        },--%>
-<%--    ];--%>
-<%--    $(function () {--%>
-<%--        $(".comment-list").addCommentList({date:arr1,add:""});--%>
-<%--    })--%>
-<%--</script>--%>
-<%--    </c:forEach>--%>
     <div class="container">
-        <form  method="post" id="form1">
-            <%
-                //我要获取当前的日期
-                Date date = new Date();
-                //设置要获取到什么样的时间
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                //获取String类型的时间
-                String createdate = sdf.format(date);
-                request.getSession().setAttribute("NowTime", createdate);
-            %>
-            <div class="commentbox">
+        <div class="commentbox">
+            <form id="form_pinglun">
+                <%
+                    //我要获取当前的日期
+                    Date date = new Date();
+                    //设置要获取到什么样的时间
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    //获取String类型的时间
+                    String createdate = sdf.format(date);
+                    request.getSession().setAttribute("NowTime", createdate);
+                %>
                 <input type="text" name="img" value="${User.pic}" id="new_pinglun_img" hidden>
                 <input type="text" name="replyName" value="${User.username}" id="new_pinglun_replyName" hidden>
                 <input type="text" name="beReplyName" value="" id="new_pinglun_beReplyName" hidden>
                 <input type="text" name="time" value="${NowTime}" id="new_pinglun_time" hidden>
                 <input type="text" name="pinglunObj" value="${newPet.petName}" hidden>
-
-                <textarea cols="80" rows="50" placeholder="来说几句吧......" name="content" class="mytextarea" id="content"></textarea>
-                <div class="btn btn-info pull-right" id="comment">评论</div>
-            </div>
-        </form>
+                <textarea cols="80" rows="50" placeholder="来说几句吧......" name="content" class="mytextarea"
+                          id="content"></textarea>
+            </form>
+            <div class="btn btn-info pull-right" id="comment">评论</div>
+        </div>
     </div>
 </div>
+<%----------------------评论显示的位置--%>
+<div class="comment-list">
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <script>
     jQuery(function ($) {
         $('#demo1').slideBox();
@@ -372,28 +355,27 @@
             $("#doAdopt").click();
         });
     });
-    // =======================================评论====================================================
     var arr = [
+        <c:forEach items="${pinglunList}" var="pinglun" varStatus="s">
         {
-            id:2,
-            img: "${pageContext.request.contextPath}/animal/images/p4.jpg",
-            replyName: "匿名",
-            beReplyName: "",
-            content: "到菜市场买菜，看到一个孩子在看摊，我问：“一只鸡多少钱？” 那孩子回答：“23。” 我又问：“两只鸡多少钱？” 孩子愣了一下，一时间没算过来，急中生智大吼一声：“一次只能买一只！”",
-            time: "2017-10-17 11:42:53",
+            id:${pinglun.id},
+            img: "/myImg/${pinglun.img}",
+            replyName: "${pinglun.replyName}",
+            beReplyName: "${pinglun.beReplyName}",
+            content: "${pinglun.content}",
+            time: "${pinglun.time}",
             replyBody: [{
-                id: 3,
-                img: "",
-                replyName: "帅大叔",
-                beReplyName: "匿名",
-                content: "来啊，我们一起吃鸡",
-                time: "2017-10-17 11:42:53",
+                // id: 3,
+                // img: "",
+                // replyName: "帅大叔",
+                // beReplyName: "匿名",
+                // content: "来啊，我们一起吃鸡",
+                // time: "2017-10-17 11:42:53",
             }]
         },
+        </c:forEach>
     ];
-
     $(function () {
-
         $(".comment-list").addCommentList({data: arr, add: ""});
         $("#comment").click(function () {
             var obj = new Object();
@@ -404,21 +386,20 @@
             obj.replyBody = "";
             $(".comment-list").addCommentList({data: [], add: obj});
             $.ajax({
-                url:"${pageContext.request.contextPath}/pinglunAdd",
-                type:"post",
-                data:$("#form1 form").serialize(),
+                url: "${pageContext.request.contextPath}/pinglun/pinglunAdd",
+                type: "post",
 
+                data: $("#form_pinglun").serialize(),
                 success: function (result) {
-                    if (result.code==100) {
+                    if (result.code == 100) {
                         $("#content").val('');
-                    }else {
+                    } else {
                         console.log(result);
                     }
                 }
             })
         });
     })
-
 </script>
 
 </body>

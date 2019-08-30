@@ -39,4 +39,7 @@
     <select id="findApplyByPetName" resultType="int" parameterType="String">
         select apply from adopt where petName=#{petName}
     </select>
+    <select id="findPage" resultType="com.entity.Adopt">
+        select * from adopt order by id limit #{id},#{id}
+    </select>
 </mapper>

@@ -14,14 +14,7 @@
     <!-- jQuery -->
     <script type="text/javascript"
             src="${pageContext.request.contextPath}/animal/JQuery/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/metisMenu.min.js"></script>
-    <!-- DataTables JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/jquery.dataTables.min.js"></script>
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/dataTables.bootstrap.min.js"></script>
-    <!-- Custom Theme JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/sb-admin-2.js"></script>
     <!-- 引入css样式文件 -->
     <!-- Bootstrap Core CSS -->
@@ -139,11 +132,11 @@
                             <i class="fa fa-sitemap fa-fw"></i> 宠物信息管理
                         </a>
                     </li>
-                    <li class="list-group-item">
-                        <a href="${pageContext.request.contextPath}/app/adoptMessage.jsp" target="admit_page">
-                            <i class="fa fa-bolt fa-fw"></i> 领养信息管理
-                        </a>
-                    </li>
+<%--                    <li class="list-group-item">--%>
+<%--                        <a href="${pageContext.request.contextPath}/app/adoptMessage.jsp" target="admit_page">--%>
+<%--                            <i class="fa fa-bolt fa-fw"></i> 领养信息管理--%>
+<%--                        </a>--%>
+<%--                    </li>--%>
                     <li class="list-group-item">
                         <a href="${pageContext.request.contextPath}/adopt/adoptApply" target="admit_page">
                             <i class="fa fa-gamepad fa-fw"></i> 审核领养申请

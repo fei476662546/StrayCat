@@ -39,14 +39,16 @@
     <link href="${pageContext.request.contextPath}/animal/houtai/css/boot-crm.css" rel="stylesheet" type="text/css">
 </head>
 <style>
-    input{
+    input {
         border: hidden;
     }
-    table{
+
+    table {
         width: 900px;
         height: 500px;
     }
-    input{
+
+    input {
         width: 100px;
     }
 </style>
@@ -71,7 +73,7 @@
                         </tr>
                         <c:forEach items="${AdoptList}" var="acc" varStatus="s">
                             <tr>
-                                <td hidden><input type="checkbox" name="id" value="${acc.id}" ></td>
+                                <td hidden><input type="checkbox" name="id" value="${acc.id}"></td>
                                 <td><input type="text" name="id" value="${acc.id}"></td>
                                     <%-- 有疑问--%>
                                 <td><input type="text" name="user_id" value="${acc.user_id}"></td>
@@ -93,7 +95,6 @@
                                 </td>
                             </tr>
                         </c:forEach>
-
                     </table>
                 </form>
             </center>

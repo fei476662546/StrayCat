@@ -35,4 +35,19 @@ public class PinglunServiceImpl implements PinglunService {
     public List<Pinglun> getPinglunByPetName(String petName) {
         return pinglunMapper.getPinglunByPetName(petName);
     }
+
+    @Override
+    public Pinglun getPinglunById(Integer id) {
+        return pinglunMapper.getPinglunById(id);
+    }
+
+    @Override
+    public int updatePinglun(Pinglun pinglun) {
+        return pinglunMapper.updatePinglun(pinglun);
+    }
+
+    @Override
+    public void deleteBatch(List<Integer> ids) {
+        pinglunMapper.deleteBatch(ids);
+    }
 }
