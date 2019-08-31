@@ -89,22 +89,30 @@
         <!-- 搭建显示页面 -->
         <div class="container">
             <!-- 标题 -->
-            <div class="row">
-                <div class="col-md-12">
+            <br>
+            <br>
+            <br>
+            <div class="panel panel-default">
+                <!-- 搜索部分 -->
+                <div class="panel-body">
+                    <form class="form-inline" method="get" action="">
+                        <div class="form-group">
+                            <label for="findByName">用户名</label>
+                            <input type="text" class="form-control" id="findByName" value="" name="adminName">
+                        </div>
+                        <button type="submit" class="btn btn-primary">查询</button>
+                    </form>
+                    <div style="float: right">
+                        <button class="btn btn-primary" id="user_add_modal_btn">新增</button>
+                        <button class="btn btn-danger" id="user_delete_all_btn">批量删除</button>
+                    </div>
 
-                </div>
-            </div>
-            <!-- 按钮 -->
-            <div class="row">
-                <div class="col-md-4 col-md-offset-8">
-                    <button class="btn btn-primary" id="user_add_modal_btn">新增</button>
-                    <button class="btn btn-danger" id="user_delete_all_btn">批量删除</button>
                 </div>
             </div>
             <!-- 显示表格数据 -->
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-hover" id="user_table">
+                    <table class="table table-bordered table-striped" id="user_table">
                         <thead>
                         <tr>
                             <th>
@@ -117,7 +125,7 @@
                             <th>sex</th>
                             <th>tel</th>
                             <th>email</th>
-                            <th>pic</th>
+<%--                            <th>pic</th>--%>
                             <th>address</th>
                             <th>message</th>
                             <th>atate</th>
@@ -160,21 +168,21 @@
                         <div class="col-sm-10">
                             <input type="text" name="username" class="form-control" id="username_add_input"
                                    placeholder="username">
-                            <span class="help-block"></span>
+
                         </div>
 
                         <label class="col-sm-2 control-label">password</label>
                         <div class="col-sm-10">
                             <input type="password" name="password" class="form-control" id="password_add_input"
                                    placeholder="****">
-                            <span class="help-block"></span>
+
                         </div>
-
-
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">age</label>
                         <div class="col-sm-10">
                             <input type="text" name="age" class="form-control" id="age_add_input" placeholder="年龄">
-                            <span class="help-block"></span>
+
                         </div>
 
 
@@ -184,57 +192,53 @@
                                 <option value="0">女</option>
                                 <option value="1">男</option>
                             </select>
-                            <span class="help-block"></span>
+
                         </div>
-
-
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">tel</label>
                         <div class="col-sm-10">
                             <input type="text" name="tel" class="form-control" id="tel_add_input"
                                    placeholder="tel">
-                            <span class="help-block"></span>
+
                         </div>
 
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-2 control-label">email</label>
                         <div class="col-sm-10">
                             <input type="text" name="email" class="form-control" id="email_add_input"
                                    placeholder="email">
-                            <span class="help-block"></span>
-                        </div>
 
-                        <label class="col-sm-2 control-label">pic</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="pic" class="form-control" id="pic_add_input"
-                                   placeholder="username">
-                            <span class="help-block"></span>
                         </div>
-
+                    </div>
+<%--                        <label class="col-sm-2 control-label">pic</label>--%>
+<%--                        <div class="col-sm-10">--%>
+<%--                            <input type="text" name="pic" class="form-control" id="pic_add_input"--%>
+<%--                                   placeholder="username">--%>
+<%--                            <span class="help-block"></span>--%>
+<%--                        </div>--%>
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">address</label>
                         <div class="col-sm-10">
                             <input type="text" name="address" class="form-control" id="address_add_input"
                                    placeholder="地址">
-                            <span class="help-block"></span>
+
                         </div>
 
                         <label class="col-sm-2 control-label">message</label>
                         <div class="col-sm-10">
                             <input type="text" name="message" class="form-control" id="message_add_input"
                                    placeholder="message">
-                            <span class="help-block"></span>
-                        </div>
 
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">state</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="state_add_input" name="sex">
                                 <option value="0">未领养</option>
                                 <option value="1">已领养</option>
                             </select>
-                            <span class="help-block"></span>
                         </div>
-                        <%--                        <div class="col-sm-10">--%>
-                        <%--                            <input type="submit" id="doAddUser" value="" style="display: none"></div>--%>
                     </div>
                 </form>
             </div>
@@ -293,6 +297,7 @@
                         <label class="col-sm-2 control-label">sex</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="sex_modify_input" name="sex">
+                                <option value="${user.sex}">修改</option>
                                 <option value="0">女</option>
                                 <option value="1">男</option>
                             </select>
@@ -316,12 +321,12 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">pic</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="pic" class="form-control" id="pic_modify_input" value="${user.pic}"
-                                   placeholder="pic">
-                            <span class="help-block"></span>
-                        </div>
+<%--                        <label class="col-sm-2 control-label">pic</label>--%>
+<%--                        <div class="col-sm-10">--%>
+<%--                            <input type="text" name="pic" class="form-control" id="pic_modify_input" value="${user.pic}"--%>
+<%--                                   placeholder="pic">--%>
+<%--                            <span class="help-block"></span>--%>
+<%--                        </div>--%>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">address</label>
@@ -343,6 +348,7 @@
                         <label class="col-sm-2 control-label">state</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="state_modify_input" name="sex">
+                                <option value="${user.state}">修改</option>
                                 <option value="0">未领养</option>
                                 <option value="1">已领养</option>
                             </select>
@@ -408,7 +414,7 @@
             var sexTd = $("<td></td>").append(user.sex);
             var telTd = $("<td></td>").append(user.tel);
             var emailTd = $("<td></td>").append(user.email);
-            var picTd = $("<td></td>").append(user.pic);
+            // var picTd = $("<td></td>").append(user.pic);
             var addressTd = $("<td></td>").append(user.address);
             var messageTd = $("<td></td>").append(user.message);
             var stateTd = $("<td></td>").append(user.state);
@@ -433,7 +439,7 @@
                 .append(sexTd)
                 .append(telTd)
                 .append(emailTd)
-                .append(picTd)
+                // .append(picTd)
                 .append(addressTd)
                 .append(messageTd)
                 .append(stateTd)
@@ -599,7 +605,7 @@
                 $("#sex_modify_input").val(result.extend.user.sex);
                 $("#tel_modify_input").val(result.extend.user.tel);
                $("#email_modify_input").val(result.extend.user.email);
-                $("#pic_modify_input").val(result.extend.user.pic);
+                // $("#pic_modify_input").val(result.extend.user.pic);
                 $("#address_modify_input").val(result.extend.user.address);
                 $("#message_modify_input").val(result.extend.user.message);
                 $("#state_modify_input").val(result.extend.user.state);

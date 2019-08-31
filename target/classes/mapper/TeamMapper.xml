@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.TeamMapper">
+    <insert id="addTeamApply" parameterType="com.entity.Team">
+      insert into team (team_name,team_email,team_tel,team_reason,team_message,time,state) values (#{team_name},#{team_email},#{team_tel},#{team_reason},#{team_message},#{time},state)
+</insert>
+    <select id="findAllTeamApply" resultType="com.entity.Team">
+        select * from team
+    </select>
+    <delete id="delTeamById" parameterType="int">
+       delete from team where id=#{id}
+    </delete>
+    <select id="getTeamById" parameterType="int" resultType="com.entity.Team">
+        select * from team where id=#{id}
+    </select>
+    <update id="updateTeam" parameterType="com.entity.Team">
+        update Team set team_name=#{team_name}, team_email=#{team_email},team_tel=#{team_tel},team_reason=#{team_reason},team_message=#{team_message},time=#{time},state=#{state} where id=#{id}
+    </update>
+</mapper>

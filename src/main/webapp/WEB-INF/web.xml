@@ -41,5 +41,15 @@
     <filter-name>CharacterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <!-- 使用filter实现登录控制 -->
+  <filter>
+    <filter-name>SessionFilter</filter-name>
+    <filter-class>com.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <!-- 所有的管理页面需要登录后才能访问 -->
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 
 </web-app>

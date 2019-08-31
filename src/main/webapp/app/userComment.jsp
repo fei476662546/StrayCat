@@ -89,22 +89,30 @@
         <!-- 搭建显示页面 -->
         <div class="container">
             <!-- 标题 -->
-            <div class="row">
-                <div class="col-md-12">
+            <br>
+            <br>
+            <br>
+            <div class="panel panel-default">
+                <!-- 搜索部分 -->
+                <div class="panel-body">
+                    <form class="form-inline" method="get" action="">
+                        <div class="form-group">
+                            <label for="findByName">用户名</label>
+                            <input type="text" class="form-control" id="findByName" value="" name="adminName">
+                        </div>
+                        <button type="submit" class="btn btn-primary">查询</button>
+                    </form>
+                    <div style="float: right">
+                        <button class="btn btn-primary" id="user_add_modal_btn">新增</button>
+                        <button class="btn btn-danger" id="user_delete_all_btn">批量删除</button>
+                    </div>
 
-                </div>
-            </div>
-            <!-- 按钮 -->
-            <div class="row">
-                <div class="col-md-4 col-md-offset-8">
-                    <button class="btn btn-primary" id="user_add_modal_btn">新增</button>
-                    <button class="btn btn-danger" id="user_delete_all_btn">批量删除</button>
                 </div>
             </div>
             <!-- 显示表格数据 -->
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-hover" id="user_table">
+                    <table class="table table-bordered table-striped" id="user_table">
                         <thead>
                         <tr>
                             <th>

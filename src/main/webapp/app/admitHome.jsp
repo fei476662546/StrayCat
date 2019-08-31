@@ -133,11 +133,11 @@
                             <i class="fa fa-sitemap fa-fw"></i> 宠物信息管理
                         </a>
                     </li>
-<%--                    <li class="list-group-item">--%>
-<%--                        <a href="${pageContext.request.contextPath}/app/adoptMessage.jsp" target="admit_page">--%>
-<%--                            <i class="fa fa-bolt fa-fw"></i> 领养信息管理--%>
-<%--                        </a>--%>
-<%--                    </li>--%>
+                    <li class="list-group-item">
+                        <a href="${pageContext.request.contextPath}/team/teamList" target="admit_page">
+                            <i class="fa fa-bolt fa-fw"></i> 团队申请管理
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="${pageContext.request.contextPath}/adopt/adoptApply" target="admit_page">
                             <i class="fa fa-gamepad fa-fw"></i> 审核领养申请

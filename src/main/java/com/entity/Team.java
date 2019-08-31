@@ -11,19 +11,29 @@ public class Team {
     private String team_reason;
     private String team_tel;
     private String team_message;
-    private String team_time;
+    private String time;
+    private Integer state;
 
     public Team() {
     }
 
-    public Team(String id, String team_name, String team_email, String team_reason, String team_tel, String team_message, String team_time) {
+    public Team(String id, String team_name, String team_email, String team_reason, String team_tel, String team_message, String time,Integer state) {
         this.id = id;
         this.team_name = team_name;
         this.team_email = team_email;
         this.team_reason = team_reason;
         this.team_tel = team_tel;
         this.team_message = team_message;
-        this.team_time = team_time;
+        this.time = time;
+        this.state=state;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public String getId() {
@@ -74,12 +84,12 @@ public class Team {
         this.team_message = team_message;
     }
 
-    public String getTeam_time() {
-        return team_time;
+    public String getTime() {
+        return time;
     }
 
-    public void setTeam_time(String team_time) {
-        this.team_time = team_time;
+    public void setTime(String time) {
+        this.time = time;
     }
 
     @Override
@@ -91,7 +101,7 @@ public class Team {
                 ", team_reason='" + team_reason + '\'' +
                 ", team_tel='" + team_tel + '\'' +
                 ", team_message='" + team_message + '\'' +
-                ", team_time='" + team_time + '\'' +
+                ", team_time='" + time + '\'' +
                 '}';
     }
 }

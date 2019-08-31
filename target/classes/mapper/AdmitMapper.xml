@@ -18,7 +18,5 @@
     <update id="updateAdmitById" parameterType="com.entity.Admit" >
         update admit set name=#{name},password=#{password} where id=#{id}
     </update>
-<select id="addTeamApply" parameterType="com.entity.Team">
-      insert into team (team_name,team_email,team_tel,team_reason,team_message,team_time) values (#{tean_name},#{team_email},#{team_tel},#{team_reason},#{team_message},#{team_time})
-</select>
+
 </mapper>

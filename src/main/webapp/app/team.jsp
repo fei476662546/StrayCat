@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %><%--
   Created by IntelliJ IDEA.
   User: 47666
   Date: 2019/8/22
@@ -208,11 +209,22 @@ q'o
     <div class="container">
         <h3 class="agile-title">加入我们</h3>
         <div class="col-md-9 col-sm-9 contact-right">
-            <form action="${pageContext.request.contextPath}/admit/teanApply" method="post">
+            <form action="${pageContext.request.contextPath}/team/teamApply" method="post">
+                <%
+                    //我要获取当前的日期
+                    Date date = new Date();
+                    //设置要获取到什么样的时间
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    //获取String类型的时间
+                    String createdate = sdf.format(date);
+                    request.getSession().setAttribute("NowTime2", createdate);
+                %>
                 <input type="text" name="team_name" placeholder="姓名" required="">
                 <input type="email" name="team_email" placeholder="邮箱" required="">
                 <input type="text" name="team_reason" placeholder="理由" required="">
                 <input type="text" name="team_tel" placeholder="电话号码" required="">
+                <input type="text" name="time" hidden value="${NowTime2}" required="">
+                <input type="text" name="state" hidden value="0" required="">
                 <textarea name="team_message" placeholder="您的自荐" required=""></textarea>
                 <input type="submit" value="发送">
             </form>

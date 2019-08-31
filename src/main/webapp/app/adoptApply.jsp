@@ -62,7 +62,7 @@
             <center>
                 <h2>领养申请表</h2>
                 <form method="post" id="form1">
-                    <table>
+                    <table class="table table-bordered table-striped">
                         <tr>
                             <td>id</td>
                             <td>User_id</td>

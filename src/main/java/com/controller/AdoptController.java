@@ -42,7 +42,6 @@ public class AdoptController {
     }
 
     @RequestMapping("/edit")
-
     public Msg edit(Integer id) {
         Adopt adopt = adoptService.getAdoptById(id);
         if (adopt != null) {
@@ -141,7 +140,7 @@ public class AdoptController {
         }
         request.setAttribute("applyResult", "发生错误");
         System.out.println("审核拒绝失败了,数据库发生错误？");
-        return "redirect:/adopt/showApplyByPage";
+        return "redirect:/adopt/adoptApply";
     }
 //    @RequestMapping("/showApplyByPage")
 //    public String helpPage( int currPage, HttpServletRequest request,Model model){

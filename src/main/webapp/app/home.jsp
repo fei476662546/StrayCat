@@ -68,7 +68,7 @@
                         <a href="${pageContext.request.contextPath}/app/about.jsp" target="item_main">宠物知识</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/app/services.jsp" target="item_main">领养中心</a>
+                        <a href="${pageContext.request.contextPath}/service" target="item_main">领养中心</a>
                     </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/app/blog.jsp" target="item_main">猫狗日记</a>
@@ -104,6 +104,7 @@
                         <li>
                             <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录</button>
                         </li>
+                        <li><font color="black" style="font-weight: bold">${handlerMsg}</font></li>
                     </c:if>
 <%--                    <li >--%>
 <%--                        <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录</button>--%>

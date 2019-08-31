@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class indexController {
     @RequestMapping("/")
     public String index(){
-        return "forward:user/index";
+        return "redirect:/user/index";
     }
     @RequestMapping("/about")
     public String about(){

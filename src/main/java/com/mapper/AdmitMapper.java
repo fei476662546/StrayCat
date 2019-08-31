@@ -16,5 +16,5 @@ public interface AdmitMapper {
     int delAdmitById(int id);
     int updateAdmitById(Admit admit);
     Admit AdmitLogin(@Param("username") String username, @Param("password") String password);//登录
-    int addTeamApply(Team team);
+
 }

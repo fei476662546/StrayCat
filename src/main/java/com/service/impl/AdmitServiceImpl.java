@@ -41,8 +41,5 @@ public class AdmitServiceImpl implements AdmitService {
         return admitMapper.AdmitLogin(username,password);
     }
 
-    @Override
-    public int addTeamApply(Team team) {
-        return admitMapper.addTeamApply(team);
-    }
+
 }
