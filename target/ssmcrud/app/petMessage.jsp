@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 47666
-  Date: 2019/8/23
-  Time: 14:20
+  Date: 2019/8/22
+  Time: 10:53
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,6 +11,11 @@
 %>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <%--<!-- 引入js文件 -->--%>
+    <!-- jQuery -->
+    <script type="text/javascript"
+            src="${pageContext.request.contextPath}/animal/JQuery/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/bootstrap.min.js"></script>
     <!-- Metis Menu Plugin JavaScript -->
@@ -20,12 +25,8 @@
     <script src="${pageContext.request.contextPath}/animal/houtai/js/dataTables.bootstrap.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/sb-admin-2.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>学员关系管理系统CRM</title>
     <!-- 引入css样式文件 -->
     <!-- Bootstrap Core CSS -->
-    <script type="text/javascript"
-            src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.min.js"></script>
     <link href="${pageContext.request.contextPath}/animal/houtai/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
     <link href="${pageContext.request.contextPath}/animal/houtai/css/metisMenu.min.css" rel="stylesheet">
@@ -82,120 +83,130 @@
 
 </head>
 <body>
-<!-- 用户信息查询部分  start-->
-<!-- 搭建显示页面 -->
-<div id="page-wrapper">
-    <div class="container">
-        <!-- 标题 -->
-        <br>
-        <br>
-        <br>
-        <div class="panel panel-default">
-            <!-- 搜索部分 -->
-            <div class="panel-body">
-                <form class="form-inline" method="get" action="">
-                    <div class="form-group">
-                        <label for="findByName">用户名</label>
-                        <input type="text" class="form-control" id="findByName" value="" name="adminName">
+<div id="wrapper">
+    <div id="page-wrapper">
+        <!-- 用户信息查询部分  start-->
+        <!-- 搭建显示页面 -->
+        <div class="container">
+            <!-- 标题 -->
+            <br>
+            <br>
+            <br>
+            <div class="panel panel-default">
+                <!-- 搜索部分 -->
+                <div class="panel-body">
+                    <form class="form-inline" method="get" action="">
+                        <div class="form-group">
+                            <label for="findByName">用户名</label>
+                            <input type="text" class="form-control" id="findByName" value="" name="adminName">
+                        </div>
+                        <button type="submit" class="btn btn-primary">查询</button>
+                    </form>
+                    <div style="float: right">
+                        <button class="btn btn-primary" id="user_add_modal_btn">新增</button>
+                        <button class="btn btn-danger" id="user_delete_all_btn">批量删除</button>
                     </div>
-                    <button type="submit" class="btn btn-primary">查询</button>
-                </form>
-                <div style="float: right">
-                    <button class="btn btn-primary" id="user_add_modal_btn">新增</button>
-                    <button class="btn btn-danger" id="user_delete_all_btn">批量删除</button>
+
                 </div>
+            </div>
+            <!-- 显示表格数据 -->
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped" id="user_table">
+                        <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="check_all"/>
+                            </th>
+                            <th>#</th>
+                            <th>pet名</th>
+                            <th>年龄</th>
+                            <th>性别</th>
+                            <th>种类</th>
+                            <th>备注</th>
+                            <th>领养状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 显示分页信息 -->
+            <div class="row">
+                <!--分页文字信息  -->
+                <div class="col-md-6" id="page_info_area">
 
+                </div>
+                <!-- 分页条信息 -->
+                <div class="col-md-6" id="page_nav_area">
+
+                </div>
             </div>
         </div>
-        <!-- 显示表格数据 -->
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-bordered table-striped" id="user_table">
-                    <thead>
-                    <tr>
-                        <th>
-                            <input type="checkbox" id="check_all"/>
-                        </th>
-                        <th>#</th>
-                        <th>petName</th>
-                        <th>age</th>
-                        <th>sex</th>
-                        <th>pic</th>
-                        <th>state</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- 显示分页信息 -->
-        <div class="row">
-            <!--分页文字信息  -->
-            <div class="col-md-6" id="page_info_area"></div>
-            <!-- 分页条信息 -->
-            <div class="col-md-6" id="page_nav_area">
-
-            </div>
-        </div>
-
     </div>
+
+    <!-- 班级列表查询部分  end-->
 </div>
 
-<%--pet添加的模态框--%>
-<div class="modal fade" id="petAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- 用户添加的模态框 -->
+<div class="modal fade" id="userAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">pet添加</h4>
+                <h4 class="modal-title" id="myModalLabel">pet信息添加</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">petName</label>
+                        <label class="col-sm-2 control-label">pet名</label>
                         <div class="col-sm-10">
-                            <input type="text" name="petName" class="form-control" id="petName_add_input"
-                                   placeholder="petName">
-                            <span class="help-block"></span>
+                            <input type="text" name="petName" class="form-control" id="username_add_input"
+                                   placeholder="">
+
+                        </div>
+
+                        <label class="col-sm-2 control-label">年龄</label>
+                        <div class="col-sm-10">
+                            <input type="password" name="age" class="form-control" id="password_add_input"
+                                   placeholder="">
+
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">age</label>
+                        <label class="col-sm-2 control-label">性别</label>
                         <div class="col-sm-10">
-                            <input type="password" name="age" class="form-control" id="age_add_input"
-                                   placeholder="年龄">
-                            <span class="help-block"></span>
+                            <select class="form-control" id="age_add_input" name="sex">
+                                <option value="0">母</option>
+                                <option value="1">公</option>
+                            </select>
+                        </div>
+
+
+                        <label class="col-sm-2 control-label">种类</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="petType" class="form-control" id="sex_add_input"
+                                   placeholder="">
+
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">sex</label>
+                        <label class="col-sm-2 control-label">备注</label>
                         <div class="col-sm-10">
-                           <select class="form-control" name="sex" id="sex_add_input">
-                               <option value="-1">请选择</option>
-                               <option value="0">母</option>
-                               <option value="1">公</option>
-                           </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">pic</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="pic" class="form-control" id="pic_add_input"
-                                   placeholder=picName">
-                            <span class="help-block"></span>
+                            <input type="text" name="remark" class="form-control" id="tel_add_input"
+                                   placeholder="">
+
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">state</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="state" id="state_add_input">
-                                <option value="-1">请选择</option>
-                                <option value="0">未被领养</option>
-                                <option value="1">已被领养</option>
+                            <select class="form-control" id="state_add_input" name="state">
+                                <option value="0">未领养</option>
+                                <option value="1">已领养</option>
                             </select>
                         </div>
                     </div>
@@ -203,7 +214,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" id="pet_save_btn">保存</button>
+                <button type="button" class="btn btn-primary" id="user_save_btn">保存</button>
             </div>
         </div>
     </div>
@@ -221,54 +232,61 @@
             <div class="modal-body">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">PetID</label>
+                        <label class="col-sm-2 control-label">petID</label>
                         <div class="col-sm-10">
-                            <input type="text" name="id" class="form-control" id="PetId_modify_input"
-                                   value="${pet.id}" readonly placeholder="userid">
+                            <input type="text" name="id" class="form-control" id="userId_modify_input"
+                                   value="${pet.id}" readonly placeholder="">
                             <span class="help-block"></span>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">pet名</label>
+                        <label class="col-sm-2 control-label">petName</label>
                         <div class="col-sm-10">
-                            <input type="text" name="petName" class="form-control" id="PetName_modify_input"
-                                   value="${pet.petName}" placeholder="宠物名">
+                            <input type="text" name="petName" class="form-control" id="username_modify_input"
+                                   value="${pet.petName}" placeholder="">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">年龄</label>
                         <div class="col-sm-10">
-                            <input type="password" name="age" class="form-control" id="age_modify_input"
-                                   value="${pet.age}" placeholder="password">
+                            <input type="text" name="age" class="form-control" id="age_modify_input"
+                                   value="${pet.age}" placeholder="">
+                            <span class="help-block"></span>
+                        </div>
+                        <label class="col-sm-2 control-label">sex</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="sex_modify_input" name="sex">
+                                <option value="${pet.sex}">修改</option>
+                                <option value="0">女</option>
+                                <option value="1">男</option>
+                            </select>
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">性别</label>
+                        <label class="col-sm-2 control-label">种类</label>
                         <div class="col-sm-10">
-                           <select class="form-control" name="sex" id="sex_modify_input">
-                               <option value="0">母</option>
-                               <option value="1">公</option>
-                           </select>
+                            <input type="text" name="petType" class="form-control" id="petType_modify_input"
+                                   value="${pet.petType}" placeholder="">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">照片</label>
+                        <label class="col-sm-2 control-label">备注</label>
                         <div class="col-sm-10">
-                            <input type="text" name="pic" class="form-control" id="pic_modify_input" value="${user.sex}"
-                                   placeholder="pic">
+                            <input type="text" name="remark" class="form-control" id="remark_modify_input"
+                                   value="${pet.remark}" placeholder="">
                             <span class="help-block"></span>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">state</label>
-                        <div class="col-sm-10">
-                            <input type="textd" name="state" class="form-control" id="state_modify_input"
-                                   value="${pet.state}" placeholder="state">
-                            <span class="help-block"></span>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">state</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="state_modify_input" name="state">
+                                    <option value="${user.state}">修改</option>
+                                    <option value="0">未被领养</option>
+                                    <option value="1">已被领养</option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -280,6 +298,18 @@
         </div>
     </div>
 </div>
+
+<!-- 编写js代码 -->
+<script type="text/javascript">
+    $(function () {
+        $(".panel-heading").click(function (e) {
+            /*切换折叠指示图标*/
+            $(this).find("span").toggleClass("fa-chevron-down");
+            $(this).find("span").toggleClass("fa-chevron-up");
+        });
+    });
+</script>
+
 <script>
     var totalRecord, currentPage;
     $(function () {
@@ -307,37 +337,38 @@
     function build_users_table(result) {
         //清空table表格
         $("#user_table tbody").empty();
-        var pets = result.extend.pageInfo.list;//list<User>users
+        var users = result.extend.pageInfo.list;//list<User>users
         //index：下标 item：单个对象
-        $.each(pets, function (index, pet) {
+        $.each(users, function (index, user) {
             var checkBoxTd = $("<td><input type='checkbox' class='check_item'/></td>");
-            var petIdTd = $("<td></td>").append(pet.id);
-            var petNameTd = $("<td></td>").append(pet.petName);
-            var petAgeTd = $("<td></td>").append(pet.age);
-            var petSexTd = $("<td></td>").append(pet.sex);
-            var petPicTd = $("<td></td>").append(pet.pic);
-            var petStateTd = $("<td></td>").append(pet.state);
-
+            var userIdTd = $("<td></td>").append(user.id);
+            var usernameTd = $("<td></td>").append(user.petName);
+            var passwordTd = $("<td></td>").append(user.age);
+            var ageTd = $("<td></td>").append(user.sex);
+            var sexTd = $("<td></td>").append(user.petType);
+            var telTd = $("<td></td>").append(user.remark);
+            var stateTd = $("<td></td>").append(user.state);
 
 
             var editBtn = $("<button></button>").addClass("btn btn-primary btn-sm edit_btn")
                 .append($("<span></span>").addClass("glyphicon glyphicon-pencil")).append("编辑");
             //为编辑按钮添加一个自定义的属性，来表示当前员工id
-            editBtn.attr("edit-id", pet.id);
+            editBtn.attr("edit-id", user.id);
             var delBtn = $("<button></button>").addClass("btn btn-danger btn-sm delete_btn")
                 .append($("<span></span>").addClass("glyphicon glyphicon-trash")).append("删除");
             //为删除按钮添加一个自定义的属性来表示当前删除的员工id
-            delBtn.attr("del-id", pet.id);
+            delBtn.attr("del-id", user.id);
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
             //var delBtn =
             //append方法执行完成以后还是返回原来的元素
             $("<tr></tr>").append(checkBoxTd)
-                .append(petIdTd)
-                .append(petNameTd)
-                .append(petAgeTd)
-                .append(petSexTd)
-                .append(petPicTd)
-                .append(petStateTd)
+                .append(userIdTd)
+                .append(usernameTd)
+                .append(passwordTd)
+                .append(ageTd)
+                .append(sexTd)
+                .append(telTd)
+                .append(stateTd)
                 .append(btnTd)
                 .appendTo("#user_table tbody");
         });
@@ -421,27 +452,29 @@
     }
 
     //点击新增按钮弹出模态框。
-    $("#pet_add_modal_btn").click(function () {
+    $("#user_add_modal_btn").click(function () {
         //清除表单数据（表单完整重置（表单的数据，表单的样式））
-        reset_form("#petAddModal form");
+        reset_form("#userAddModal form");
         //弹出模态框
-        $("#petAddModal").modal({
+        $("#userAddModal").modal({
             backdrop: "static"
         });
     });
     //点击保存，保存员工。
-    $("#pet_save_btn").click(function () {
+    $("#user_save_btn").click(function () {
         //2、发送ajax请求修改员工
+        // console.log(123312312);
+        console.log($("#userAddModal form").serialize());//在控制台输出
         $.ajax({
             url: "${pageContext.request.contextPath}/pet/addPet",
             type: "POST",
-            data: $("#petAddModal form").serialize(),
+            data: $("#userAddModal form").serialize(),
             success: function (result) {
                 //alert(result.msg);
                 if (result.code == 100) {
                     //员工修改成功；
                     //1、关闭模态框
-                    $("#petAddModal").modal('hide');
+                    $("#userAddModal").modal('hide');
                     //请求最后的数据，就会显示新增的数据
                     to_page(totalRecord);
                 } else {
@@ -465,7 +498,7 @@
                 type: "POST",
                 data: {"id": userId},
                 success: function (result) {
-                    //alert(result.msg);
+                    // alert(result.msg);
                     if (result.code == 100) {
 
                         //回到本页
@@ -486,18 +519,18 @@
         reset_form("#userModifyModal form");
         var Id = $(this).attr("edit-id");
         $.ajax({
-            url: "${APP_PATH}/pet/editPet?id=" + Id,
+            url: "${APP_PATH}/pet/edit?id=" + Id,
             type: "GET",
             success: function (result) {
                 //填充用户信息
                 console.log(result);
-
-                $("#userId_modify_input").val(result.extend.pet.id);
-                $("#username_modify_input").val(result.extend.pet.petName);
-                $("#password_modify_input").val(result.extend.pet.age);
-                ("#age_modify_input").val(result.extend.pet.sex);
-                $("#sex_modify_input").val(result.extend.pet.pic);
-                $("#tel_modify_input").val(result.extend.pet.state);
+                $("#userId_modify_input").val(result.extend.user.id);
+                $("#username_modify_input").val(result.extend.user.petName);
+                $("#age_modify_input").val(result.extend.user.age);
+                $("#sex_modify_input").val(result.extend.user.sex);
+                $("#petType_modify_input").val(result.extend.user.petType);
+                $("#remark_modify_input").val(result.extend.user.remark);
+                $("#state_modify_input").val(result.extend.user.state);
             }
         });
         //2、弹出模态框
@@ -507,10 +540,10 @@
 
     });
 
-    //点击新增按钮弹出模态框。
+    //点击修改按钮弹出模态框。
     $("#user_modify_btn").click(function () {
         $.ajax({
-            url: "${pageContext.request.contextPath}/pet/updatePet",
+            url: "${pageContext.request.contextPath}/pet/update",
             type: "POST",
             data: $("#userModifyModal form").serialize(),
             success: function (result) {
@@ -550,7 +583,7 @@
         if (confirm("确认删除【" + userNames + "】吗？")) {
             //发送ajax请求删除
             $.ajax({
-                url: "${APP_PATH}/pet/batchDeletePet?ids=" + del_idstr,
+                url: "${APP_PATH}/pet/batchDelete?ids=" + del_idstr,
                 type: "POST",
                 success: function (result) {
                     alert(result.msg);

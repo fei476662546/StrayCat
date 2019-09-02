@@ -11,10 +11,20 @@ import java.util.List;
  */
 public interface PetMapper {
     List<Pet> getAllPet();
+
     int addPet(Pet pet);
+
     int delPetById(Integer id);
+
     int updatePet(Pet pet);
+
     Pet findPetById(Integer id);
+
     Pet findPetByName(String name);
+
     void deleteBatchPet(@Param("ids") List<Integer> ids);//删除一推
+
+    List<Pet> showlist(int index);
+
+    int pagecount();
 }

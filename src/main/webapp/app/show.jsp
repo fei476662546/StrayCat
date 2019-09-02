@@ -10,6 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+<jsp:include page="home.jsp"></jsp:include>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>动物的具体信息</title>
@@ -22,14 +23,22 @@
     <script src="${pageContext.request.contextPath}/animal/js/jquery.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/animal/js/jquery.slideBox.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/animal/js/jquery.comment.js"></script>
+    <title>立体轮播效果样式</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/animal/lunbo/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/animal/lunbo/css/demo.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/lunbo/css/style.css">
 </head>
 <body>
+
 <div>
     <div>
+        <br>
+        <br>
+        <br>
         <h2>待领养的动物</h2>
         <center>
             <%
-                boolean petId1 = false, petId2 = false, petId3 = false, petId4 = false, petId5 = false, petId6 = false;
+                boolean petId1 = false, petId2 = false, petId3 = false, petId4 = false, petId5 = false, petId6 = false, petId7 = false, petId8 = false, petId9 = false, petId10 = false, petId11 = false, petId12 = false,  petId13 = false, petId14 = false, petId15 = false;
                 Pet pet = (Pet) request.getSession().getAttribute("newPet");
                 if (pet.getId() == 1) {
                     petId1 = true;
@@ -49,25 +58,67 @@
                 if (pet.getId() == 6) {
                     petId6 = true;
                 }
+                if (pet.getId() == 7) {
+                    petId7 = true;
+                }
+                if (pet.getId() == 8) {
+                    petId8 = true;
+                }
+                if (pet.getId() == 9) {
+                    petId9 = true;
+                }
+                if (pet.getId() == 10) {
+                    petId10 = true;
+                }
+                if (pet.getId() == 11) {
+                    petId11 = true;
+                }
+                if (pet.getId() == 12) {
+                    petId12 = true;
+                }
+                if (pet.getId() == 13) {
+                    petId13 = true;
+                }
+                if (pet.getId() == 14) {
+                    petId14 = true;
+                }
+                if (pet.getId() == 15) {
+                    petId15 = true;
+                }
                 request.getSession().setAttribute("petId1", petId1);
                 request.getSession().setAttribute("petId2", petId2);
                 request.getSession().setAttribute("petId3", petId3);
                 request.getSession().setAttribute("petId4", petId4);
                 request.getSession().setAttribute("petId5", petId5);
                 request.getSession().setAttribute("petId6", petId6);
+                request.getSession().setAttribute("petId7", petId7);
+                request.getSession().setAttribute("petId8", petId8);
+                request.getSession().setAttribute("petId9", petId9);
+                request.getSession().setAttribute("petId10", petId10);
+                request.getSession().setAttribute("petId11", petId11);
+                request.getSession().setAttribute("petId12", petId12);
+                request.getSession().setAttribute("petId13", petId13);
+                request.getSession().setAttribute("petId14", petId14);
+                request.getSession().setAttribute("petId15", petId15);
             %>
             <c:if test="${sessionScope.petId1}" var="flag1" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img" src="${pageContext.request.contextPath}/animal/images/1.jpg"></a>
-                        </li>
-                        <li><a href=""><img class="my-img" src="${pageContext.request.contextPath}/animal/images/2.jpg"></a>
-                        </li>
-                        <li><a href=""><img class="my-img" src="${pageContext.request.contextPath}/animal/images/3.jpg"></a>
-                        </li>
-                        <li><a href=""><img class="my-img" src="${pageContext.request.contextPath}/animal/images/4.jpg"></a>
-                        </li>
-                    </ul>
+                <div  id="demo1" class="htmleaf-container">
+
+                    <div class="carousel" data-gap="20" data-bfc>
+                        <figure>
+                            <img src="${pageContext.request.contextPath}/animal/images/m1.jpg"  alt=""><!--alt为若图片失效提示当前位置有张图片的-->
+                            <img src="${pageContext.request.contextPath}/animal/images/m2.jpg"  alt="">
+                            <img src="${pageContext.request.contextPath}/animal/images/m3.jpg"  alt="">
+                            <img src="${pageContext.request.contextPath}/animal/images/m4.jpg"  alt="">
+                            <img src="${pageContext.request.contextPath}/animal/images/m5.jpg"  alt="">
+                            <img src="${pageContext.request.contextPath}/animal/images/m6.jpg"  alt="">
+                        </figure>
+                        <nav>
+                            <button class="nav prev">上一张</button>
+                            <button class="nav next">下一张</button>
+                        </nav>
+                    </div>
+
                 </div>
             </c:if>
             <c:if test="${sessionScope.petId2}" var="flag2" scope="session">
@@ -160,6 +211,170 @@
                     </ul>
                 </div>
             </c:if>
+            <c:if test="${sessionScope.petId6}" var="flag7" scope="session">
+                <div id="demo1" class="slideBox">
+                    <ul class="items">
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.petId6}" var="flag8" scope="session">
+                <div id="demo1" class="slideBox">
+                    <ul class="items">
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.petId6}" var="flag9" scope="session">
+                <div id="demo1" class="slideBox">
+                    <ul class="items">
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.petId6}" var="flag10" scope="session">
+                <div id="demo1" class="slideBox">
+                    <ul class="items">
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.petId6}" var="flag11" scope="session">
+                <div id="demo1" class="slideBox">
+                    <ul class="items">
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.petId6}" var="flag12" scope="session">
+                <div id="demo1" class="slideBox">
+                    <ul class="items">
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.petId6}" var="flag13" scope="session">
+                <div id="demo1" class="slideBox">
+                    <ul class="items">
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.petId6}" var="flag14" scope="session">
+                <div id="demo1" class="slideBox">
+                    <ul class="items">
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.petId6}" var="flag15" scope="session">
+                <div id="demo1" class="slideBox">
+                    <ul class="items">
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
+                        </li>
+                        <li><a href=""><img class="my-img"
+                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </c:if>
+
+
             <div class="name">
                 <img src="${pageContext.request.contextPath}/animal/images/p9.jpg">
                 <span>${newPet.petName}</span>
@@ -200,6 +415,7 @@
             <div class="group">
                 <div class="animalX5">
                     <img src="${pageContext.request.contextPath}/animal/images/p8.jpg"><span>备注</span><br>
+                   <br>
                     <p>${newPet.remark}</p>
                 </div>
             </div>
@@ -219,17 +435,19 @@
             request.getSession().setAttribute("chickApplyAdopt", chickApplyAdopt);
         %>
         <c:if test="${sessionScope.chickApplyAdopt}" var="flag" scope="session">
-            <div class="my_btn">
-                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="adoptApply">想要领养
-                </button>
+
+                <div class="my_btn">
+                    <div class="panel-body">
+                    <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="adoptApply">想要领养
+                    </button>
+                    </div>
             </div>
-            <%System.out.println("c:if-----未点击--------------");%>
+
         </c:if>
         <c:if test="${!flag}" var="flag" scope="session">
             <div class="my_btn">
                 <span><font color="red">${AdoptMsg}</font></span>
             </div>
-            <%System.out.println("c:if-----已点击--------------");%>
         </c:if>
     </div>
     <!-- 模态框（Modal） -->
@@ -310,6 +528,7 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
+   2
     <div class="container">
         <div class="commentbox">
             <form id="form_pinglun">
@@ -330,7 +549,7 @@
                 <textarea cols="80" rows="50" placeholder="来说几句吧......" name="content" class="mytextarea"
                           id="content"></textarea>
             </form>
-            <div class="btn btn-info pull-right" id="comment">评论</div>
+            <div class="btn1 btn-info pull-right" id="comment">评论</div>
         </div>
     </div>
 </div>
@@ -345,6 +564,77 @@
 <br>
 <br>
 <br>
+<%--立体轮播效果js--%>
+<script type="text/javascript">
+    'use strict';
+
+    window.addEventListener('load', function () {
+        var carousels = document.querySelectorAll('.carousel');
+
+        for (var i = 0; i < carousels.length; i++) {
+            carousel(carousels[i]);
+        }
+    });
+
+    function carousel(root) {
+        var figure = root.querySelector('figure'),
+            nav = root.querySelector('nav'),
+            images = figure.children,
+            n = images.length,
+            gap = root.dataset.gap || 0,
+            bfc = 'bfc' in root.dataset,
+            theta = 2 * Math.PI / n,
+            currImage = 0;
+
+        setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
+        window.addEventListener('resize', function () {
+            setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
+        });
+
+        setupNavigation();
+
+        function setupCarousel(n, s) {
+            var apothem = s / (2 * Math.tan(Math.PI / n));
+
+            figure.style.transformOrigin = '50% 50% ' + -apothem + 'px';
+
+            for (var i = 0; i < n; i++) {
+                images[i].style.padding = gap + 'px';
+            }
+            for (i = 1; i < n; i++) {
+                images[i].style.transformOrigin = '50% 50% ' + -apothem + 'px';
+                images[i].style.transform = 'rotateY(' + i * theta + 'rad)';
+            }
+            if (bfc) for (i = 0; i < n; i++) {
+                images[i].style.backfaceVisibility = 'hidden';
+            }
+            rotateCarousel(currImage);
+        }
+
+        function setupNavigation() {
+            nav.addEventListener('click', onClick, true);
+
+            function onClick(e) {
+                e.stopPropagation();
+
+                var t = e.target;
+                if (t.tagName.toUpperCase() != 'BUTTON') return;
+
+                if (t.classList.contains('next')) {
+                    currImage++;
+                } else {
+                    currImage--;
+                }
+
+                rotateCarousel(currImage);
+            }
+        }
+
+        function rotateCarousel(imageIndex) {
+            figure.style.transform = 'rotateY(' + imageIndex * -theta + 'rad)';
+        }
+    }
+</script>
 <script>
     jQuery(function ($) {
         $('#demo1').slideBox();

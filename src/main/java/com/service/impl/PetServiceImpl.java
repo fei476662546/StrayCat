@@ -50,4 +50,14 @@ public class PetServiceImpl implements PetService {
     public void deleteBatchPet(List<Integer> ids) {
         petMapper.deleteBatchPet(ids);
     }
+
+    @Override
+    public List<Pet> showlist(int index) {
+        return petMapper.showlist(index);
+    }
+
+    @Override
+    public int pagecount() {
+        return petMapper.pagecount();
+    }
 }

@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all" />
 
 </head>
+<jsp:include page="home.jsp"></jsp:include>
 <body>
 
 <!-- welcome -->

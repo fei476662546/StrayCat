@@ -175,12 +175,12 @@
 
                         <label class="col-sm-2 control-label">时间</label>
                         <div class="col-sm-10">
-                            <input type="text" name="time" class="form-control" id="age_add_input" placeholder="时间">
+                            <input type="datetime-local" name="time" class="form-control" id="age_add_input" placeholder="时间">
                             <span class="help-block"></span>
                         </div>
                         <label class="col-sm-2 control-label">对象</label>
                         <div class="col-sm-10">
-                            <input type="text" name="content" class="form-control" id="sex_add_input" placeholder="时间">
+                            <input type="text" name="pinglunObj" class="form-control" id="sex_add_input" placeholder="评论对象">
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -209,7 +209,7 @@
                         <label class="col-sm-2 control-label">ID</label>
                         <div class="col-sm-10">
                             <input type="text" name="id" class="form-control" id="userId_modify_input"
-                                   value="${user.id}" readonly placeholder="userid">
+                                   value="${pinglun.id}" readonly placeholder="#">
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -217,7 +217,7 @@
                         <label class="col-sm-2 control-label">评论人</label>
                         <div class="col-sm-10">
                             <input type="text" name="replyName" class="form-control" id="username_modify_input"
-                                   value="${user.username}" placeholder="评论人">
+                                   value="${pinglun.replyName}" placeholder="评论人">
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                         <label class="col-sm-2 control-label">内容</label>
                         <div class="col-sm-10">
                             <input type="text" name="content" class="form-control" id="password_modify_input"
-                                   value="${user.password}" placeholder="内容">
+                                   value="${pinglun.content}" placeholder="内容">
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -233,14 +233,14 @@
                         <label class="col-sm-2 control-label">时间</label>
                         <div class="col-sm-10">
                             <input type="text" name="time" class="form-control" id="age_modify_input"
-                                   value="${user.age}" placeholder="时间">
+                                   value="${pinglun.time}" placeholder="时间">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">对象</label>
                         <div class="col-sm-10">
-                            <input type="text" name="pinglunObj" class="form-control" id="sex_modify_input" value="${user.sex}"
+                            <input type="text" name="pinglunObj" class="form-control" id="sex_modify_input" value="${pinglun.pingObj}"
                                    placeholder="对象">
                             <span class="help-block"></span>
                         </div>

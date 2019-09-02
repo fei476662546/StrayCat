@@ -3,6 +3,7 @@ import com.entity.Pet;
 import com.entity.Pinglun;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.service.PetService;
 import com.service.PinglunService;
 import com.util.Msg;
 import com.util.QueryVo;
@@ -24,6 +25,8 @@ import java.util.List;
 @RequestMapping("/pinglun")
 public class PinglunController {
     @Autowired
+    private PetService petService;
+    @Autowired
     private PinglunService pinglunService;
 
     @RequestMapping(value = "/pinglunAdd")//method = {RequestMethod.POST}
@@ -37,6 +40,7 @@ public class PinglunController {
     public String pinglunShow(Model model,HttpServletRequest request) {
        Pet pet= (Pet) request.getSession().getAttribute("newPet");
         List<Pinglun> pinglunList=pinglunService.getPinglunByPetName(pet.getPetName());
+        List<Pet> pets=petService.getAllPet();
         if (pinglunList!=null){
             model.addAttribute("pinglunList",pinglunList);
             System.out.println("评论列表："+pinglunList);

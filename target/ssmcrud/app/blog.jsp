@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <jsp:include page="home.jsp"></jsp:include>
     <script src="${pageContext.request.contextPath}/animal/js/jquery-3.4.1.js"></script>
     <script src="${pageContext.request.contextPath}/animal/bootstrap/js/bootstrap.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">

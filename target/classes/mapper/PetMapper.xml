@@ -7,7 +7,7 @@
         select * from pet
     </select>
     <insert id="addPet" parameterType="com.entity.Pet">
-        insert into pet (petName,age,sex,pic,state) values (#{petName},#{age},#{sex},#{pic},#{state})
+        insert into pet (petName,age,sex,pic,petType,remark,state) values (#{petName},#{age},#{sex},#{pic},#{petType},#{remark},#{state})
     </insert>
     <delete id="delPetById" parameterType="int" >
         delete from pet where id=#{id}
@@ -16,7 +16,7 @@
         update pet set petName=#{petName},age=#{age},sex=#{sex},pic=#{pic},state=#{state},petType=#{petType},remark=#{remark} where id=#{id}
     </update>
     <select id="findPetById" parameterType="int" resultType="com.entity.Pet">
-        select * fron pet where id=#{id}
+        select * from pet where id=#{id}
     </select>
     <select id="findPetByName" parameterType="String" resultType="com.entity.Pet">
         select * from pet where petName=#{petName}
@@ -27,4 +27,12 @@
             #{id}
         </foreach>
     </delete>
+    <!-- 用于分页，每页显示4条数据 -->
+    <select id="showlist" parameterType="int" resultType="com.entity.Pet">
+   select petName,age,sex,pic,petType,remark,state from pet limit #{index},4
+</select>
+    <!-- 用于获取总页数 -->
+    <select id="pagecount" resultType="int">
+  select count(*) from pet
+</select>
 </mapper>

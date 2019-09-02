@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.*;
@@ -59,9 +60,18 @@ public class AdoptController {
     }
 
 
-    @RequestMapping("/chickPet")
-    public String chickPet(String petName, HttpServletRequest request) {
-        Pet pet = petService.findPetByName(petName);
+//    @RequestMapping("/chickPet")
+//    public String chickPet(String petName, HttpServletRequest request) {
+//        Pet pet = petService.findPetByName(petName);
+//        request.getSession().setAttribute("newPet", pet);
+//        System.out.println("pet:" + pet);
+//        return "forward:/pinglun/pinglunShow";
+//    }
+    @RequestMapping("/petMessage")
+    @ResponseBody
+    public String petMore(Integer id, HttpServletRequest request) {
+        System.out.println("services页面传来的id"+id);
+        Pet pet = petService.findPetById(id);
         request.getSession().setAttribute("newPet", pet);
         System.out.println("pet:" + pet);
         return "forward:/pinglun/pinglunShow";

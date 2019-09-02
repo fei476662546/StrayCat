@@ -2407,7 +2407,6 @@ section.footer-w3 ul.tweet-agile li p.tweet-p2 {
     width:1750px;
     background: rgba(78, 235, 60, 0.38);
     position:fixed;/*固定作用*/
-
     /*ie6下样式，加下划线表示只针对ie6 的hack */
     _position: relative;/* 把导航栏位置定义为绝对位置 关键*/
 

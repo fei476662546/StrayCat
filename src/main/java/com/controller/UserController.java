@@ -83,7 +83,7 @@ public class UserController {
     }
     @RequestMapping("/index")
     public String index(){
-         return "home";
+         return "index";
     }
 
 

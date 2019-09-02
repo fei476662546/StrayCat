@@ -16,7 +16,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8"/>
         <meta name="keywords" content=""/>
-
         <script>
             addEventListener("load", function () {
                 setTimeout(hideURLbar, 0);
@@ -28,56 +27,34 @@
         <!-- js -->
         <script src="${pageContext.request.contextPath}/animal/js/jquery-2.2.3.min.js"></script>
         <script src="${pageContext.request.contextPath}/animal/bootstrap/js/bootstrap.js"></script>
-        <!-- Necessary-JavaScript-File-For-Bootstrap -->
-        <!-- //js -->
-        <!--// Meta tag Keywords -->
-        <!-- css files -->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css"
               media="all">
-        <!-- Bootstrap-Core-CSS -->
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css"
-              media="all">
-        <!-- Bootstrap-Core-CSS -->
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css"
-              media="all">
-        <!-- Font-Awesome-Icons-CSS -->
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/owl.carousel.css" type="text/css"
-              media="all"/>
-        <!-- Owl-Carousel-CSS -->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all"/>
-        <!-- Style-CSS -->
-        <!-- //css files -->
-        <!-- web fonts -->
-        <link href="http://fonts.googleapis.com/css?family=Molle:400i&amp;subset=latin-ext" rel="stylesheet">
-        <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
-              rel="stylesheet">
-        <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext"
-              rel="stylesheet">
-        <!-- //web fonts -->
     </head>
 <body>
+<%--导航栏--%>
 <div class="nav-links">
     <nav class='navbar navbar-default'>
         <div class='container'>
             <div class='collapse navbar-collapse'>
                 <ul class="navigation_ul">
                     <li>
-                        <a href="${pageContext.request.contextPath}/app/index.jsp" target="item_main">主页</a>
+                        <a href="${pageContext.request.contextPath}/app/index.jsp" >主页</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/app/about.jsp" target="item_main">宠物知识</a>
+                        <a href="${pageContext.request.contextPath}/app/about.jsp">宠物知识</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/service" target="item_main">领养中心</a>
+                        <a href="${pageContext.request.contextPath}/pet/page" >领养中心</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/app/blog.jsp" target="item_main">猫狗日记</a>
+                        <a href="${pageContext.request.contextPath}/app/blog.jsp" >猫狗日记</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/app/team.jsp" target="item_main">团队信息</a>
+                        <a href="${pageContext.request.contextPath}/app/team.jsp" >团队信息</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/app/gallery.jsp" target="item_main">猫狗展示</a>
+                        <a href="${pageContext.request.contextPath}/app/gallery.jsp" >猫狗展示</a>
                     </li>
                     <%
                         boolean isLogin=false;
@@ -89,7 +66,7 @@
                     %>
                     <c:if test="${sessionScope.isLogin}" var="flage" scope="session">
                         <li class="nav_item userinfo"  >
-                            <a href="${pageContext.request.contextPath}/app/person.jsp?target=home">
+                            <a href="${pageContext.request.contextPath}/app/person.jsp">
                                 <div class="img"><img src="/myImg/${User.getPic()}" alt="" width="60px"
                                                       style="border-radius:50% ">
                                 </div>
@@ -249,11 +226,5 @@
         });
     });
 </script>
-<div class="container4">
-    <iframe src="${pageContext.request.contextPath}/app/index.jsp" name="item_main" frameborder="0" width="100%" height="100%">
-
-    </iframe>
-</div>
-
 </body>
 </html>

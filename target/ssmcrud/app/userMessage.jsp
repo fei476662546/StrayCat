@@ -234,7 +234,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">state</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="state_add_input" name="sex">
+                            <select class="form-control" id="state_add_input" name="state">
                                 <option value="0">未领养</option>
                                 <option value="1">已领养</option>
                             </select>
@@ -268,11 +268,9 @@
                                    value="${user.id}" readonly placeholder="userid">
                             <span class="help-block"></span>
                         </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-2 control-label">username</label>
                         <div class="col-sm-10">
-                            <input type="text" name="name" class="form-control" id="username_modify_input"
+                            <input type="text" name="username" class="form-control" id="username_modify_input"
                                    value="${user.username}" placeholder="username">
                             <span class="help-block"></span>
                         </div>
@@ -280,12 +278,10 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">password</label>
                         <div class="col-sm-10">
-                            <input type="password" name="pwd" class="form-control" id="password_modify_input"
+                            <input type="password" name="password" class="form-control" id="password_modify_input"
                                    value="${user.password}" placeholder="password">
                             <span class="help-block"></span>
                         </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-2 control-label">age</label>
                         <div class="col-sm-10">
                             <input type="text" name="name" class="form-control" id="age_modify_input"
@@ -303,8 +299,6 @@
                             </select>
                             <span class="help-block"></span>
                         </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-2 control-label">tel</label>
                         <div class="col-sm-10">
                             <input type="text" name="tel" class="form-control" id="tel_modify_input" value="${user.tel}"
@@ -319,8 +313,6 @@
                                    value="${user.email}" placeholder="email">
                             <span class="help-block"></span>
                         </div>
-                    </div>
-                    <div class="form-group">
 <%--                        <label class="col-sm-2 control-label">pic</label>--%>
 <%--                        <div class="col-sm-10">--%>
 <%--                            <input type="text" name="pic" class="form-control" id="pic_modify_input" value="${user.pic}"--%>
@@ -335,8 +327,6 @@
                                    value="${user.address}" placeholder="address">
                             <span class="help-block"></span>
                         </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-2 control-label">message</label>
                         <div class="col-sm-10">
                             <input type="text" name="message" class="form-control" id="message_modify_input"
@@ -347,7 +337,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">state</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="state_modify_input" name="sex">
+                            <select class="form-control" id="state_modify_input" name="state">
                                 <option value="${user.state}">修改</option>
                                 <option value="0">未领养</option>
                                 <option value="1">已领养</option>
@@ -599,8 +589,8 @@
                 //填充用户信息
                 console.log(result);
                 $("#userId_modify_input").val(result.extend.user.id);
-                $("#username_modify_input").val(result.extend.user.name);
-                $("#password_modify_input").val(result.extend.user.pwd);
+                $("#username_modify_input").val(result.extend.user.username);
+                $("#password_modify_input").val(result.extend.user.password);
                 $("#age_modify_input").val(result.extend.user.age);
                 $("#sex_modify_input").val(result.extend.user.sex);
                 $("#tel_modify_input").val(result.extend.user.tel);

@@ -48,43 +48,8 @@
           rel="stylesheet">
     <!-- //web fonts -->
 </head>
+<jsp:include page="home.jsp"></jsp:include>
 <body>
-<!--导航栏-->
-<!-- sticky navigation -->
-<%--<div class="nav-links">--%>
-<%--    <nav class='navbar navbar-default'>--%>
-<%--        <div class='container'>--%>
-<%--            <div class='collapse navbar-collapse'>--%>
-<%--                <ul class="navigation_ul">--%>
-<%--                    <li>--%>
-<%--                        <a href="${pageContext.request.contextPath}/user/index">主页</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a href="${pageContext.request.contextPath}/app/about.jsp" target="item_main">宠物知识</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a href="${pageContext.request.contextPath}/app/services.jsp" target="item_main">领养中心</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a href="${pageContext.request.contextPath}/app/blog.jsp" target="item_main">猫狗日记</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a href="${pageContext.request.contextPath}/app/Team.jsp" target="item_main">团队信息</a>--%>
-<%--                    </li>--%>
-<%--                    <li>--%>
-<%--                        <a href="${pageContext.request.contextPath}/app/gallery.jsp" target="item_main">猫狗展示</a>--%>
-<%--                    </li>--%>
-
-<%--                    <li id="isLogin">--%>
-<%--                        <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录</button>--%>
-<%--                    </li>--%>
-<%--                    <span>Hello:${User.username}</span>--%>
-<%--                </ul>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </nav>--%>
-<%--</div>--%>
-
 
 </div>
 <!-- //sticky navigation 首页轮播图 -->

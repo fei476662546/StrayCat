@@ -49,7 +49,7 @@
   <filter-mapping>
     <filter-name>SessionFilter</filter-name>
     <!-- 所有的管理页面需要登录后才能访问 -->
-    <url-pattern>/*</url-pattern>
+    <url-pattern>*.jsp</url-pattern>
   </filter-mapping>
 
 </web-app>
