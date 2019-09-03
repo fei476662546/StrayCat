@@ -8,7 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+<style>
 
+</style>
 
     <head>
         <title>Home</title>
@@ -38,22 +40,22 @@
         <div class='container'>
             <div class='collapse navbar-collapse'>
                 <ul class="navigation_ul">
-                    <li>
+                    <li class="top11">
                         <a href="${pageContext.request.contextPath}/app/index.jsp" >主页</a>
                     </li>
-                    <li>
+                    <li class="top11">
                         <a href="${pageContext.request.contextPath}/app/about.jsp">宠物知识</a>
                     </li>
-                    <li>
+                    <li class="top11">
                         <a href="${pageContext.request.contextPath}/pet/page" >领养中心</a>
                     </li>
-                    <li>
+                    <li class="top11">
                         <a href="${pageContext.request.contextPath}/app/blog.jsp" >猫狗日记</a>
                     </li>
-                    <li>
+                    <li class="top11">
                         <a href="${pageContext.request.contextPath}/app/team.jsp" >团队信息</a>
                     </li>
-                    <li>
+                    <li class="top11">
                         <a href="${pageContext.request.contextPath}/app/gallery.jsp" >猫狗展示</a>
                     </li>
                     <%
@@ -72,7 +74,7 @@
                                 </div>
 <%--                                <div class="info"><span class="leve">${user.getStaffNumber()}</span>--%>
 <%--                                    <p class="name">${user.getStaffName()}</p>--%>
-<%--                                </div>--%>
+<%--                               </div>--%>
                             </a>
                         </li>
                             <a href="${pageContext.request.contextPath}/user/logout" id="exitLogout">退出</a>

@@ -31,4 +31,5 @@ public interface UserMapper {
     User login(@Param("username") String username, @Param("password") String password);
 
     int updatePic(@Param("pic") String pic, @Param("id") Integer id);
+    int updateRemark(Integer id);
 }

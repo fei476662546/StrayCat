@@ -28,7 +28,7 @@ public class LoginFilter implements Filter {
         if (user == null && admit == null) {
             if (uri.contains("/admitHome.jsp") || uri.contains("/adoptApply.jsp") || uri.contains("/petMessage.jsp")
                     || uri.contains("/teamMessage.jsp") || uri.contains("/userComment.jsp") || uri.contains("/userMessage")
-                    || uri.contains("/show.jsp") || uri.contains("person.jsp")) {
+                    || uri.contains("/show.jsp") ) {
                 request.getSession().setAttribute("handlerMsg", "请先登录");
                 request.getRequestDispatcher("/app/home.jsp").forward(servletRequest, servletResponse);
             }

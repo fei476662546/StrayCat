@@ -37,344 +37,22 @@
         <br>
         <h2>待领养的动物</h2>
         <center>
-            <%
-                boolean petId1 = false, petId2 = false, petId3 = false, petId4 = false, petId5 = false, petId6 = false, petId7 = false, petId8 = false, petId9 = false, petId10 = false, petId11 = false, petId12 = false,  petId13 = false, petId14 = false, petId15 = false;
-                Pet pet = (Pet) request.getSession().getAttribute("newPet");
-                if (pet.getId() == 1) {
-                    petId1 = true;
-                }
-                if (pet.getId() == 2) {
-                    petId2 = true;
-                }
-                if (pet.getId() == 3) {
-                    petId3 = true;
-                }
-                if (pet.getId() == 4) {
-                    petId4 = true;
-                }
-                if (pet.getId() == 5) {
-                    petId5 = true;
-                }
-                if (pet.getId() == 6) {
-                    petId6 = true;
-                }
-                if (pet.getId() == 7) {
-                    petId7 = true;
-                }
-                if (pet.getId() == 8) {
-                    petId8 = true;
-                }
-                if (pet.getId() == 9) {
-                    petId9 = true;
-                }
-                if (pet.getId() == 10) {
-                    petId10 = true;
-                }
-                if (pet.getId() == 11) {
-                    petId11 = true;
-                }
-                if (pet.getId() == 12) {
-                    petId12 = true;
-                }
-                if (pet.getId() == 13) {
-                    petId13 = true;
-                }
-                if (pet.getId() == 14) {
-                    petId14 = true;
-                }
-                if (pet.getId() == 15) {
-                    petId15 = true;
-                }
-                request.getSession().setAttribute("petId1", petId1);
-                request.getSession().setAttribute("petId2", petId2);
-                request.getSession().setAttribute("petId3", petId3);
-                request.getSession().setAttribute("petId4", petId4);
-                request.getSession().setAttribute("petId5", petId5);
-                request.getSession().setAttribute("petId6", petId6);
-                request.getSession().setAttribute("petId7", petId7);
-                request.getSession().setAttribute("petId8", petId8);
-                request.getSession().setAttribute("petId9", petId9);
-                request.getSession().setAttribute("petId10", petId10);
-                request.getSession().setAttribute("petId11", petId11);
-                request.getSession().setAttribute("petId12", petId12);
-                request.getSession().setAttribute("petId13", petId13);
-                request.getSession().setAttribute("petId14", petId14);
-                request.getSession().setAttribute("petId15", petId15);
-            %>
-            <c:if test="${sessionScope.petId1}" var="flag1" scope="session">
-                <div  id="demo1" class="htmleaf-container">
-
+                <div  class="htmleaf-container">
                     <div class="carousel" data-gap="20" data-bfc>
                         <figure>
-                            <img src="${pageContext.request.contextPath}/animal/images/m1.jpg"  alt=""><!--alt为若图片失效提示当前位置有张图片的-->
-                            <img src="${pageContext.request.contextPath}/animal/images/m2.jpg"  alt="">
-                            <img src="${pageContext.request.contextPath}/animal/images/m3.jpg"  alt="">
-                            <img src="${pageContext.request.contextPath}/animal/images/m4.jpg"  alt="">
-                            <img src="${pageContext.request.contextPath}/animal/images/m5.jpg"  alt="">
-                            <img src="${pageContext.request.contextPath}/animal/images/m6.jpg"  alt="">
+                            <img src="/myImg/${newPet.imgPath}/m1.jpg" style="width: 500px;height: 300px"  alt=""><!--alt为若图片失效提示当前位置有张图片的-->
+                            <img src="/myImg/${newPet.imgPath}/m2.jpg" style="width: 500px;height: 300px" alt="">
+                            <img src="/myImg/${newPet.imgPath}/m3.jpg" style="width: 500px;height: 300px" alt="">
+                            <img src="/myImg/${newPet.imgPath}/m4.jpg" style="width: 500px;height: 300px" alt="">
+                            <img src="/myImg/${newPet.imgPath}/m5.jpg" style="width: 500px;height: 300px" alt="">
+                            <img src="/myImg/${newPet.imgPath}/m6.jpg" style="width: 500px;height: 300px" alt="">
                         </figure>
                         <nav>
                             <button class="nav prev">上一张</button>
                             <button class="nav next">下一张</button>
                         </nav>
                     </div>
-
                 </div>
-            </c:if>
-            <c:if test="${sessionScope.petId2}" var="flag2" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/cat%20(1).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/cat%20(2).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/cat%20(3).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/cat%20(4).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId3}" var="flag3" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(2).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(3).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(4).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(5).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId4}" var="flag4" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(6).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(7).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(8).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(9).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId5}" var="flag5" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/cat%20(14).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/cat%20(15).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/cat%20(16).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/cat%20(13).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId6}" var="flag6" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId6}" var="flag7" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId6}" var="flag8" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId6}" var="flag9" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId6}" var="flag10" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId6}" var="flag11" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId6}" var="flag12" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId6}" var="flag13" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId6}" var="flag14" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.petId6}" var="flag15" scope="session">
-                <div id="demo1" class="slideBox">
-                    <ul class="items">
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(10).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(14).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(11).png"></a>
-                        </li>
-                        <li><a href=""><img class="my-img"
-                                            src="${pageContext.request.contextPath}/animal/images/dog%20(12).png"></a>
-                        </li>
-                    </ul>
-                </div>
-            </c:if>
-
-
             <div class="name">
                 <img src="${pageContext.request.contextPath}/animal/images/p9.jpg">
                 <span>${newPet.petName}</span>
@@ -398,7 +76,7 @@
                 </div>
                 <div class="animalX4">
                     <%
-
+                        Pet pet = (Pet) request.getSession().getAttribute("newPet");
                         int sexNumber = pet.getSex();
                         if (sexNumber == 1) {
                             request.getSession().setAttribute("petSex", "公");
@@ -636,10 +314,6 @@
     }
 </script>
 <script>
-    jQuery(function ($) {
-        $('#demo1').slideBox();
-
-    });
     $(function () {
         $("#submitAdopt").click(function AdoptPet() {
             $("#doAdopt").click();
@@ -678,7 +352,6 @@
             $.ajax({
                 url: "${pageContext.request.contextPath}/pinglun/pinglunAdd",
                 type: "post",
-
                 data: $("#form_pinglun").serialize(),
                 success: function (result) {
                     if (result.code == 100) {

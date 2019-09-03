@@ -41,90 +41,117 @@ public class UserController {
 
     @RequestMapping("/login")
     public String login(String username, String password, Model model, HttpServletRequest request) {
-        User user= userService.login(username,password);
-        Admit admit=admitService.AdmitLogin(username,password);
-        if (admit==null) {
+        User user = userService.login(username, password);
+        Admit admit = admitService.AdmitLogin(username, password);
+        if (admit == null) {
             if (user != null) {
                 model.addAttribute("msg", "成功登录");
                 request.getSession().setAttribute("User", user);
-                return "home";
+                return "index";
             }
-        }else {
+        } else {
             model.addAttribute("msg", "超管登录");
             request.getSession().setAttribute("Admit", admit);
             return "admitHome";
         }
-        model.addAttribute("msg","用户名密码错误");
+        model.addAttribute("msg", "用户名密码错误");
         return "error";
     }
+
     @RequestMapping("/register")
     public String register(User user, Model model, HttpServletRequest request) {
 
-        if (userService.saveUser(user)>0){
-            model.addAttribute("msg","注册成功");
-            System.out.println("注册对象："+user);
+        if (userService.saveUser(user) > 0) {
+            model.addAttribute("msg", "注册成功");
+            System.out.println("注册对象：" + user);
             return "home";
         }
-        model.addAttribute("msg","用户名密码错误");
+        model.addAttribute("msg", "用户名密码错误");
         return "error";
     }
+
     @RequestMapping("/logout")
-    public String logout( HttpServletRequest request) {
-        if (request.getSession().getAttribute("Admit")==null) {
+    public String logout(HttpServletRequest request) {
+        if (request.getSession().getAttribute("Admit") == null) {
             if (request.getSession().getAttribute("User") != null) {
                 request.getSession().removeAttribute("User");
                 return "home";
             }
-        }else {
+        } else {
             request.getSession().removeAttribute("Admit");
             return "home";
         }
         return "error";
     }
+
     @RequestMapping("/index")
-    public String index(){
-         return "index";
+    public String index() {
+        return "index";
     }
 
+    @RequestMapping("/updateUser")
+    public String updateUser(User user) {
+        System.out.println("用户信息"+user);
+        userService.updateUser(user);
+        return "person";
+    }
+    @RequestMapping("/updateUserMessage")
+    @ResponseBody
+    public String updateUserMessage(User user,Model model) {
+        System.out.println("用户信息"+user);
+       if (userService.updateUser(user)>0) {
+           System.out.println("修改成功");
+           model.addAttribute("updateUserMessage","修改成功");
+           return "person";
+       }
+       return "redirect:/person";
+    }
 
     @RequestMapping("/upload")
-    public String uploadUserPic(MultipartFile file, Model model){
+    @ResponseBody
+    public String uploadUserPic(MultipartFile file, Model model,HttpServletRequest request) {
         String picName = UUID.randomUUID().toString();
         //获取上传文件的元素名字
-        String name=file.getOriginalFilename();
-        String extname=name.substring(name.lastIndexOf("."));
+        String name = file.getOriginalFilename();
+        String extname = name.substring(name.lastIndexOf("."));
         //上传文件
         try {
 //            file.transferTo(new File("F:/idea/spring_workspace/petHome/target/ssmcrud/animal/images/update/" +picName+extname));
-            file.transferTo(new File("F:/idea/spring_workspace/petHome/src/main/webapp/animal/images/" +picName+extname));
+            file.transferTo(new File("F:/MyUpload/" + picName + extname));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String filename=picName+extname;
+        String filename = picName + extname;
         //存储数据库，只需要把filename写入数据库
-
-        model.addAttribute("pic",filename);
+        ModelAndView mv = new ModelAndView("person");
+        mv.addObject("updateMsg", "上传成功！");
+        User user = (User) request.getSession().getAttribute("User");
+        userService.updatePic(filename, user.getId());
+        model.addAttribute("pic", filename);
+        System.out.println("上传成功");
         return "person";
 
     }
+
     @RequestMapping("/doUpload")
-    public ModelAndView doUpload(MultipartFile pic ,HttpServletRequest request)
-            throws IOException{
+    public ModelAndView doUpload(MultipartFile pic, HttpServletRequest request)
+            throws IOException {
         //获取文件名以及文件大小，检测是否获得文件相关数据
-        String fileName=pic.getOriginalFilename();
-        long size=pic.getSize();
-        System.out.println(fileName+"/"+size);
+        System.out.println("pic"+pic);
+        String fileName = pic.getOriginalFilename();
+        long size = pic.getSize();
+        System.out.println(fileName + "/" + size);
         //构建文件目标对象，这个对象对应的文件路径必须是存在的或者通过file对象自己创建
-        File dest=new File("F:/MyUpload/"+fileName);
+        File dest = new File("F:/MyUpload/" + fileName);
 //        File dest1=new File("F:/idea/spring_workspace/petHome/target/ssmcrud/animal/images/update/"+fileName);
 //        //transferto实现文件上传
 //        pic.transferTo(dest1);
         pic.transferTo(dest);
         //封装数据返回
-        ModelAndView mv=new ModelAndView("person");
+        ModelAndView mv = new ModelAndView("person");
         mv.addObject("updateMsg", "上传成功！");
-       User user= (User) request.getSession().getAttribute("User");
-        userService.updatePic(fileName,user.getId());
+        User user = (User) request.getSession().getAttribute("User");
+        userService.updatePic(fileName, user.getId());
         return mv;
     }
 }
