@@ -42,4 +42,7 @@
     <select id="findPage" resultType="com.entity.Adopt">
         select * from adopt order by id limit #{id},#{id}
     </select>
+    <update id="updateUserRemark" parameterType="com.entity.User">
+        update users set remark=#{remarek} where id=#{id}
+    </update>
 </mapper>

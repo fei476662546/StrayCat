@@ -83,5 +83,10 @@ public class AdoptServiceImpl implements AdoptService {
         return adoptMapper.findPage(id1,id2);
     }
 
+    @Override
+    public int updateUserRemark(User user) {
+        return adoptMapper.updateUserRemark(user);
+    }
+
 
 }

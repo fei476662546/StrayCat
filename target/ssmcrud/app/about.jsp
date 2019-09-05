@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<jsp:include page="home.jsp"></jsp:include>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -22,7 +23,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all" />
 
 </head>
-<jsp:include page="home.jsp"></jsp:include>
+
 <body>
 
 <!-- welcome -->
@@ -142,7 +143,7 @@
         </div>
     </div>
 </div>
-<script src="${pageContext.request.contextPath}/animal/bootstrap/js/bootstrap.js"></script>
+
 
 </body>
 </html>

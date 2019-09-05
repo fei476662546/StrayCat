@@ -9,13 +9,14 @@
 <%
     pageContext.setAttribute("APP_PATH", request.getContextPath());
 %>
+<jsp:include page="admitHome.jsp"></jsp:include>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <%--<!-- 引入js文件 -->--%>
     <!-- jQuery -->
     <script type="text/javascript"
-                    src="${pageContext.request.contextPath}/animal/JQuery/jquery.min.js"></script>
+            src="${pageContext.request.contextPath}/animal/JQuery/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/bootstrap.min.js"></script>
     <!-- Metis Menu Plugin JavaScript -->
@@ -95,18 +96,19 @@
             <div class="panel panel-default">
                 <!-- 搜索部分 -->
                 <div class="panel-body">
-                    <form class="form-inline" method="get" action="">
+                    <form class="form-inline" method="get">
                         <div class="form-group">
                             <label for="findByName">用户名</label>
-                            <input type="text" class="form-control" id="findByName" value="" name="adminName">
+                            <input type="text" class="form-control" id="findByName" value="" name="username">
+                            <button type="button" id="findByName_btn" class="btn btn-primary">查询</button>
                         </div>
-                        <button type="submit" class="btn btn-primary">查询</button>
                     </form>
+
                     <div style="float: right">
                         <button class="btn btn-primary" id="user_add_modal_btn">新增</button>
                         <button class="btn btn-danger" id="user_delete_all_btn">批量删除</button>
                     </div>
-
+                    ${findUser}
                 </div>
             </div>
             <!-- 显示表格数据 -->
@@ -125,7 +127,7 @@
                             <th>sex</th>
                             <th>tel</th>
                             <th>email</th>
-<%--                            <th>pic</th>--%>
+                            <%--                            <th>pic</th>--%>
                             <th>address</th>
                             <th>message</th>
                             <th>atate</th>
@@ -210,12 +212,12 @@
 
                         </div>
                     </div>
-<%--                        <label class="col-sm-2 control-label">pic</label>--%>
-<%--                        <div class="col-sm-10">--%>
-<%--                            <input type="text" name="pic" class="form-control" id="pic_add_input"--%>
-<%--                                   placeholder="username">--%>
-<%--                            <span class="help-block"></span>--%>
-<%--                        </div>--%>
+                    <%--                        <label class="col-sm-2 control-label">pic</label>--%>
+                    <%--                        <div class="col-sm-10">--%>
+                    <%--                            <input type="text" name="pic" class="form-control" id="pic_add_input"--%>
+                    <%--                                   placeholder="username">--%>
+                    <%--                            <span class="help-block"></span>--%>
+                    <%--                        </div>--%>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">address</label>
                         <div class="col-sm-10">
@@ -284,7 +286,7 @@
                         </div>
                         <label class="col-sm-2 control-label">age</label>
                         <div class="col-sm-10">
-                            <input type="text" name="name" class="form-control" id="age_modify_input"
+                            <input type="text" name="age" class="form-control" id="age_modify_input"
                                    value="${user.age}" placeholder="age">
                             <span class="help-block"></span>
                         </div>
@@ -313,12 +315,12 @@
                                    value="${user.email}" placeholder="email">
                             <span class="help-block"></span>
                         </div>
-<%--                        <label class="col-sm-2 control-label">pic</label>--%>
-<%--                        <div class="col-sm-10">--%>
-<%--                            <input type="text" name="pic" class="form-control" id="pic_modify_input" value="${user.pic}"--%>
-<%--                                   placeholder="pic">--%>
-<%--                            <span class="help-block"></span>--%>
-<%--                        </div>--%>
+                        <%--                        <label class="col-sm-2 control-label">pic</label>--%>
+                        <%--                        <div class="col-sm-10">--%>
+                        <%--                            <input type="text" name="pic" class="form-control" id="pic_modify_input" value="${user.pic}"--%>
+                        <%--                                   placeholder="pic">--%>
+                        <%--                            <span class="help-block"></span>--%>
+                        <%--                        </div>--%>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">address</label>
@@ -370,6 +372,26 @@
     var totalRecord, currentPage;
     $(function () {
         to_page(1);
+    });
+    $(function () {
+        $("#findByName_btn").click(function () {
+            var findUserByName = document.getElementById("findByName").value;
+            var pn = 1;
+            $.ajax({
+                url: "${pageContext.request.contextPath}/user/findUserByUsername",
+                data: {"pn": pn, "username": findUserByName},
+                type: "GET",
+                success: function (result) {
+                    //1、解析并显示员工数据
+                    build_users_table(result);
+                    //2、解析并显示分页信息
+                    build_page_info(result);
+                    //3、解析显示分页条数据
+                    build_page_nav(result);
+
+                }
+            });
+        })
     });
 
     function to_page(pn) {
@@ -562,7 +584,7 @@
                 type: "POST",
                 data: {"id": userId},
                 success: function (result) {
-                   // alert(result.msg);
+                    // alert(result.msg);
                     if (result.code == 100) {
 
                         //回到本页
@@ -594,7 +616,7 @@
                 $("#age_modify_input").val(result.extend.user.age);
                 $("#sex_modify_input").val(result.extend.user.sex);
                 $("#tel_modify_input").val(result.extend.user.tel);
-               $("#email_modify_input").val(result.extend.user.email);
+                $("#email_modify_input").val(result.extend.user.email);
                 // $("#pic_modify_input").val(result.extend.user.pic);
                 $("#address_modify_input").val(result.extend.user.address);
                 $("#message_modify_input").val(result.extend.user.message);

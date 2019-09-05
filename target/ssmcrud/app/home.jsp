@@ -9,30 +9,39 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <style>
+    .round_icon1 {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
 
+    }
 </style>
 
-    <head>
-        <title>Home</title>
-        <!-- Meta tag Keywords -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="UTF-8"/>
-        <meta name="keywords" content=""/>
-        <script>
-            addEventListener("load", function () {
-                setTimeout(hideURLbar, 0);
-            }, false);
-            function hideURLbar() {
-                window.scrollTo(0, 1);
-            }
-        </script>
-        <!-- js -->
-        <script src="${pageContext.request.contextPath}/animal/js/jquery-2.2.3.min.js"></script>
-        <script src="${pageContext.request.contextPath}/animal/bootstrap/js/bootstrap.js"></script>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css"
-              media="all">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all"/>
-    </head>
+<head>
+    <title>Home</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8"/>
+    <meta name="keywords" content=""/>
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- js -->
+    <script src="${pageContext.request.contextPath}/animal/js/jquery-2.2.3.min.js"></script>
+    <script src="${pageContext.request.contextPath}/animal/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css"
+          media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all"/>
+</head>
 <body>
 <%--导航栏--%>
 <div class="nav-links">
@@ -40,55 +49,55 @@
         <div class='container'>
             <div class='collapse navbar-collapse'>
                 <ul class="navigation_ul">
-                    <li class="top11">
-                        <a href="${pageContext.request.contextPath}/app/index.jsp" >主页</a>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/app/index.jsp">主页</a>
                     </li>
-                    <li class="top11">
+                    <li>
                         <a href="${pageContext.request.contextPath}/app/about.jsp">宠物知识</a>
                     </li>
-                    <li class="top11">
-                        <a href="${pageContext.request.contextPath}/pet/page" >领养中心</a>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/pet/page">领养中心</a>
                     </li>
-                    <li class="top11">
-                        <a href="${pageContext.request.contextPath}/app/blog.jsp" >猫狗日记</a>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/app/blog.jsp">猫狗日记</a>
                     </li>
-                    <li class="top11">
-                        <a href="${pageContext.request.contextPath}/app/team.jsp" >团队信息</a>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/app/team.jsp">团队信息</a>
                     </li>
-                    <li class="top11">
-                        <a href="${pageContext.request.contextPath}/app/gallery.jsp" >猫狗展示</a>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/app/gallery.jsp">猫狗展示</a>
                     </li>
                     <%
-                        boolean isLogin=false;
+                        boolean isLogin = false;
                         Object user = request.getSession().getAttribute("User");
-                        if (user!=null){
+                        if (user != null) {
                             isLogin = true;
                         }
-                        request.getSession().setAttribute("isLogin",isLogin);
+                        request.getSession().setAttribute("isLogin", isLogin);
                     %>
                     <c:if test="${sessionScope.isLogin}" var="flage" scope="session">
-                        <li class="nav_item userinfo"  >
+                        <li class="nav_item userinfo">
                             <a href="${pageContext.request.contextPath}/app/person.jsp">
-                                <div class="img"><img src="/myImg/${User.getPic()}" alt="" width="60px"
-                                                      style="border-radius:50% ">
+                                <div class="img"><img src="/myImg/${UserPic}" alt="" class="round_icon1">
                                 </div>
-<%--                                <div class="info"><span class="leve">${user.getStaffNumber()}</span>--%>
-<%--                                    <p class="name">${user.getStaffName()}</p>--%>
-<%--                               </div>--%>
+                                    <%--                                <div class="info"><span class="leve">${user.getStaffNumber()}</span>--%>
+                                    <%--                                    <p class="name">${user.getStaffName()}</p>--%>
+                                    <%--                               </div>--%>
                             </a>
                         </li>
-                            <a href="${pageContext.request.contextPath}/user/logout" id="exitLogout">退出</a>
+                        <a href="${pageContext.request.contextPath}/user/logout" id="exitLogout">退出</a>
                     </c:if>
-                    <c:if test="${!flage}" var="flage"  scope="session">
+                    <c:if test="${!flage}" var="flage" scope="session">
                         <li>
-                            <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录</button>
+                            <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录
+                            </button>
                         </li>
                         <li><font color="black" style="font-weight: bold">${handlerMsg}</font></li>
                     </c:if>
-<%--                    <li >--%>
-<%--                        <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录</button>--%>
-<%--                    </li>--%>
-<%--                    <span>Hello:${User.username}</span>--%>
+                    <%--                    <li >--%>
+                    <%--                        <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录</button>--%>
+                    <%--                    </li>--%>
+                    <%--                    <span>Hello:${User.username}</span>--%>
                 </ul>
             </div>
         </div>
@@ -129,21 +138,22 @@
                             <div class="form-group">
                                 <label for="new_loginPwd" class="col-sm-2 control-label">密码</label>
                                 <div class="col-sm-8">
-                                   <p> <input type="text" class="form-control" id="new_loginPwd" placeholder="密码"
+                                    <p><input type="text" class="form-control" id="new_loginPwd" placeholder="密码"
                                               name="password"><span style="color: red">${msg}</span></p>
 
                                 </div>
                             </div>
-                            <%--                            <div class="form-group">--%>
-                            <%--                                <label for="login_code" class="col-sm-2 control-label">验证码</label>--%>
-                            <%--                                <div class="col-sm-4">--%>
-                            <%--                                    <input type="text" class="form-control" id="login_code" placeholder="验证码" name="code">--%>
-                            <%--                                    <div class="code" style="float: right">--%>
-                            <%--                                        <img src="${pageContext.request.contextPath}/code" onclick="changeCode()" id="checkCodeImg"/>--%>
-                            <%--                                        <a href="javascript:changeCode()" >看不清换一张</a><br>--%>
-                            <%--                                    </div>--%>
-                            <%--                                </div>--%>
-                            <%--                            </div>--%>
+                                                        <div class="form-group">
+                                                            <label for="login_code" class="col-sm-2 control-label">验证码</label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" id="login_code" placeholder="验证码" name="code">
+                                                                <div class="code" style="float: right">
+                                                                    <img src="${pageContext.request.contextPath}/user/code" onclick="changeCode()"/>
+                                                                   <div id="codeByUser"></div>
+                                                                    <a href="javascript:changeCode()" >看不清换一张</a><br>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                             <input type="submit" value="提交" id="dologin" style="display: none">
                         </form>
                     </div>
@@ -161,6 +171,7 @@
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="register_loginName" placeholder="账号"
                                            name="username">
+                                    <span id="MessageByUser"></span>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -178,29 +189,29 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                            <label for="register_gender" class="col-sm-2 control-label">性别</label>
-                            <div class="col-sm-8">
-                                <select class="form-control" id="register_gender" name="sex">
-                                    <option value="-1">--请选择--</option>
-                                    <option value="1">男</option>
-                                    <option value="0">女</option>
-                                </select>
+                                <label for="register_gender" class="col-sm-2 control-label">性别</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="register_gender" name="sex">
+                                        <option value="-1">--请选择--</option>
+                                        <option value="1">男</option>
+                                        <option value="0">女</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-<%--                            <div class="form-group">--%>
-<%--                                <label for="register_telephone" class="col-sm-2 control-label">电话</label>--%>
-<%--                                <div class="col-sm-8">--%>
-<%--                                    <input type="text" class="form-control" id="register_telephone" placeholder="电话"--%>
-<%--                                           name="tel">--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                            <div class="form-group">--%>
-<%--                                <label for="register_email" class="col-sm-2 control-label">Email</label>--%>
-<%--                                <div class="col-sm-8">--%>
-<%--                                    <input type="text" class="form-control" id="register_email" placeholder="Email"--%>
-<%--                                           name="email">--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
+                            <%--                            <div class="form-group">--%>
+                            <%--                                <label for="register_telephone" class="col-sm-2 control-label">电话</label>--%>
+                            <%--                                <div class="col-sm-8">--%>
+                            <%--                                    <input type="text" class="form-control" id="register_telephone" placeholder="电话"--%>
+                            <%--                                           name="tel">--%>
+                            <%--                                </div>--%>
+                            <%--                            </div>--%>
+                            <%--                            <div class="form-group">--%>
+                            <%--                                <label for="register_email" class="col-sm-2 control-label">Email</label>--%>
+                            <%--                                <div class="col-sm-8">--%>
+                            <%--                                    <input type="text" class="form-control" id="register_email" placeholder="Email"--%>
+                            <%--                                           name="email">--%>
+                            <%--                                </div>--%>
+                            <%--                            </div>--%>
                             <input type="submit" value="" id="doRegister" style="display: none">
                         </form>
                     </div>
@@ -215,10 +226,10 @@
 </div>
 <script>
     $(function () {
-        $("#loginbtn").click( function loginUser(){
+        $("#loginbtn").click(function loginUser() {
             $("#dologin").click();
         });
-        $("#registerBtn").click( function loginUser(){
+        $("#registerBtn").click(function loginUser() {
             $("#doRegister").click();
         });
     });
@@ -226,6 +237,58 @@
         $("#exitLogout").click(function logoutUser() {
             alert("确认退出吗");
         });
+    });
+    $(function () {
+
+        $("#register_loginName").change(function () {
+            var val = $(this).val();//value有空格
+            val = $.trim(val);//去掉空格
+            if (val != "") {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/user/registerAjax?username=" + val,
+                    type: "GET",
+                    dataType : "json",
+                    success: function (result) {
+                        if (result.code==100) {
+                            $("#MessageByUser").html("<font color='red' size='2'>用户名已存在</font>");
+                        }else if (result.code==200) {
+                            $("#MessageByUser").html("<font color='red' size='2'>用户名可以使用</font>");
+                        }
+                    },
+                    error: function (result) {
+                        alert("注册处失败");
+                    }
+                })
+            }
+        })
+    });
+    function changeCode(){
+        //得到图片元素
+        var img = document.getElementById("checkCodeImg");
+
+        img.src = "${pageContext.request.contextPath}/user/code?time="+new Date().getTime();
+    };
+    $("#login_code").change(function () {
+        var val = $(this).val();//value有空格
+        val = $.trim(val);//去掉空格
+        if (val != "") {
+            $.ajax({
+                url:"${pageContext.request.contextPath}/user/checkCode?code="+val,
+                type:"GET",
+                dataType: "json",
+                success:function (result) {
+                    if (result.code==100){
+                        $("#codeByUser").html("<font color='red' size='2'>验证码错误</font>");
+                    }else if (result.code==200) {
+                        $("#codeByUser").html("<font color='red' size='2'>验证码正确</font>");
+                    }
+                },
+                error:function () {
+                    alert("验证码失败")
+                }
+
+            })
+        }
     });
 </script>
 </body>

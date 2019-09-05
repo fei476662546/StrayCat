@@ -80,6 +80,9 @@
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <a class="navbar-brand" href="">流浪猫狗管理系统</a>
+        <a href="${pageContext.request.contextPath}/user/logout">
+            <i class="fa fa-sign-out fa-fw"></i>退出登录
+        </a>
     </div>
     <!-- 导航栏右侧图标部分 -->
     <!-- 导航栏右侧图标部分 -->
@@ -95,7 +98,7 @@
                 <li><a href="#"><i class="fa fa-user fa-fw"></i>
                     管理员：${Admit.name}</a>
                 </li>
-                <li><a href="${pageContext.request.contextPath}/app/home.jsp"><i class="fa fa-gear fa-fw"></i>到达主页</a></li>
+                <li><a href="${pageContext.request.contextPath}/user/index"><i class="fa fa-gear fa-fw"></i>到达主页</a></li>
                 <li class="divider"></li>
                 <li>
                     <a href="${pageContext.request.contextPath}/user/logout">
@@ -119,27 +122,27 @@
                  aria-labelledby="collapseListGroupHeading3">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <a href="${pageContext.request.contextPath}/app/userMessage.jsp" target="admit_page">
+                        <a href="${pageContext.request.contextPath}/app/userMessage.jsp" >
                             <i class="fa fa-flash fa-fw"></i> 用户信息管理
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="${pageContext.request.contextPath}/app/userComment.jsp" target="admit_page">
+                        <a href="${pageContext.request.contextPath}/app/userComment.jsp" >
                             <i class="fa fa-comment fa-fw"></i> 评论管理
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="${pageContext.request.contextPath}/app/petMessage.jsp" target="admit_page">
+                        <a href="${pageContext.request.contextPath}/app/petMessage.jsp">
                             <i class="fa fa-sitemap fa-fw"></i> 宠物信息管理
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="${pageContext.request.contextPath}/team/teamList" target="admit_page">
+                        <a href="${pageContext.request.contextPath}/team/teamList">
                             <i class="fa fa-bolt fa-fw"></i> 团队申请管理
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="${pageContext.request.contextPath}/adopt/adoptApply" target="admit_page">
+                        <a href="${pageContext.request.contextPath}/adopt/adoptApply" >
                             <i class="fa fa-gamepad fa-fw"></i> 审核领养申请
                         </a>
                     </li>
@@ -150,8 +153,8 @@
     </div><!-- 左侧显示列表部分 end-->
 </nav>
 <div class="container4">
-    <iframe src="${pageContext.request.contextPath}/app/userMessage.jsp" name="admit_page" frameborder="0" width="100%" height="100%">
-    </iframe>
+<%--    <iframe src="${pageContext.request.contextPath}/app/userMessage.jsp" name="admit_page" frameborder="0" width="100%" height="100%">--%>
+<%--    </iframe>--%>
     <!-- 编写js代码 -->
     <script type="text/javascript">
         $(function () {

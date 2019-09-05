@@ -5,6 +5,7 @@ import com.entity.Pet;
 import com.entity.User;
 import com.service.AdoptService;
 import com.service.PetService;
+import com.service.UserService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.util.Msg;
 import com.util.showByPage;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,6 +32,14 @@ public class AdoptController {
     AdoptService adoptService;
     @Autowired
     PetService petService;
+    @Autowired
+    UserService userService;
+    //我要获取当前的日期
+    Date date = new Date();
+    //设置要获取到什么样的时间
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    //获取String类型的时间
+    String createdate = sdf.format(date);
 
     @RequestMapping("/delete")
     public String delUser(Integer id ) {
@@ -86,23 +97,30 @@ public class AdoptController {
         adopt.setPetName(pet.getPetName());
         System.out.println("领养申请从前端传回的pet:" + pet.getPetName());
         adopt.setApply(0);
-        adopt.setTime("2019年5月6日");
+        adopt.setTime(createdate);
         System.out.println("new adopt"+adopt);
         int a = adoptService.updateAdoptUser(user);
         int b = adoptService.addApplyAdopt(adopt);
         if (a > 0 && b > 0) {
-            request.getSession().setAttribute("AdoptMsg", "你的信息已提交，请等候管理员审核");
-            System.out.println("领养人：" + user);
-            return "forward:/show";
+//            User user2=new User();
+//            user2.setId(user1.getId());
+//            user2.setRemark("你的信息已提交，请等候管理员审核");
+//            adoptService.updateUserRemark(user2);
+           User user3= (User) request.getSession().getAttribute("User");
+           user3.setRemark("你的信息已提交，请等候管理员审核");
+            userService.updateUser(user3);
+            System.out.println("session:"+user3);
+            request.getSession().setAttribute("User",user3);
+
+            return "forward:/pinglun/pinglunShow";
         }
         request.getSession().setAttribute("AdoptMsg", "申请失败");
         System.out.println("提交领养信息失败");
-        return "forward:/show";
+        return "forward:/pinglun/pinglunShow";
     }
 
     @RequestMapping("/adoptApply")
-    public String adoptApply(Model model,HttpServletRequest request) {
-        showByPage showByPage=new showByPage();
+    public String adoptApply(Model model) {
         List<Adopt> adoptList = adoptService.getAll();
         System.out.println("领养：" + adoptList);
         model.addAttribute("AdoptList", adoptList);

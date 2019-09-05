@@ -64,5 +64,15 @@ public class UserSeriveImpl implements UserService {
         return userMapper.updateRemark(id);
     }
 
+    @Override
+    public  List<User> findUserByUsername(String username) {
+        return userMapper.findUserByUsername(username);
+    }
+
+    @Override
+    public User findUserByusername(String name) {
+        return userMapper.findUserByusername(name);
+    }
+
 
 }

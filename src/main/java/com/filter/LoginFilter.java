@@ -30,7 +30,7 @@ public class LoginFilter implements Filter {
                     || uri.contains("/teamMessage.jsp") || uri.contains("/userComment.jsp") || uri.contains("/userMessage")
                     || uri.contains("/show.jsp") ) {
                 request.getSession().setAttribute("handlerMsg", "请先登录");
-                request.getRequestDispatcher("/app/home.jsp").forward(servletRequest, servletResponse);
+                request.getRequestDispatcher("/app/index.jsp").forward(servletRequest, servletResponse);
             }
         }
         else if (user != null && admit == null) {
@@ -38,7 +38,7 @@ public class LoginFilter implements Filter {
             if (uri.contains("/admitHome.jsp") || uri.contains("/adoptApply.jsp") || uri.contains("/petMessage.jsp")
                     || uri.contains("/teamMessage.jsp") || uri.contains("/userComment.jsp") || uri.contains("/userMessage")) {
                 request.getSession().setAttribute("handlerMsg", "请先登录");
-                request.getRequestDispatcher("/app/home.jsp").forward(servletRequest, servletResponse);
+                request.getRequestDispatcher("/app/index.jsp").forward(servletRequest, servletResponse);
             } else {
                 chain.doFilter(servletRequest, servletResponse);
             }

@@ -38,4 +38,5 @@ public interface AdoptMapper {
     int findApplyByPetName(String petName);
 
     List<Adopt> findPage(@Param("id") Integer id1,Integer id2);
+    int updateUserRemark(User user);
 }

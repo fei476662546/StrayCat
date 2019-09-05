@@ -1,6 +1,7 @@
 <%@ page import="com.entity.Pet" %>
 <%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %><%--
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="com.entity.User" %><%--
   Created by IntelliJ IDEA.
   User: 47666
   Date: 2019/8/22
@@ -29,207 +30,206 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/lunbo/css/style.css">
 </head>
 <body>
-
 <div>
-    <div>
-        <br>
-        <br>
-        <br>
-        <h2>待领养的动物</h2>
-        <center>
-                <div  class="htmleaf-container">
-                    <div class="carousel" data-gap="20" data-bfc>
-                        <figure>
-                            <img src="/myImg/${newPet.imgPath}/m1.jpg" style="width: 500px;height: 300px"  alt=""><!--alt为若图片失效提示当前位置有张图片的-->
-                            <img src="/myImg/${newPet.imgPath}/m2.jpg" style="width: 500px;height: 300px" alt="">
-                            <img src="/myImg/${newPet.imgPath}/m3.jpg" style="width: 500px;height: 300px" alt="">
-                            <img src="/myImg/${newPet.imgPath}/m4.jpg" style="width: 500px;height: 300px" alt="">
-                            <img src="/myImg/${newPet.imgPath}/m5.jpg" style="width: 500px;height: 300px" alt="">
-                            <img src="/myImg/${newPet.imgPath}/m6.jpg" style="width: 500px;height: 300px" alt="">
-                        </figure>
-                        <nav>
-                            <button class="nav prev">上一张</button>
-                            <button class="nav next">下一张</button>
-                        </nav>
-                    </div>
-                </div>
-            <div class="name">
-                <img src="${pageContext.request.contextPath}/animal/images/p9.jpg">
-                <span>${newPet.petName}</span>
-            </div>
-        </center>
-        <div class="animal">
-            <div class="group">
-                <div class="animalX1">
-                    <img src="${pageContext.request.contextPath}/animal/images/P7.jpg"><span>编号</span><br>
-                    <p>${newPet.id}</p>
-                </div>
-                <div class="animalX2">
-                    <img src="${pageContext.request.contextPath}/animal/images/p6.jpg"><span>年龄</span><br>
-                    <p>${newPet.age}</p>
-                </div>
-            </div>
-            <div class="group">
-                <div class="animalX3">
-                    <img src="${pageContext.request.contextPath}/animal/images/catsm1.jpg"><span>品种</span><br>
-                    <p>波斯猫</p>
-                </div>
-                <div class="animalX4">
-                    <%
-                        Pet pet = (Pet) request.getSession().getAttribute("newPet");
-                        int sexNumber = pet.getSex();
-                        if (sexNumber == 1) {
-                            request.getSession().setAttribute("petSex", "公");
-                        } else if (sexNumber == 0) {
-                            request.getSession().setAttribute("petSex", "母");
-                        } else {
-                            request.getSession().setAttribute("petSex", "");
-                        }
-                    %>
-                    <img src="${pageContext.request.contextPath}/animal/images/p4.jpg"><span>性别</span><br>
-                    <p>${petSex}</p>
-                </div>
-            </div>
-            <div class="group">
-                <div class="animalX5">
-                    <img src="${pageContext.request.contextPath}/animal/images/p8.jpg"><span>备注</span><br>
-                   <br>
-                    <p>${newPet.remark}</p>
-                </div>
+    <br>
+    <br>
+    <br>
+    <h2>待领养的动物</h2>
+    <center>
+        <div class="htmleaf-container">
+            <div class="carousel" data-gap="20" data-bfc>
+                <figure>
+                    <img src="/myImg/${newPet.imgPath}/m2.jpg" style="width: 500px;height: 300px" alt="">
+                    <!--alt为若图片失效提示当前位置有张图片的-->
+                    <img src="/myImg/${newPet.imgPath}/m1.jpg" style="width: 500px;height: 300px" alt="">
+                    <img src="/myImg/${newPet.imgPath}/m3.jpg" style="width: 500px;height: 300px" alt="">
+                    <img src="/myImg/${newPet.imgPath}/m4.jpg" style="width: 500px;height: 300px" alt="">
+                    <img src="/myImg/${newPet.imgPath}/m5.jpg" style="width: 500px;height: 300px" alt="">
+                    <img src="/myImg/${newPet.imgPath}/m6.jpg" style="width: 500px;height: 300px" alt="">
+                </figure>
+                <nav>
+                    <button class="nav prev">上一张</button>
+                    <button class="nav next">下一张</button>
+                </nav>
             </div>
         </div>
-        <div class="animal_me">
-            <div class="animal_me1"><img src="${pageContext.request.contextPath}/animal/images/p11.jpg"></div>
-            <div class="animal_me2"><p>我的特徵是一豎一摺的耳朵和會說話的眼神。我非常有活力，最愛和人玩耍逛街做運動。我很喜歡認識朋友，我有自信能和大部份狗狗友好相處。
-                我已經準備好當你的好朋友，你能帶我回家給我永遠的溫暖嗎?</p></div>
-            <div class="animal_me3"><img src="${pageContext.request.contextPath}/animal/images/p10.jpg"></div>
+        <div class="name">
+            <img src="${pageContext.request.contextPath}/animal/images/p9.jpg">
+            <span>${newPet.petName}</span>
         </div>
-        <%
-            boolean chickApplyAdopt = true;
-            if (request.getSession().getAttribute("AdoptMsg") != null) {
-                chickApplyAdopt = false;
-                System.out.println("chickApplyAdopt:" + chickApplyAdopt);
-            }
-            request.getSession().setAttribute("chickApplyAdopt", chickApplyAdopt);
-        %>
-        <c:if test="${sessionScope.chickApplyAdopt}" var="flag" scope="session">
-
-                <div class="my_btn">
-                    <div class="panel-body">
-                    <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="adoptApply">想要领养
-                    </button>
-                    </div>
+    </center>
+    <div class="animal">
+        <div class="group">
+            <div class="animalX1">
+                <img src="${pageContext.request.contextPath}/animal/images/P7.jpg"><span>编号</span><br>
+                <p>${newPet.id}</p>
             </div>
-
-        </c:if>
-        <c:if test="${!flag}" var="flag" scope="session">
-            <div class="my_btn">
-                <span><font color="red">${AdoptMsg}</font></span>
+            <div class="animalX2">
+                <img src="${pageContext.request.contextPath}/animal/images/p6.jpg"><span>年龄</span><br>
+                <p>${newPet.age}</p>
             </div>
-        </c:if>
+        </div>
+        <div class="group">
+            <div class="animalX3">
+                <img src="${pageContext.request.contextPath}/animal/images/catsm1.jpg"><span>品种</span><br>
+                <p>波斯猫</p>
+            </div>
+            <div class="animalX4">
+                <%
+                    Pet pet = (Pet) request.getSession().getAttribute("newPet");
+                    int sexNumber = pet.getSex();
+                    if (sexNumber == 1) {
+                        request.getSession().setAttribute("petSex", "公");
+                    } else if (sexNumber == 0) {
+                        request.getSession().setAttribute("petSex", "母");
+                    } else {
+                        request.getSession().setAttribute("petSex", "");
+                    }
+                %>
+                <img src="${pageContext.request.contextPath}/animal/images/p4.jpg"><span>性别</span><br>
+                <p>${petSex}</p>
+            </div>
+        </div>
+        <div class="group">
+            <div class="animalX5">
+                <img src="${pageContext.request.contextPath}/animal/images/p8.jpg"><span>备注</span><br>
+                <br>
+                <p>${newPet.remark}</p>
+            </div>
+        </div>
     </div>
-    <!-- 模态框（Modal） -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">
-                        请填写个人信息
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" id="new_department_form"
-                          action="${pageContext.request.contextPath}/adopt/adoptPet" method="post">
-                        <div class="form-group">
-                            <label for="new_Name" class="col-sm-2 control-label">
-                                真实姓名： </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="new_Name"
-                                       placeholder="name" name="relName" value="${User.relName}">
-                            </div>
+    <div class="animal_me">
+        <div class="animal_me1"><img src="${pageContext.request.contextPath}/animal/images/p11.jpg"></div>
+        <div class="animal_me2"><p>我的特徵是一豎一摺的耳朵和會說話的眼神。我非常有活力，最愛和人玩耍逛街做運動。我很喜歡認識朋友，我有自信能和大部份狗狗友好相處。
+            我已經準備好當你的好朋友，你能帶我回家給我永遠的溫暖嗎?</p></div>
+        <div class="animal_me3"><img src="${pageContext.request.contextPath}/animal/images/p10.jpg"></div>
+    </div>
+    <%
+        boolean chickApplyAdopt = true;
+       User user= (User) request.getSession().getAttribute("User");
+        if ( user.getRemark()!= null) {
+            chickApplyAdopt = false;
+            System.out.println("chickApplyAdopt:" + chickApplyAdopt);
+        }
+        request.getSession().setAttribute("chickApplyAdopt", chickApplyAdopt);
+    %>
+    <c:if test="${sessionScope.chickApplyAdopt}" var="abcd" scope="session">
+
+        <div class="my_btn">
+            <div class="panel-body">
+                <button class="btno1 btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="adoptApply">想要领养
+                </button>
+            </div>
+        </div>
+
+    </c:if>
+    <c:if test="${!abcd}" var="abcd" scope="session">
+        <div class="my_btn">
+            <span><font color="red">${User.remark}</font></span>
+        </div>
+    </c:if>
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    请填写个人信息
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal"
+                      action="${pageContext.request.contextPath}/adopt/adoptPet" method="post">
+                    <div class="form-group">
+                        <label for="new_Name" class="col-sm-2 control-label">
+                            真实姓名： </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="new_Name"
+                                   placeholder="name" name="relName" value="${User.relName}">
                         </div>
-                        <div class="form-group">
-                            <label for="new_Sex" class="col-sm-2 control-label">
-                                性别： </label>
-                            <div class="col-sm-10">
-                                <select class="form-control" id="new_Sex" name="sex">
-                                    <option value="-1">选择</option>
-                                    <option value="0">女</option>
-                                    <option value="1">男</option>
-                                </select>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="new_Sex" class="col-sm-2 control-label">
+                            性别： </label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="new_Sex" name="sex">
+                                <option value="-1">选择</option>
+                                <option value="0">女</option>
+                                <option value="1">男</option>
+                            </select>
                         </div>
-                        <div class="form-group">
-                            <label for="new_tel" class="col-sm-2 control-label">
-                                联系方式： </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="new_tel"
-                                       placeholder="telephone" name="tel" value="${User.tel}">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="new_tel" class="col-sm-2 control-label">
+                            联系方式： </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="new_tel"
+                                   placeholder="telephone" name="tel" value="${User.tel}">
                         </div>
-                        <div class="form-group">
-                            <label for="new_Email" class="col-sm-2 control-label">
-                                邮件： </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="new_Email"
-                                       placeholder="Email" name="email">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="new_Email" class="col-sm-2 control-label">
+                            邮件： </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="new_Email"
+                                   placeholder="Email" name="email">
                         </div>
-                        <div class="form-group">
-                            <label for="new_Adress" class="col-sm-2 control-label">
-                                地址： </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="new_Adress"
-                                       placeholder="address" name="address" value="${User.address}">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="new_Adress" class="col-sm-2 control-label">
+                            地址： </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="new_Adress"
+                                   placeholder="address" name="address" value="${User.address}">
                         </div>
-                        <div class="form-group">
-                            <label for="new_remark" class="col-sm-2 control-label">
-                                备注： </label>
-                            <div class="col-sm-10">
+                    </div>
+                    <div class="form-group">
+                        <label for="new_remark" class="col-sm-2 control-label">
+                            备注： </label>
+                        <div class="col-sm-10">
                             <textarea type="text" class="form-control" id="new_remark"
                                       placeholder="remark" name="remark"></textarea>
-                            </div>
                         </div>
-                        <input type="text" name="petName" value="${newPet.petName}" hidden>
-                        <input type="submit" value="提交" id="doAdopt" style="display: none">
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                    </button>
-                    <button type="button" class="btn btn-primary" id="submitAdopt">提交申请</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal -->
+                    </div>
+                    <input type="text" name="petName" value="${newPet.petName}" hidden>
+                    <input type="submit" value="提交" id="doAdopt" style="display: none">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btno1 btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btno1 btn-primary" id="submitAdopt">提交申请</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div class="container">
+    <div class="commentbox">
+        <form id="form_pinglun">
+            <%
+                //我要获取当前的日期
+                Date date = new Date();
+                //设置要获取到什么样的时间
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                //获取String类型的时间
+                String createdate = sdf.format(date);
+                request.getSession().setAttribute("NowTime", createdate);
+            %>
+            <input type="text" name="img" value="${User.pic}" id="new_pinglun_img" hidden>
+            <input type="text" name="replyName" value="${User.username}" id="new_pinglun_replyName" hidden>
+            <input type="text" name="beReplyName" value="" id="new_pinglun_beReplyName" hidden>
+            <input type="text" name="time" value="${NowTime}" id="new_pinglun_time" hidden>
+            <input type="text" name="pinglunObj" value="${newPet.petName}" hidden>
+            <textarea cols="80" rows="50" placeholder="来说几句吧......" name="content" class="mytextarea"
+                      id="content"></textarea>
+        </form>
+        <div class="btn1 btn-info pull-right" id="comment">评论</div>
     </div>
-   2
-    <div class="container">
-        <div class="commentbox">
-            <form id="form_pinglun">
-                <%
-                    //我要获取当前的日期
-                    Date date = new Date();
-                    //设置要获取到什么样的时间
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    //获取String类型的时间
-                    String createdate = sdf.format(date);
-                    request.getSession().setAttribute("NowTime", createdate);
-                %>
-                <input type="text" name="img" value="${User.pic}" id="new_pinglun_img" hidden>
-                <input type="text" name="replyName" value="${User.username}" id="new_pinglun_replyName" hidden>
-                <input type="text" name="beReplyName" value="" id="new_pinglun_beReplyName" hidden>
-                <input type="text" name="time" value="${NowTime}" id="new_pinglun_time" hidden>
-                <input type="text" name="pinglunObj" value="${newPet.petName}" hidden>
-                <textarea cols="80" rows="50" placeholder="来说几句吧......" name="content" class="mytextarea"
-                          id="content"></textarea>
-            </form>
-            <div class="btn1 btn-info pull-right" id="comment">评论</div>
-        </div>
-    </div>
+</div>
 </div>
 <%----------------------评论显示的位置--%>
 <div class="comment-list">
@@ -319,6 +319,7 @@
             $("#doAdopt").click();
         });
     });
+
     var arr = [
         <c:forEach items="${pinglunList}" var="pinglun" varStatus="s">
         {
@@ -343,7 +344,7 @@
         $(".comment-list").addCommentList({data: arr, add: ""});
         $("#comment").click(function () {
             var obj = new Object();
-            obj.img = "/myImg/${User.pic}";
+            obj.img = "/myImg/${UserPic}";
             obj.replyName = $("#new_pinglun_replyName").val();
             obj.content = $("#content").val();
             obj.time = $("#new_pinglun_time").val();

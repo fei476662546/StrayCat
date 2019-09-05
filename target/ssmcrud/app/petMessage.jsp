@@ -9,6 +9,7 @@
 <%
     pageContext.setAttribute("APP_PATH", request.getContextPath());
 %>
+<jsp:include page="admitHome.jsp"></jsp:include>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

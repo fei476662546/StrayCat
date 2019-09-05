@@ -19,7 +19,7 @@
  </delete>
     <!-- int updateUser(User user) -->
     <update id="updateUser" parameterType="com.entity.User" >
- update users set username=#{username},password=#{password},relName=#{relName},age=#{age},sex=#{sex},tel=#{tel},email=#{email},address=#{address},message=#{message},state=#{state} where id=#{id}
+ update users set username=#{username},password=#{password},relName=#{relName},age=#{age},sex=#{sex},tel=#{tel},email=#{email},address=#{address},message=#{message},state=#{state},remark=#{remark} where id=#{id}
  </update>
     <update id="updatePic" >
         update users set pic=#{pic} where id=#{id}
@@ -36,4 +36,11 @@
         #{id}
     </foreach>
      </delete>
+    <select id="findUserByUsername" parameterType="String" resultType="com.entity.User">
+       SELECT * FROM users WHERE username LIKE "%"#{name}"%"
+    </select>
+    <select id="findUserByusername" parameterType="String" resultType="com.entity.User">
+       SELECT * FROM users WHERE username = #{username}
+    </select>
+
 </mapper>

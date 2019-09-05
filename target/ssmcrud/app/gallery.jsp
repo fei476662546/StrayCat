@@ -51,15 +51,11 @@
 </script>
 <body>
 <div class="htmleaf-container">
-
-    <h1></h1>
-
-
     <h2>画廊</h2>
     <div class="carousel" data-gap="20" data-bfc>
         <figure>
-            <img src="${pageContext.request.contextPath}/animal/images/m1.jpg" style="width: 500px; height: 300px" alt=""><!--alt为若图片失效提示当前位置有张图片的-->
-            <img src="${pageContext.request.contextPath}/animal/images/m2.jpg" style="width: 500px; height: 300px" alt="">
+            <img src="${pageContext.request.contextPath}/animal/images/m2.jpg" style="width: 500px; height: 300px" alt=""><!--alt为若图片失效提示当前位置有张图片的-->
+            <img src="${pageContext.request.contextPath}/animal/images/m1.jpg" style="width: 500px; height: 300px" alt="">
             <img src="${pageContext.request.contextPath}/animal/images/m3.jpg" style="width: 500px; height: 300px" alt="">
             <img src="${pageContext.request.contextPath}/animal/images/m4.jpg" style="width: 500px; height: 300px" alt="">
             <img src="${pageContext.request.contextPath}/animal/images/m5.jpg" style="width: 500px; height: 300px" alt="">

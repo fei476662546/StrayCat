@@ -32,4 +32,6 @@ public interface UserMapper {
 
     int updatePic(@Param("pic") String pic, @Param("id") Integer id);
     int updateRemark(Integer id);
+    List<User> findUserByUsername(@Param("name") String name);
+    User findUserByusername(String username);
 }

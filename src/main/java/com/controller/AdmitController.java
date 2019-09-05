@@ -82,8 +82,9 @@ public class AdmitController {
 
     @RequestMapping("/update")
     @ResponseBody
-    public Msg updateUser(User user) {
+    public Msg updateUser(User user,HttpServletRequest request) {
         if (userService.updateUser(user) > 0) {
+            request.getSession().setAttribute("User",user);
             return Msg.success();
         }
         return Msg.fail();
@@ -125,7 +126,6 @@ public class AdmitController {
         // 封装了详细的分页信息,包括有我们查询出来的数据，传入连续显示的页数
         PageInfo page = new PageInfo(users, 3);
         return Msg.success().add("pageInfo", page);
-
     }
 
 }

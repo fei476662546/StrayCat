@@ -81,7 +81,7 @@ public class TeamController {
        team.setState(1);
         if (teamService.updateTeam(team)>0){
             request.setAttribute("applyResult", "您已通过审核，请等待我们与你联系");
-            return "redirect:/adopt/adoptApply";
+            return "redirect:/team/teamList";
         }
         request.setAttribute("teamMsg", "发生错误");
         System.out.println("审核失败了,数据库发生错误？");
@@ -94,7 +94,7 @@ public class TeamController {
         team.setState(-1);
         if (teamService.updateTeam(team)>0){
             request.setAttribute("applyResult", "你的条件不符");
-            return "redirect:/adopt/adoptApply";
+            return "redirect:/team/teamList";
         }
         request.setAttribute("teamMsg", "发生错误");
         System.out.println("审核拒绝失败了,数据库发生错误？");

@@ -23,4 +23,6 @@ public interface UserService {
     User login(@Param("username") String username,@Param("password") String password);
     int updatePic(@Param("pic") String pic,@Param("id") Integer id);
     int updateRemark(Integer id);
+    List<User> findUserByUsername(@Param("name") String name);
+    User findUserByusername(String username);
 }
