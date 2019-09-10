@@ -23,7 +23,7 @@ public class LoginHandlerIntercepter implements HandlerInterceptor {
         String requestURI = request.getRequestURI();//
         String uri = requestURI.substring(requestURI.lastIndexOf("/"));//切割“/”后的字符
         if (user != null && admit == null) {
-            if (uri.startsWith("/users") || uri.startsWith("/pets") || uri.startsWith("/pingluns") || uri.startsWith("/adoptApply") || uri.startsWith("/teamList")) {
+            if (uri.startsWith("/users") || uri.startsWith("/adoptApply") || uri.startsWith("/teamList")) {
                 String loginUrl = "/user/index";
                 System.out.println("重定向=========" + request.getContextPath() + loginUrl);
                 request.getSession().setAttribute("handlerMsg", "请先登录");

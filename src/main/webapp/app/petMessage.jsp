@@ -9,7 +9,7 @@
 <%
     pageContext.setAttribute("APP_PATH", request.getContextPath());
 %>
-<jsp:include page="admitHome.jsp"></jsp:include>
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -85,6 +85,7 @@
 </head>
 <body>
 <div id="wrapper">
+    <jsp:include page="admitHome.jsp"></jsp:include>
     <div id="page-wrapper">
         <!-- 用户信息查询部分  start-->
         <!-- 搭建显示页面 -->

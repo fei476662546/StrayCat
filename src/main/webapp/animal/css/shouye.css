@@ -1,11 +1,11 @@
-@charset "utf-8";
+@charset "UTF-8";
 /* CSS Document */
 /**样式重置**/
 * {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	text-align: none;
+
 	font-size: 12px;
 	color: #4d4d4d;
 	font-family:"微软雅黑";

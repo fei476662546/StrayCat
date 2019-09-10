@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="admitHome.jsp"></jsp:include>
+
 <html>
 
 <head>
@@ -55,6 +55,7 @@
 </style>
 <body>
 <div id="wrapper">
+    <jsp:include page="admitHome.jsp"></jsp:include>
     <div id="page-wrapper">
         <!-- 用户信息查询部分  start-->
         <!-- 搭建显示页面 -->
@@ -88,8 +89,6 @@
                                         <td><input type="text" name="team_message" value="${acc.team_message}"></td>
                                         <td><input type="text" name="time" value="${acc.time}"></td>
                                         <td>
-                                            <a href="${pageContext.request.contextPath}/team/edit?id=${acc.id}">修改</a><%-- 有疑问--%>
-                                            <span>${teamMsg}</span>
                                             <a href="${pageContext.request.contextPath}/team/delete?id=${acc.id}">删除</a>
                                             <span>${teamMsg}</span>
                                         </td>

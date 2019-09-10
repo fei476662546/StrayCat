@@ -123,7 +123,7 @@ public class UserController {
         if (userService.updateUser(user) > 0) {
             System.out.println("修改成功");
             request.getSession().setAttribute("User", user);
-            model.addAttribute("updateUserMessage", "修改成功");
+            model.addAttribute("updateUserMessage", "<font color='red'>修改成功<font>");
             return Msg.success();
         }
         return Msg.success();
@@ -156,27 +156,27 @@ public class UserController {
 
     }
 
-    @RequestMapping("/doUpload")
-    public ModelAndView doUpload(MultipartFile pic, HttpServletRequest request)
-            throws IOException {
-        //获取文件名以及文件大小，检测是否获得文件相关数据
-        System.out.println("pic" + pic);
-        String fileName = pic.getOriginalFilename();
-        long size = pic.getSize();
-        System.out.println(fileName + "/" + size);
-        //构建文件目标对象，这个对象对应的文件路径必须是存在的或者通过file对象自己创建
-        File dest = new File("F:/MyUpload/" + fileName);
-//        File dest1=new File("F:/idea/spring_workspace/petHome/target/ssmcrud/animal/images/update/"+fileName);
-//        //transferto实现文件上传
-//        pic.transferTo(dest1);
-        pic.transferTo(dest);
-        //封装数据返回
-        ModelAndView mv = new ModelAndView("person");
-        mv.addObject("updateMsg", "上传成功！");
-        User user = (User) request.getSession().getAttribute("User");
-        userService.updatePic(fileName, user.getId());
-        return mv;
-    }
+//    @RequestMapping("/doUpload")
+//    public ModelAndView doUpload(MultipartFile pic, HttpServletRequest request)
+//            throws IOException {
+//        //获取文件名以及文件大小，检测是否获得文件相关数据
+//        System.out.println("pic" + pic);
+//        String fileName = pic.getOriginalFilename();
+//        long size = pic.getSize();
+//        System.out.println(fileName + "/" + size);
+//        //构建文件目标对象，这个对象对应的文件路径必须是存在的或者通过file对象自己创建
+//        File dest = new File("F:/MyUpload/" + fileName);
+////        File dest1=new File("F:/idea/spring_workspace/petHome/target/ssmcrud/animal/images/update/"+fileName);
+////        //transferto实现文件上传
+////        pic.transferTo(dest1);
+//        pic.transferTo(dest);
+//        //封装数据返回
+//        ModelAndView mv = new ModelAndView("person");
+//        mv.addObject("updateMsg", "上传成功！");
+//        User user = (User) request.getSession().getAttribute("User");
+//        userService.updatePic(fileName, user.getId());
+//        return mv;
+//    }
 
 
     @ResponseBody
@@ -194,8 +194,8 @@ public class UserController {
         return Msg.success().add("pageInfo", page);
     }
     @RequestMapping("/code")
-    @ResponseBody
-    public Msg code(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//    @ResponseBody
+    public void code(HttpServletRequest request, HttpServletResponse response) throws IOException {
 //                ValidateCode vc = new ValidateCode(80, 30, 4, 9);
 //        request.getSession().setAttribute("checkCode",vc.getCode());
 //        vc.write(response.getOutputStream());
@@ -260,7 +260,7 @@ public class UserController {
         sos.close();
 
         session.setAttribute("scode", new String(rands));
-        return Msg.success();
+//        return Msg.success();
     }
     @RequestMapping("/checkCode")
     @ResponseBody

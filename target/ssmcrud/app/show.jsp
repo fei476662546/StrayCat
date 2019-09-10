@@ -11,7 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<jsp:include page="home.jsp"></jsp:include>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>动物的具体信息</title>
@@ -34,8 +34,45 @@
     <br>
     <br>
     <br>
-    <h2>待领养的动物</h2>
+    <br>
+    <br>
+    <%
+        boolean chickApplyAdopt = true;
+        User user= (User) request.getSession().getAttribute("User");
+        if ( user.getRemark()==("你的信息已提交，请等候管理员审核")) {
+            chickApplyAdopt = false;
+            System.out.println("chickApplyAdopt:" + chickApplyAdopt);
+        }
+        request.getSession().setAttribute("chickApplyAdopt", chickApplyAdopt);
+    %>
+    <div style="padding-left: 200px">
+        <div class="my_btn">
+            <div class="panel-body">
+                <button class="btn1 btn-primary btn-lg" onclick="location.href='${pageContext.request.contextPath}/app/index.jsp'">返回主页
+                </button>
+            </div>
+        </div>
+    <c:if test="${sessionScope.chickApplyAdopt}" var="abcd" scope="session">
+
+        <div class="my_btn">
+            <div class="panel-body">
+                <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="adoptApply">想要领养
+                </button>
+            </div>
+        </div>
+
+    </c:if>
+    <c:if test="${!abcd}" var="abcd" scope="session">
+        <div class="my_btn">
+            <div class="panel-body">
+                <span><font color="red">${User.remark}</font></span>
+            </div>
+        </div>
+    </c:if>
+
+    </div>
     <center>
+
         <div class="htmleaf-container">
             <div class="carousel" data-gap="20" data-bfc>
                 <figure>
@@ -104,30 +141,7 @@
             我已經準備好當你的好朋友，你能帶我回家給我永遠的溫暖嗎?</p></div>
         <div class="animal_me3"><img src="${pageContext.request.contextPath}/animal/images/p10.jpg"></div>
     </div>
-    <%
-        boolean chickApplyAdopt = true;
-       User user= (User) request.getSession().getAttribute("User");
-        if ( user.getRemark()!= null) {
-            chickApplyAdopt = false;
-            System.out.println("chickApplyAdopt:" + chickApplyAdopt);
-        }
-        request.getSession().setAttribute("chickApplyAdopt", chickApplyAdopt);
-    %>
-    <c:if test="${sessionScope.chickApplyAdopt}" var="abcd" scope="session">
 
-        <div class="my_btn">
-            <div class="panel-body">
-                <button class="btno1 btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="adoptApply">想要领养
-                </button>
-            </div>
-        </div>
-
-    </c:if>
-    <c:if test="${!abcd}" var="abcd" scope="session">
-        <div class="my_btn">
-            <span><font color="red">${User.remark}</font></span>
-        </div>
-    </c:if>
 </div>
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -157,7 +171,7 @@
                             性别： </label>
                         <div class="col-sm-10">
                             <select class="form-control" id="new_Sex" name="sex">
-                                <option value="-1">选择</option>
+                                <option value="${User.sex}">选择</option>
                                 <option value="0">女</option>
                                 <option value="1">男</option>
                             </select>
@@ -180,21 +194,21 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="new_Adress" class="col-sm-2 control-label">
+                        <label for="new_Address" class="col-sm-2 control-label">
                             地址： </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="new_Adress"
+                            <input type="text" class="form-control" id="new_Address"
                                    placeholder="address" name="address" value="${User.address}">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="new_remark" class="col-sm-2 control-label">
-                            备注： </label>
-                        <div class="col-sm-10">
-                            <textarea type="text" class="form-control" id="new_remark"
-                                      placeholder="remark" name="remark"></textarea>
-                        </div>
-                    </div>
+<%--                    <div class="form-group">--%>
+<%--                        <label for="new_remark" class="col-sm-2 control-label">--%>
+<%--                            备注： </label>--%>
+<%--                        <div class="col-sm-10">--%>
+<%--                            <textarea type="text" class="form-control" id="new_remark"--%>
+<%--                                      placeholder="remark" name="remark"></textarea>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                     <input type="text" name="petName" value="${newPet.petName}" hidden>
                     <input type="submit" value="提交" id="doAdopt" style="display: none">
                 </form>
@@ -227,7 +241,7 @@
             <textarea cols="80" rows="50" placeholder="来说几句吧......" name="content" class="mytextarea"
                       id="content"></textarea>
         </form>
-        <div class="btn1 btn-info pull-right" id="comment">评论</div>
+        <div class="btno1 btn-info pull-right" id="comment">评论</div>
     </div>
 </div>
 </div>
@@ -245,15 +259,12 @@
 <%--立体轮播效果js--%>
 <script type="text/javascript">
     'use strict';
-
     window.addEventListener('load', function () {
         var carousels = document.querySelectorAll('.carousel');
-
         for (var i = 0; i < carousels.length; i++) {
             carousel(carousels[i]);
         }
     });
-
     function carousel(root) {
         var figure = root.querySelector('figure'),
             nav = root.querySelector('nav'),
@@ -263,19 +274,14 @@
             bfc = 'bfc' in root.dataset,
             theta = 2 * Math.PI / n,
             currImage = 0;
-
         setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
         window.addEventListener('resize', function () {
             setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
         });
-
         setupNavigation();
-
         function setupCarousel(n, s) {
             var apothem = s / (2 * Math.tan(Math.PI / n));
-
             figure.style.transformOrigin = '50% 50% ' + -apothem + 'px';
-
             for (var i = 0; i < n; i++) {
                 images[i].style.padding = gap + 'px';
             }
@@ -288,26 +294,20 @@
             }
             rotateCarousel(currImage);
         }
-
         function setupNavigation() {
             nav.addEventListener('click', onClick, true);
-
             function onClick(e) {
                 e.stopPropagation();
-
                 var t = e.target;
                 if (t.tagName.toUpperCase() != 'BUTTON') return;
-
                 if (t.classList.contains('next')) {
                     currImage++;
                 } else {
                     currImage--;
                 }
-
                 rotateCarousel(currImage);
             }
         }
-
         function rotateCarousel(imageIndex) {
             figure.style.transform = 'rotateY(' + imageIndex * -theta + 'rad)';
         }
@@ -319,7 +319,6 @@
             $("#doAdopt").click();
         });
     });
-
     var arr = [
         <c:forEach items="${pinglunList}" var="pinglun" varStatus="s">
         {
@@ -329,14 +328,7 @@
             beReplyName: "${pinglun.beReplyName}",
             content: "${pinglun.content}",
             time: "${pinglun.time}",
-            replyBody: [{
-                // id: 3,
-                // img: "",
-                // replyName: "帅大叔",
-                // beReplyName: "匿名",
-                // content: "来啊，我们一起吃鸡",
-                // time: "2017-10-17 11:42:53",
-            }]
+            replyBody:[],
         },
         </c:forEach>
     ];

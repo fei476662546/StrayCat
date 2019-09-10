@@ -59,7 +59,7 @@
                         <a href="${pageContext.request.contextPath}/pet/page">领养中心</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/app/blog.jsp">猫狗日记</a>
+                        <a href="${pageContext.request.contextPath}/blog/pinglunShow">猫狗日记</a>
                     </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/app/team.jsp">团队信息</a>
@@ -143,17 +143,18 @@
 
                                 </div>
                             </div>
-                                                        <div class="form-group">
-                                                            <label for="login_code" class="col-sm-2 control-label">验证码</label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="login_code" placeholder="验证码" name="code">
-                                                                <div class="code" style="float: right">
-                                                                    <img src="${pageContext.request.contextPath}/user/code" onclick="changeCode()"/>
-                                                                   <div id="codeByUser"></div>
-                                                                    <a href="javascript:changeCode()" >看不清换一张</a><br>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                            <div class="form-group">
+                                <label for="login_code" class="col-sm-2 control-label">验证码</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="login_code" placeholder="验证码"
+                                           name="code">
+                                    <div class="code" style="float: right">
+                                        <img src="${pageContext.request.contextPath}/user/code" onclick="changeCode()"/>
+                                        <div id="codeByUser"></div>
+                                        <a href="javascript:changeCode()">看不清换一张</a><br>
+                                    </div>
+                                </div>
+                            </div>
                             <input type="submit" value="提交" id="dologin" style="display: none">
                         </form>
                     </div>
@@ -198,20 +199,13 @@
                                     </select>
                                 </div>
                             </div>
-                            <%--                            <div class="form-group">--%>
-                            <%--                                <label for="register_telephone" class="col-sm-2 control-label">电话</label>--%>
-                            <%--                                <div class="col-sm-8">--%>
-                            <%--                                    <input type="text" class="form-control" id="register_telephone" placeholder="电话"--%>
-                            <%--                                           name="tel">--%>
-                            <%--                                </div>--%>
-                            <%--                            </div>--%>
-                            <%--                            <div class="form-group">--%>
-                            <%--                                <label for="register_email" class="col-sm-2 control-label">Email</label>--%>
-                            <%--                                <div class="col-sm-8">--%>
-                            <%--                                    <input type="text" class="form-control" id="register_email" placeholder="Email"--%>
-                            <%--                                           name="email">--%>
-                            <%--                                </div>--%>
-                            <%--                            </div>--%>
+                            <div class="form-group" hidden>
+                                <label for="register_telephone" class="col-sm-2 control-label">pic</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="register_telephone"
+                                           name="pic" value="cat (13).png">
+                                </div>
+                            </div>
                             <input type="submit" value="" id="doRegister" style="display: none">
                         </form>
                     </div>
@@ -247,11 +241,11 @@
                 $.ajax({
                     url: "${pageContext.request.contextPath}/user/registerAjax?username=" + val,
                     type: "GET",
-                    dataType : "json",
+                    dataType: "json",
                     success: function (result) {
-                        if (result.code==100) {
+                        if (result.code == 100) {
                             $("#MessageByUser").html("<font color='red' size='2'>用户名已存在</font>");
-                        }else if (result.code==200) {
+                        } else if (result.code == 200) {
                             $("#MessageByUser").html("<font color='red' size='2'>用户名可以使用</font>");
                         }
                     },
@@ -262,29 +256,30 @@
             }
         })
     });
-    function changeCode(){
+
+    function changeCode() {
         //得到图片元素
         var img = document.getElementById("checkCodeImg");
 
-        img.src = "${pageContext.request.contextPath}/user/code?time="+new Date().getTime();
+        img.src = "${pageContext.request.contextPath}/user/code?time=" + new Date().getTime();
     };
     $("#login_code").change(function () {
         var val = $(this).val();//value有空格
         val = $.trim(val);//去掉空格
         if (val != "") {
             $.ajax({
-                url:"${pageContext.request.contextPath}/user/checkCode?code="+val,
-                type:"GET",
+                url: "${pageContext.request.contextPath}/user/checkCode?code=" + val,
+                type: "GET",
                 dataType: "json",
-                success:function (result) {
-                    if (result.code==100){
+                success: function (result) {
+                    if (result.code == 100) {
                         $("#codeByUser").html("<font color='red' size='2'>验证码错误</font>");
-                    }else if (result.code==200) {
+                    } else if (result.code == 200) {
                         $("#codeByUser").html("<font color='red' size='2'>验证码正确</font>");
                     }
                 },
-                error:function () {
-                    alert("验证码失败")
+                error: function () {
+                    $("#codeByUser").html("<font color='red' size='2'>验证码正确</font>");
                 }
 
             })

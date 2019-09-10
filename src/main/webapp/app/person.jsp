@@ -49,19 +49,6 @@
     }
 
 
-    <%--    .txtSearch {--%>
-    <%--        padding-left: 40px;--%>
-    <%--    }--%>
-
-    <%--    table {--%>
-    <%--        background: rgba(128, 233, 143, 0.09);--%>
-    <%--        width: 800px;--%>
-    <%--        height: 600px;--%>
-    <%--    }--%>
-
-    <%--    input {--%>
-    <%--        border: hidden;--%>
-    <%--    }--%>
 
     .round_icon {
         width: 80px;
@@ -84,7 +71,7 @@
                           id="formPic">
                         <input type="file" name="pic" id="photo" style="display: none">
                         <img src="/myImg/${UserPic}" width="100px"
-                             style=" vertical-align:middle" class="round_icon">
+                             style=" vertical-align:middle" class="round_icon" id="imgInHere">
                         <button type="button" class="btn1 head_title2 btn-success" id="findPic">选择图片</button>
                     </form>
                 </div>
@@ -236,7 +223,7 @@
                             <div style="padding-left: 360px">
                                 <input class="btn1 btn-primary btn-lg" type="button" value="提交修改"
                                        id="person_btn">
-                                <font color="red"> ${updateUserMessage}</font>
+                               <div id="checkSub">${updateUserMessage}</div>
                             </div>
                         </div>
                     </form>
@@ -273,6 +260,7 @@
                     success: function (result) {
                         if (result.code == 100) {
                             console.log("修改照片成功" + result);
+                           window.location.reload();//重新加载整个页面
                             img_btn=false;
                         } else {
                             console.log("修改失败");
@@ -290,15 +278,13 @@
                 data: $("#personForm").serialize(),
                 success: function (result) {
                     if (result.code == 100) {
-                        alert("修改成功")
+                        console.log("修改成功");
+                        $("#checkSub").html("<font color='red'>修改成功</font>")
                     } else {
                         alert("修改失败")
                     }
                 }
             });
-
-
-
         });
     });
 </script>

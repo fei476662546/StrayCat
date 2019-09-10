@@ -40,7 +40,7 @@ public class PinglunController {
     public String pinglunShow(Model model,HttpServletRequest request) {
        Pet pet= (Pet) request.getSession().getAttribute("newPet");
         List<Pinglun> pinglunList=pinglunService.getPinglunByPetName(pet.getPetName());
-        List<Pet> pets=petService.getAllPet();
+
         if (pinglunList!=null){
             model.addAttribute("pinglunList",pinglunList);
             System.out.println("评论列表："+pinglunList);

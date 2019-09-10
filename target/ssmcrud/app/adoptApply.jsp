@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<jsp:include page="admitHome.jsp"></jsp:include>
+
 <head>
     <!-- jQuery -->
     <script type="text/javascript"
@@ -54,6 +54,7 @@
 </style>
 <body>
 <div id="wrapper">
+    <jsp:include page="admitHome.jsp"></jsp:include>
     <div id="page-wrapper">
         <!-- 用户信息查询部分  start-->
         <!-- 搭建显示页面 -->
@@ -79,8 +80,6 @@
                                 <td><input type="text" name="user_id" value="${acc.user_id}"></td>
                                 <td><input type="text" name="petName" value="${acc.petName}"></td>
                                 <td>
-                                    <a href="${pageContext.request.contextPath}/adopt/edit?id=${acc.id}">修改</a><%-- 有疑问--%>
-                                    <span>${msg}</span>
                                     <a href="${pageContext.request.contextPath}/adopt/delete?id=${acc.id}">删除</a>
                                     <span>${msg}</span>
                                 </td>
