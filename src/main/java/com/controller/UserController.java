@@ -8,6 +8,7 @@ import com.service.AdoptInfoService;
 import com.service.PetService;
 import com.service.UserService;
 import com.util.Msg;
+import com.util.SendEmail;
 import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -76,9 +78,45 @@ public class UserController {
         return "login";
     }
 
+//    发送邮箱验证
+    @RequestMapping("/send_email_code")
+    @ResponseBody
+    public Msg send_email_code(@RequestParam(value = "email")String email,HttpServletRequest request){
+        //创建6位发验证码
+        Random random=new Random();
+        String str="";
+        for(int i=0;i<6;i++) {
+            int n=random.nextInt(10);
+            str+=n;
+        }
+        SendEmail sendEmail=new SendEmail();
+        sendEmail.setReceiveMailAccount(email);
+        sendEmail.setInfo(str);
+        try {
+            sendEmail.Send();
+            request.getSession().setAttribute("email_code",str);
+            return Msg.success();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  Msg.fail();
+    }
+    //验证验证码
+    @RequestMapping("/verification_email_code")
+    @ResponseBody
+    public Msg email_code(@RequestParam(value = "code")String code,HttpServletRequest request){
+       if (code!=null) {
+           String code1 = (String) request.getSession().getAttribute("email_code");
+           if (code.equals(code1)) {
+                return Msg.success();
+           }
+       }
+       return Msg.fail();
+    }
     //注册
     @RequestMapping("/register")
     public String register(User user, Model model, HttpServletRequest request) {
+
         user.setPic("cat (9).png");//提供默认头像
         if (userService.saveUser(user) > 0) {
             model.addAttribute("msg", "注册成功");

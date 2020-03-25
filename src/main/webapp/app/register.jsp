@@ -69,11 +69,16 @@
 <%--                </dl>--%>
                 <dl>
                     <dt>邮箱</dt>
-                    <dd style="min-height:54px;">
+                    <dd class="minHeigh">
                         <input type="text" id="email" name="email" class="text tip heightAdd" title="请输入常用的邮箱，将用来找回密码、接受订单通知等" />
-                        <label></label></dd>
+                        <label id="email_msg"></label></dd>
                 </dl>
-
+                <dl>
+                    <dt>验证码</dt>
+                    <dd class="minHeigh">
+                        <input type="text" id="verification_code"  class="text tip heightAdd" title="请输入验证码" />
+                        <label><span id="verificationMessage"></span></label></dd>
+                </dl>
                 <dl>
                     <dt>&nbsp;</dt>
                     <dd>
@@ -82,8 +87,8 @@
 <%--                        <span for="clause" class="fl ml5">阅读并同意<a href="document-agreement.html" target="_blank" class="agreement" title="阅读并同意">服务协议</a></span>--%>
                         <label></label></dd>
                 </dl>
-                <input type="hidden" value name="ref_url">
-                <input name="nchash" type="hidden" value="206f94ec" />
+<%--                <input type="hidden" value name="ref_url">--%>
+<%--                <input name="nchash" type="hidden" value="206f94ec" />--%>
             </form>
             <div class="clear">
             </div>
@@ -96,7 +101,7 @@
 <script>
     // 注册辅助是否已存在
     $(function () {
-var flag1=false;var flag2=false;var flag3=false;var flag4=false;
+var flag1=false;var flag2=false;var flag3=false;var flag4=false; var flag5=false; var flag6=false;
         $("#user_name").change(function () {
             var val = $(this).val();//value有空格
             val = $.trim(val);//去掉空格
@@ -145,14 +150,62 @@ var flag1=false;var flag2=false;var flag3=false;var flag4=false;
                 }
             }
         });
+        //验证邮箱
+        $("#email").change(function () {
+            var val = $(this).val();
+            var reg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+            if (reg.test(val)) {
+                $("#email_msg").empty();
+                var yanshi = $("<a></a>").attr("id","send_verification_code").append($("<font></font>").attr("color","aqua").append("发送验证码"));
+                $("#email_msg").append(yanshi);
+                flag5 = true;
+            }else {
+                $("#email_msg").empty();
+                var yanshi = $("<span></span>").append($("<font></font>").attr("color","red").append("邮箱格式错误"));
+                $("#email_msg").append(yanshi);
+            }
+        })
         $("#sex").change(function () {
             var val=$(this).val();
             if (val=="1"||val=="0"){
                 flag4=true;
             }
         });
+        //发送验证码
+        $(document).on("click","#send_verification_code",function () {
+            var email = $("#email").val();
+            email = $.trim(email);
+            if (email!=null) {
+                $.ajax({
+                    url:"${pageContext.request.contextPath}/user/send_email_code?email="+email,
+                    success:function (result) {
+                        if (result.code==100){
+                            $("#email_msg").empty();
+                            var yanshi = $("<span></span>").append($("<font></font>").attr("color","red").append("发送成功"));
+                            $("#email_msg").append(yanshi);
+                        }
+                    }
+                })
+            }
+        });
+
+        //验证码
+        $("#verification_code").change(function () {
+            var c = $(this).val();
+           $.ajax({
+               url:"${pageContext.request.contextPath}/user/verification_email_code?code="+c,
+               success:function (r) {
+                   if (r.code==100) {
+                       $("#verificationMessage").html("<font color='aqua'>验证成功</font>");
+                       flag6 = true;
+                   }else {
+                       $("#verificationMessage").html("<font color='red'>验证错误</font>");
+                   }
+               }
+           })
+        });
         $("#Submit").click(function () {
-            if (flag1==true&&flag2==true&&flag3==true&&flag4==true) {
+            if (flag1==true&&flag2==true&&flag3==true&&flag4==true&&flag5==true&&flag6==true) {
 
                 $("#register_form").submit();}
             if ($("#sex").val()=="-1") {
