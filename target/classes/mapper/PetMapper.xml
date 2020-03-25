@@ -27,12 +27,79 @@
             #{id}
         </foreach>
     </delete>
-    <!-- 用于分页，每页显示4条数据 -->
-    <select id="showlist" parameterType="int" resultType="com.entity.Pet">
-   select petName,age,sex,pic,petType,remark,state from pet limit #{index},4
-</select>
-    <!-- 用于获取总页数 -->
-    <select id="pagecount" resultType="int">
-  select count(*) from pet
-</select>
+<!--    &lt;!&ndash; 用于分页，每页显示4条数据 &ndash;&gt;-->
+<!--    <select id="showlist" parameterType="int" resultType="com.entity.Pet">-->
+<!--   select petName,age,sex,pic,petType,remark,state from pet limit #{index},4-->
+<!--</select>-->
+<!--    &lt;!&ndash; 用于获取总页数 &ndash;&gt;-->
+<!--    <select id="pagecount" resultType="int">-->
+<!--  select count(*) from pet-->
+<!--</select>-->
+<!--    查找所有没有主人的动物-->
+    <select id="find_Pet_no_master" resultType="com.entity.Pet">
+        SELECT * FROM pet WHERE user_id IS NULL
+    </select>
+    <!--    查找所有有主人的动物-->
+    <select id="find_Pet_have_master" resultType="com.entity.Pet">
+        SELECT * FROM pet WHERE user_id IS  not NULL
+    </select>
+<!--    查所有猫-->
+    <select id="find_all_cats" resultType="com.entity.Pet">
+        SELECT * FROM pet WHERE state = 1
+    </select>
+    <!--    查所有狗-->
+    <select id="find_all_dogs" resultType="com.entity.Pet">
+        SELECT * FROM pet WHERE state = 0
+    </select>
+    <!-- 模糊查询动物 -->
+    <select id="likeByPetName" resultType="com.entity.Pet">
+       SELECT * FROM pet WHERE petName LIKE "%"#{name1}"%" OR petType LIKE "%"#{name2}"%" OR remark LIKE "%"#{name3}"%"
+    </select>
+<!--    模糊查询有主人的动物-->
+    <select id="like_pet_have_master" resultType="com.entity.Pet">
+       SELECT * FROM (SELECT * FROM pet WHERE user_id is not null) AS a WHERE a.petName LIKE "%"#{name1}"%" OR a.petType LIKE "%"#{name1}"%" OR a.remark LIKE "%"#{name1}"%"
+    </select>
+<!--    模糊查询没有主人的动物-->
+    <select id="like_pet_no_master" resultType="com.entity.Pet">
+       SELECT * FROM (SELECT * FROM pet WHERE user_id is  null) AS a WHERE a.petName LIKE "%"#{name1}"%" OR a.petType LIKE "%"#{name1}"%" OR a.remark LIKE "%"#{name1}"%"
+    </select>
+<!--    模糊查询所有是猫的动物-->
+    <select id="like_pet_cats" resultType="com.entity.Pet">
+       SELECT * FROM (SELECT * FROM pet WHERE state = 1) AS a WHERE a.petName LIKE "%"#{name1}"%" OR a.petType LIKE "%"#{name1}"%" OR a.remark LIKE "%"#{name1}"%"
+    </select>
+    <!--    模糊查询所有是狗的动物-->
+    <select id="like_pet_dogs" resultType="com.entity.Pet">
+       SELECT * FROM (SELECT * FROM pet WHERE state = 0) AS a WHERE a.petName LIKE "%"#{name1}"%" OR a.petType LIKE "%"#{name1}"%" OR a.remark LIKE "%"#{name1}"%"
+    </select>
+<!--    查询主人-->
+    <select id="findMasterByPetId" parameterType="int" resultType="com.entity.User">
+        SELECT users.* FROM users ,pet,adopt_info WHERE users.id= adopt_info.user_id AND pet.id=adopt_info.pet_id AND pet.id = #{id};
+    </select>
+
+<!--    添加主人ID-->
+    <update id="addMasterId" parameterType="com.entity.Pet">
+       update pet  set user_id = #{user_id}  where id = #{id}
+    </update>
+<!--    //点赞数加1-->
+    <update id="pet_counts_add" parameterType="int">
+        update pet set counts = IFNULL(counts,0)+1 WHERE id=#{id}
+    </update>
+    <insert id="add_pet_count_add" parameterType="com.entity.Zan_pet">
+        insert into zan (Obj,user_id,time) values (#{Obj},#{user_id},#{time})
+    </insert>
+<!--    用户是否给此动物点过赞-->
+    <select id="find_user_is_zan_pet" parameterType="int" resultType="com.entity.User">
+        select users.* from users,zan,pet where users.id=zan.user_id and  pet.id = zan.obj and users.id=#{user_id} and pet.id=#{pet_id}
+    </select>
+
+<!--    <select id="find_user_zan_pet_pl" resultType="com.entity.Pinglun" parameterType="int">-->
+<!--        select users.* from zan,users where zan.user_id =users.id and zan.id = #{zan.id}-->
+<!--    </select>-->
+<!--    主人添加宠物图片-->
+    <insert id="add_photo_by_master" parameterType="com.entity.Photo">
+        insert into photo (user_id,pet_id,photo) values (#{user_id},#{pet_id},#{photo})
+    </insert>
+    <select id="find_photo_list" resultType="com.entity.Photo">
+        select * from photo where user_id=#{user_id} and pet_id=#{pet_id}
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.service.impl;
 
 import com.entity.Pinglun;
+import com.entity.User;
 import com.mapper.PinglunMapper;
 import com.service.PinglunService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +50,25 @@ public class PinglunServiceImpl implements PinglunService {
     @Override
     public void deleteBatch(List<Integer> ids) {
         pinglunMapper.deleteBatch(ids);
+    }
+
+    @Override
+    public List<Pinglun> getPlsByPetId(Integer id) {
+        return pinglunMapper.getPlsByPetId(id);
+    }
+
+    @Override
+    public int pl_zan_count_add(Integer id) {
+        return pinglunMapper.pl_zan_count_add(id);
+    }
+
+    @Override
+    public int pl_zan_count_reduce(Integer id) {
+        return pinglunMapper.pl_zan_count_reduce(id);
+    }
+
+    @Override
+    public User find_user_by_pl_id(Integer id) {
+        return pinglunMapper.find_user_by_pl_id(id);
     }
 }

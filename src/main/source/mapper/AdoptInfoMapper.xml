@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.AdoptInfoMapper">
+    <select id="getAll" resultType="com.entity.AdoptInfo">
+        select * from adopt_info
+    </select>
+    <delete id="delAdoptInfoById" parameterType="int">
+       delete from adopt_info where id=#{id}
+    </delete>
+<!--    添加宠物领养信息-->
+    <insert id="addAdoptInfo" parameterType="com.entity.AdoptInfo" >
+        insert into adopt_info (user_id,pet_id,time) values (#{user_id},#{pet_id},#{time})
+    </insert>
+<!--    //查找用户的宠物-->
+    <select id="findPetByUserId" parameterType="int" resultType="com.entity.Pet">
+       SELECT pet.* FROM adopt_info,pet,users WHERE users.id=adopt_info.user_id and pet.id = adopt_info.pet_id AND users.id = #{id}
+ </select>
+
+</mapper>

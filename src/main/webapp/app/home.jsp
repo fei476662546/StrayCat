@@ -55,7 +55,7 @@
                     <li>
                         <a href="${pageContext.request.contextPath}/app/about.jsp">宠物知识</a>
                     </li>
-                    <li>
+                        <li>
                         <a href="${pageContext.request.contextPath}/pet/page">领养中心</a>
                     </li>
                     <li>
@@ -77,8 +77,8 @@
                     %>
                     <c:if test="${sessionScope.isLogin}" var="flage" scope="session">
                         <li class="nav_item userinfo">
-                            <a href="${pageContext.request.contextPath}/app/person.jsp">
-                                <div class="img"><img src="/myImg/${UserPic}" alt="" class="round_icon1">
+                            <a href="${pageContext.request.contextPath}/app/user_info.jsp">
+                                <div class="img"><img src="/myImg/${User.pic}" alt="" class="round_icon1">
                                 </div>
                                     <%--                                <div class="info"><span class="leve">${user.getStaffNumber()}</span>--%>
                                     <%--                                    <p class="name">${user.getStaffName()}</p>--%>
@@ -89,8 +89,9 @@
                     </c:if>
                     <c:if test="${!flage}" var="flage" scope="session">
                         <li>
-                            <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录
-                            </button>
+<%--                            <button class="btn1 btn-primary btn-lg" data-toggle="modal" data-target="#login">注册/登录--%>
+<%--                            </button>--%>
+                        <a href="${pageContext.request.contextPath}/app/login.jsp">登录/注册</a>
                         </li>
                         <li><font color="black" style="font-weight: bold">${handlerMsg}</font></li>
                     </c:if>

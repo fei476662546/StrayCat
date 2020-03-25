@@ -30,4 +30,5 @@ public class AdoptMapperTest {
 
         System.out.println(mapper.updatePetState(pet));
     }
+
 }

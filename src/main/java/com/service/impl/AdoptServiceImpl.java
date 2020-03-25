@@ -74,9 +74,10 @@ public class AdoptServiceImpl implements AdoptService {
     }
 
     @Override
-    public int findApplyByPetName(String petName) {
-        return adoptMapper.findApplyByPetName(petName);
+    public Adopt findApplyByPetIdAndUserId(Integer user_id, Integer pet_id) {
+        return adoptMapper.findApplyByPetIdAndUserId(user_id,pet_id);
     }
+
 
     @Override
     public List<Adopt> findPage(Integer id1, Integer id2) {

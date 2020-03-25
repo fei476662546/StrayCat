@@ -1,367 +1,703 @@
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 47666
-  Date: 2019/8/21
-  Time: 15:27
+  Date: 2020-3-7
+  Time: 21:06
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Home</title>
-    <!-- Meta tag Keywords -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8"/>
-    <meta name="keywords" content=""/>
-
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <!--// Meta tag Keywords -->
-    <!-- css files -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css"
-          media="all">
-    <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css"
-          media="all">
-    <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css"
-          media="all">
-    <!-- Font-Awesome-Icons-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/owl.carousel.css" type="text/css"
-          media="all"/>
-    <!-- Owl-Carousel-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all"/>
-    <!-- Style-CSS -->
-    <!-- //css files -->
-    <!-- web fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Molle:400i&amp;subset=latin-ext" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
-          rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext"
-          rel="stylesheet">
-    <!-- //web fonts -->
+    <jsp:include page="ui_1.jsp"></jsp:include>
 </head>
-<jsp:include page="home.jsp"></jsp:include>
 <body>
+    <!-- contents -->
+    <div class="main_content">
+        <div class="main_content_inner">
+            <!-- 轮播图 -->
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1"
+                 uk-slideshow="animation: push ;min-height: 200; max-height: 350 ;autoplay: t rue">
 
-</div>
-<!-- //sticky navigation 首页轮播图 -->
-<div class="w3l-main" id="home1">
-    <div class="container">
-        <!-- header -->
-        <div class="header">
-            <div class="logo">
-                <h1>
-                    <a href="${pageContext.request.contextPath}/user/index">
-                        <img class="logo-img center-block"
-                             src="${pageContext.request.contextPath}/animal/images/logo.png" alt=""/> 猫狗生活
-                    </a>
-                </h1>
+                <ul class="uk-slideshow-items rounded">
+                    <li>
+                        <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
+                            <img src="${pageContext.request.contextPath}/animal/images/1.jpg" alt="" uk-cover>
+                        </div>
+                        <div class="uk-position-cover"
+                             uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
+                        <div class="uk-position-bottom-left bg-gradient-4 uk-width-1-1 p-4">
+                            <div uk-slideshow-parallax="scale: 1,1,0.8">
+                                <h1 uk-slideshow-parallax="x: 200,0,0" class="uk-heading-small"> 每一条生命都应该被呵护 </h1>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
+                            <img src="${pageContext.request.contextPath}/animal/images/4.jpg" alt="" uk-cover>
+                        </div>
+                        <div class="uk-position-cover"
+                             uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
+                        <div class="uk-position-bottom uk-position-medium uk-transition-scale-down">
+                            <h1 uk-slideshow-parallax="x: 200,0,0" class="uk-heading-small">主人快带我回家吧</h1>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
+                            <img src="${pageContext.request.contextPath}/animal/images/3.jpg" alt="" uk-cover>
+                        </div>
+                        <div class="uk-position-cover"
+                             uk-slideshow-parallax="opacity: 0,0,0.2; backgroundColor: #000,#000"></div>
+                        <div class="uk-position-bottom uk-position-medium uk-transition-scale-down">
+                            <h1 uk-slideshow-parallax="x: 200,0,0" class="uk-heading-small">猫和狗是我们的朋友</h1>
+                        </div>
+                    </li>
+                </ul>
+                <%--                <a class="uk-position-center-left-out uk-position-small uk-hidden-hover slidenav-prev" href="#"--%>
+                <%--                   uk-slideshow-item="previous"></a>--%>
+                <%--                <a class="uk-position-center-right-out uk-position-small uk-hidden-hover slidenav-next" href="#"--%>
+                <%--                   uk-slideshow-item="next"></a>--%>
             </div>
-            <div class="clearfix"></div>
+
+            <!-- 所有已领养的动物-->
+            <div class="video-grid-slider mt-4" uk-slider="finite: true">
+                <!-- 上部悬浮栏-->
+
+                <div class="grid-slider-header">
+                    <div>
+                        <h3> 已领养的动物 </h3>
+                        <p>抓紧时间，时不再来</p>
+                        <div class="panel panel-default">
+                            <!-- 搜索部分 -->
+                            <div class="panel-body">
+                                <form class="form-inline" method="get">
+                                    <div class="form-group">
+                                        <label for="find_master_string">搜索已领养</label>
+                                        <input type="text" class="form-control" id="find_master_string" placeholder="宠物名,品种，介绍">
+                                        <button type="button" id="find_master_btn" class="btn btn-primary">查询</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-slider-header-link">
+
+                        <div class="btn-arrow-slider">
+                            <a href="#" class="btn-arrow-slides" uk-slider-item="previous">
+                                <span class="arrow-left"></span>
+                            </a>
+                            <a href="#" class="btn-arrow-slides" uk-slider-item="next">
+                                <span class="arrow-right"></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <ul class="uk-slider-items uk-child-width-1-4@m uk-child-width-1-3@s uk-grid mb-3" id="ul_page">
+
+                </ul>
+                <div class="row">
+                    <!-- 分页条信息 -->
+                    <div class="col-md-6" id="page_nav_area"></div>
+                </div>
+            </div>
+            <hr class="m-0">
+            <!-- 所有未领养的动物-->
+            <div class="section-small">
+
+                <div uk-slider="finite: true">
+
+                    <div class="grid-slider-header">
+                        <div>
+                            <h3> 未领养的动物 </h3>
+                            <div class="panel panel-default">
+                                <!-- 搜索部分 -->
+                                <div class="panel-body">
+                                    <form class="form-inline" method="get">
+                                        <div class="form-group">
+                                            <label for="find_no_master">搜索未领养</label>
+                                            <input type="text" class="form-control" id="find_no_master" placeholder="宠物名,品种，介绍">
+                                            <button type="button" id="find_no_master_btn" class="btn btn-primary">查询</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="uk-slider-items uk-child-width-1-4@m uk-child-width-1-3@s uk-grid mb-3" id="ul_page_1">
+
+                    </ul>
+                    <div class="row">
+                        <!-- 分页条信息 -->
+                        <div class="col-md-6" id="page_nav_area_1"></div>
+                    </div>
+                </div>
+            </div>
+            <hr class="m-0">
+            <!-- 所有猫-->
+            <div class="section-small">
+
+                <div uk-slider="finite: true">
+
+                    <div class="grid-slider-header">
+                        <div>
+                            <h3> 所有猫 </h3>
+                            <div class="panel panel-default">
+                                <!-- 搜索部分 -->
+                                <div class="panel-body">
+                                    <form class="form-inline" method="get">
+                                        <div class="form-group">
+                                            <label for="find_pet_cats">搜索猫</label>
+                                            <input type="text" class="form-control" id="find_pet_cats" placeholder="宠物名,品种，介绍">
+                                            <button type="button" id="find_pet_cats_btn" class="btn btn-primary">查询</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="uk-slider-items uk-child-width-1-4@m uk-child-width-1-3@s uk-grid mb-3" id="ul_page_cat">
+
+                    </ul>
+                    <div class="row">
+                        <!-- 分页条信息 -->
+                        <div class="col-md-6" id="page_nav_area_cat"></div>
+                    </div>
+                </div>
+            </div>
+            <hr class="m-0">
+            <!-- 所有狗-->
+            <div class="section-small">
+
+                <div uk-slider="finite: true">
+
+                    <div class="grid-slider-header">
+                        <div>
+                            <h3> 所有狗 </h3>
+                            <div class="panel panel-default">
+                                <!-- 搜索部分 -->
+                                <div class="panel-body">
+                                    <form class="form-inline" method="get">
+                                        <div class="form-group">
+                                            <label for="find_pet_dogs">搜索狗</label>
+                                            <input type="text" class="form-control" id="find_pet_dogs" placeholder="宠物名,品种，介绍">
+                                            <button type="button" id="find_pet_dogs_btn" class="btn btn-primary">查询</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="uk-slider-items uk-child-width-1-4@m uk-child-width-1-3@s uk-grid mb-3" id="ul_page_dog">
+
+                    </ul>
+                    <div class="row">
+                        <!-- 分页条信息 -->
+                        <div class="col-md-6" id="page_nav_area_dog"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- //header -->
     </div>
-    <!-- Slider -->
-    <div class="slider">
-        <div class="callbacks_container">
-            <ul class="rslides" id="slider">
-                <li>
-                    <div class="slider-img-w3layouts one">
-                        <div class="w3l-overlay">
-                            <div class="container">
-                                <div class="banner-text-info">
-                                    <h3>我们随时
-                                        <span>欢迎</span> 你们来
-                                        <span>咨询</span>！
-                                    </h3>
-                                    <p> 全面的猫狗护理指南，让您的宠物感受到您的爱</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="slider-img-w3layouts two">
-                        <div class="w3l-overlay">
-                            <div class="container">
-                                <div class="banner-text-info">
-                                    <h3>你可以展示你的
-                                        <span>爱</span> 向你
-                                        <span>的宠物</span>!</h3>
-                                    <p> 全面的猫狗护理指南，让您的宠物感受到您的爱</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="slider-img-w3layouts three">
-                        <div class="w3l-overlay">
-                            <div class="container">
-                                <div class="banner-text-info">
-                                    <h3>猫狗 是你的
-                                        <span>朋友</span>！&nbsp;&nbsp;猫狗是你的
-                                        <span>家人</span> !</h3>
-                                    <p> 全面的猫狗护理指南，让您的宠物感受到您的爱</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="slider-img-w3layouts four">
-                        <div class="w3l-overlay">
-                            <div class="container">
-                                <div class="banner-text-info">
-                                    <h3>猫狗如此
-                                        <span>可爱</span> 你们怎么可能
-                                        <span>不爱</span>它们!</h3>
-                                    <p>全面的猫狗护理指南，让您的宠物感受到您的爱</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-    <!--//Slider-->
-</div>
-<!--//banner-->
-
-<!-- footer -->
-<section class="footer-w3">
-    <div class="container">
-        <div class="col-lg-4 col-md-4 col-sm-4 footer-agile1" data-aos="zoom-in">
-            <h3>网站简介</h3>
-            <p class="footer-p1">
-                该网站是用于想领养宠物和想成为我们其中一员，那么你将再这里实现你的想法。
-                如果你是领养者，请认真选取想要领养的宠物领养后，请认真负责对待可爱的猫狗！
-                如果你是想成为志愿者，请联系我们，我们欢迎任何爱心认识，加入我们！
-            </p>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 footer-mid-w3" data-aos="zoom-in">
-            <h3>宠物展示</h3>
-            <div class="agileinfo_footer_grid1">
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/animal/images/f1.jpg" alt=" " class="img-responsive">
-                </a>
-            </div>
-            <div class="agileinfo_footer_grid1">
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/animal/images/f2.jpg" alt=" " class="img-responsive">
-                </a>
-            </div>
-            <div class="agileinfo_footer_grid1">
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/animal/images/f3.jpg" alt=" " class="img-responsive">
-                </a>
-            </div>
-            <div class="agileinfo_footer_grid1">
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/animal/images/f4.jpg" alt=" " class="img-responsive">
-                </a>
-            </div>
-            <div class="agileinfo_footer_grid1">
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/animal/images/f5.jpg" alt=" " class="img-responsive">
-                </a>
-            </div>
-            <div class="agileinfo_footer_grid1">
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/animal/images/f6.jpg" alt=" " class="img-responsive">
-                </a>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <!--联系方式-->
-        <div class="col-lg-4 col-md-4 col-sm-4 footer-agile1" data-aos="zoom-in">
-            <h3>联系方式</h3>
-            <p>电话&nbsp;&nbsp;<span style="font-size: 22px;color: red">14390872021</span></p>
-            <br>
-            <p>邮件&nbsp;&nbsp;<span style="font-size: 22px;color: red">CatDog@aliyun.com</span></p>
-            <br>
-            <p>官网&nbsp;&nbsp;<span style="font-size: 22px;color: red">www.pet.com</span></p>
-        </div>
-
-    </div>
-
-</section>
 
 
-<!-- js -->
-<script src="${pageContext.request.contextPath}/animal/js/jquery-2.2.3.min.js"></script>
-<script src="${pageContext.request.contextPath}/animal/bootstrap/js/bootstrap.js"></script>
-<!-- Necessary-JavaScript-File-For-Bootstrap -->
-<!-- //js -->
 
-<!-- Banner Slider -->
-<script src="${pageContext.request.contextPath}/animal/js/responsiveslides.min.js"></script>
+</body>
 <script>
-    $(function () {
-        $("#slider").responsiveSlides({
-            auto: true,
-            pager: true,
-            nav: true,
-            speed: 1000,
-            namespace: "callbacks",
-            before: function () {
-                $('.events').append("<li>before event fired.</li>");
-            },
-            after: function () {
-                $('.events').append("<li>after event fired.</li>");
+    //总的数据 当前的页面
+    var totalRecord,currentPage;
+    $(function(){
+        to_page(1);
+        to_page_1(1);
+        to_page_cat(1);
+        to_page_dog(1);
+    });
+    //查询有主人的动物
+    function to_page(pn){
+        $.ajax({
+            url:"${pageContext.request.contextPath}/pet/pets",
+            data:"pn="+pn,
+            type:"GET",
+            success:function(result){
+                //1、解析并显示员工数据
+                build_pets_table(result);
+                //3、解析显示分页条数据
+                build_page_nav(result);
+
             }
         });
-    });
-</script>
-<!-- //Banner Slider -->
+    }
+    //动态搭建样式
+    function build_pets_table(result){
+        //清空table表格
+        $("#ul_page").empty();
+        //index：下标 user：单个对象
+        var pets=result.extend.pageInfo.list;//调用return Msg.success().add("pageInfo", page);
+        $.each(pets,function(index,pet){
+            var li_0 = $("<li></li>");
+            var a_1 = $("<a></a>").addClass("video_post").attr("href","${pageContext.request.contextPath}/pet/petMessage?user_id=${User.id}&pet_id="+pet.id);
+            var div_2_1 = $("<div></div>").addClass("video-post-thumbnail");
+            var div_2_2 = $("<div></div>").addClass("video-post-content");
+            var span_2_1_1 = $("<span></span>").addClass("video-post-count").append("1.4M");//还未调用值
+            var span_2_1_2 = $("<span></span>").addClass("video-post-time").append("1.4M");//还未调用值
+            var span_2_1_3 = $("<span></span>").addClass("btn-option");
+            var div_2_1_4 = $("<div></div>").addClass("dropdown-option-nav").attr("uk-dropdown","pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small");
+            var img_2_1_5 = $("<img/>").attr("src","${pageContext.request.contextPath}/animal/images/"+pet.pic).attr("alt","");
+            var h3_2_2_1 = $("<h3></h3>").append(pet.remark);
+            var img_2_2_2 = $("<img/>").attr("src","${pageContext.request.contextPath}/static/index/assets/images/avatars/avatar-3.jpg").attr("alt","");
+            var span_2_2_3 = $("<span></span>").addClass("video-post-user").append(pet.petName);//还未调用值
+            var span_2_2_4 = $("<span></span>").addClass("video-post-views").append(1);//还未调用值
+            var span_2_2_5 = $("<span></span>").addClass("video-post-date").append(2);//还未调用值
+            var i_2_1_3_1 = $("<i></i>").addClass("icon-feather-more-vertical");
+            var ul_2_1_4_1 = $("<ul></ul>");
+            var li_2_1_4_1_1 = $("<li></li>").append($("<span></span>").append($("<i></i>").addClass("uil-history")).append("第一行"));
+            var li_2_1_4_1_2 = $("<li></li>").append($("<span></span>").append($("<i></i>").addClass("uil-bookmark")).append("第二行"));
+            var li_2_1_4_1_3 = $("<li></li>").append($("<span></span>").append($("<i></i>").addClass("uil-share-alt")).append("第三行"));
+            li_0.append(a_1);
+            a_1.append(div_2_1).append(div_2_2);
+            div_2_1.append(span_2_1_1).append(span_2_1_2).append(span_2_1_3).append(div_2_1_4).append(img_2_1_5);
+            div_2_2.append(h3_2_2_1).append(img_2_2_2).append(span_2_2_3).append(span_2_2_4).append(span_2_2_5);
+            span_2_1_3.append(i_2_1_3_1);
+            div_2_1_4.append(ul_2_1_4_1);
+            ul_2_1_4_1.append(li_2_1_4_1_1).append(li_2_1_4_1_2).append(li_2_1_4_1_3);
+            li_0.appendTo("#ul_page");
+        });
+    }
+    //模糊查询有主人的动物
+    $("#find_master_btn").click(function () {
+        var PetMessage = $("#find_master_string").val();
+        var pn = 1;
+        $.ajax({
+            url:"${pageContext.request.contextPath}/pet/like_pet_have_master",
+            data: {"pn": pn, "petName": PetMessage},
+            type:"GET",
+            success: function (result) {
+                //1、解析并显示员工数据
+                build_pets_table(result);
+                //2、解析并显示分页信息
+                //build_page_info(result);
+                //3、解析显示分页条数据
+                build_page_nav(result);
+            }
+        });
+    })
 
+    //解析显示分页条，点击分页要能去下一页....
+    function build_page_nav(result){
+        //page_nav_area
+        $("#page_nav_area").empty();
+        var ul = $("<ul></ul>").addClass("pagination");
+        //构建元素
+        var firstPageLi = $("<li></li>").append($("<a></a>").append("首页").attr("href","#"));
+        var prePageLi = $("<li></li>").append($("<a></a>").append("&laquo;"));
+        if(result.extend.pageInfo.hasPreviousPage == false){
+            firstPageLi.addClass("disabled");
+            prePageLi.addClass("disabled");
+        }else{
+            //为元素添加点击翻页的事件
+            firstPageLi.click(function(){
+                to_page(1);
+            });
+            prePageLi.click(function(){
+                to_page(result.extend.pageInfo.pageNum -1);
+            });
+        }
+        var nextPageLi = $("<li></li>").append($("<a></a>").append("&raquo;"));
+        var lastPageLi = $("<li></li>").append($("<a></a>").append("末页").attr("href","#"));
+        if(result.extend.pageInfo.hasNextPage == false){
+            nextPageLi.addClass("disabled");
+            lastPageLi.addClass("disabled");
+        }else{
+            nextPageLi.click(function(){
+                to_page(result.extend.pageInfo.pageNum +1);
+            });
+            lastPageLi.click(function(){
+                to_page(result.extend.pageInfo.pages);
+            });
+        }
+        //添加首页和前一页 的提示
+        ul.append(firstPageLi).append(prePageLi);
+        //1,2，3遍历给ul中添加页码提示
+        $.each(result.extend.pageInfo.navigatepageNums,function(index,item){
+            var numLi = $("<li></li>").append($("<a></a>").append(item));
+            if(result.extend.pageInfo.pageNum == item){
+                numLi.addClass("active");
+            }
+            numLi.click(function(){
+                to_page(item);
+            });
+            ul.append(numLi);
+        });
+        //添加下一页和末页 的提示
+        ul.append(nextPageLi).append(lastPageLi);
+        //把ul加入到nav
+        var navEle = $("<nav></nav>").append(ul);
+        navEle.appendTo("#page_nav_area");
+    }
+    //查询没有主人的动物
+    function to_page_1(pn){
+        $.ajax({
+            url:"${pageContext.request.contextPath}/pet/no_master_pets",
+            data:"pn="+pn,
+            type:"GET",
+            success:function(result){
+                //1、解析并显示员工数据
+                build_no_master_pets_table(result);
+                //3、解析显示分页条数据
+                build_page_nav_1(result);
 
-<!-- 注册登录模块框 -->
-<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">
-                    <div role="tabpanel">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-                                <a href="#home" aria-controls="login" role="tab" data-toggle="tab">登录</a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#tab" aria-controls="register" role="tab" data-toggle="tab">注册</a>
-                            </li>
-                        </ul>
-                    </div>
-                </h4>
-            </div>
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="home">
-                    <div class="modal-body">
-                        <form class="form-horizontal" id="user_form" method="post"
-                              action="${pageContext.request.contextPath}/user/login">
-                            <div class="form-group">
-                                <label for="new_loginName" class="col-sm-2 control-label">账号</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="new_loginName" placeholder="账号"
-                                           name="username">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="new_loginPwd" class="col-sm-2 control-label">密码</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="new_loginPwd" placeholder="密码"
-                                           name="password">
-                                    <span>${msg}</span>
-                                </div>
-                            </div>
-                            <%--                            <div class="form-group">--%>
-                            <%--                                <label for="login_code" class="col-sm-2 control-label">验证码</label>--%>
-                            <%--                                <div class="col-sm-4">--%>
-                            <%--                                    <input type="text" class="form-control" id="login_code" placeholder="验证码" name="code">--%>
-                            <%--                                    <div class="code" style="float: right">--%>
-                            <%--                                        <img src="${pageContext.request.contextPath}/code" onclick="changeCode()" id="checkCodeImg"/>--%>
-                            <%--                                        <a href="javascript:changeCode()" >看不清换一张</a><br>--%>
-                            <%--                                    </div>--%>
-                            <%--                                </div>--%>
-                            <%--                            </div>--%>
-                            <input type="submit" value="提交" id="dologin" style="display: block">
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn1 btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn1 btn-primary" id="loginbtn">登录</button>
-                    </div>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="tab">
-                    <div class="modal-body">
-                        <form class="form-horizontal" id="register_user_form" method="post"
-                              action="${pageContext.request.contextPath}/register">
-                            <div class="form-group">
-                                <label for="register_loginName" class="col-sm-2 control-label">账号</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="register_loginName" placeholder="账号"
-                                           name="loginName">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="register_loginPwd" class="col-sm-2 control-label">密码</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="register_loginPwd" placeholder="密码"
-                                           name="loginPwd">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="register_gender" class="col-sm-2 control-label">性别</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="register_gender" placeholder="性别"
-                                           name="gender">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="register_age" class="col-sm-2 control-label">年龄</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="register_age" placeholder="年龄"
-                                           name="age">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="register_email" class="col-sm-2 control-label">Email</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="register_email" placeholder="Email"
-                                           name="email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="register_telephone" class="col-sm-2 control-label">电话</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="register_telephone" placeholder="电话"
-                                           name="telephone">
-                                </div>
-                            </div>
-                            <input type="submit" value="" id="doRegister" style="display: none">
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn1 btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn1 btn-primary" id="registerBtn">注册</button>
-                    </div>
-                </div>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-</div>
-<!-- 注册登录模块框 -->
-</body>
-<%--得到图片--%>
-<script type="text/javascript">
-    function changeCode() {
-        //得到图片元素
-        var img = document.getElementById("checkCodeImg");
-        img.src = "${pageContext.request.contextPath}/code?time=" + new Date().getTime();
-    };
-    // //登录成功显示个人信息页面
-    // function hiddenButton() {
-    //     var value=localStorage.getItem("user");
-    //     if (value!=null){
-    //
-    //         document.getElementById("isLogin").style.display="none";
-    //         document.getElementById("isPerson").style.display="block";
-    //     }else {
-    //         document.getElementById("isLogin").style.display="block";
-    //         document.getElementById("isPerson").style.display="none";
-    //     }
-    // }
+            }
+        });
+    }
+    //动态搭建样式
+    function build_no_master_pets_table(result){
+        //清空table表格
+        $("#ul_page_1").empty();
+        //index：下标 user：单个对象
+        var pets=result.extend.pageInfo.list;//调用return Msg.success().add("pageInfo", page);
+        $.each(pets,function(index,pet){
+            var li_0 = $("<li></li>");
+            var a_1 = $("<a></a>").addClass("video_post").attr("href","${pageContext.request.contextPath}/pet/petMessage?user_id=${User.id}&pet_id="+pet.id);
+            var div_2_1 = $("<div></div>").addClass("video-post-thumbnail");
+            var div_2_2 = $("<div></div>").addClass("video-post-content");
+            var span_2_1_1 = $("<span></span>").addClass("video-post-count").append("1.4M");//还未调用值
+            var span_2_1_2 = $("<span></span>").addClass("video-post-time").append("1.4M");//还未调用值
+            var span_2_1_3 = $("<span></span>").addClass("btn-option");
+            var div_2_1_4 = $("<div></div>").addClass("dropdown-option-nav").attr("uk-dropdown","pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small");
+            var img_2_1_5 = $("<img/>").attr("src","${pageContext.request.contextPath}/animal/images/"+pet.pic).attr("alt","");
+            var h3_2_2_1 = $("<h3></h3>").append(pet.remark);
+            var img_2_2_2 = $("<img/>").attr("src","${pageContext.request.contextPath}/static/index/assets/images/avatars/avatar-3.jpg").attr("alt","");
+            var span_2_2_3 = $("<span></span>").addClass("video-post-user").append(pet.petName);//还未调用值
+            var span_2_2_4 = $("<span></span>").addClass("video-post-views").append(1);//还未调用值
+            var span_2_2_5 = $("<span></span>").addClass("video-post-date").append(2);//还未调用值
+            var i_2_1_3_1 = $("<i></i>").addClass("icon-feather-more-vertical");
+            var ul_2_1_4_1 = $("<ul></ul>");
+            var li_2_1_4_1_1 = $("<li></li>").append($("<span></span>").append($("<i></i>").addClass("uil-history")).append("第一行"));
+            var li_2_1_4_1_2 = $("<li></li>").append($("<span></span>").append($("<i></i>").addClass("uil-bookmark")).append("第二行"));
+            var li_2_1_4_1_3 = $("<li></li>").append($("<span></span>").append($("<i></i>").addClass("uil-share-alt")).append("第三行"));
+            li_0.append(a_1);
+            a_1.append(div_2_1).append(div_2_2);
+            div_2_1.append(span_2_1_1).append(span_2_1_2).append(span_2_1_3).append(div_2_1_4).append(img_2_1_5);
+            div_2_2.append(h3_2_2_1).append(img_2_2_2).append(span_2_2_3).append(span_2_2_4).append(span_2_2_5);
+            span_2_1_3.append(i_2_1_3_1);
+            div_2_1_4.append(ul_2_1_4_1);
+            ul_2_1_4_1.append(li_2_1_4_1_1).append(li_2_1_4_1_2).append(li_2_1_4_1_3);
+            li_0.appendTo("#ul_page_1");
+        });
+    }
+    //模糊查询无主人的动物
+    $("#find_no_master_btn").click(function () {
+        var PetMessage = $("#find_no_master").val();
+        var pn = 1;
+        $.ajax({
+            url:"${pageContext.request.contextPath}/pet/like_pet_no_master",
+            data: {"pn": pn, "petName": PetMessage},
+            type:"GET",
+            success: function (result) {
+                //1、解析并显示员工数据
+                build_no_master_pets_table(result);
+                //2、解析并显示分页信息
+                //build_page_info(result);
+                //3、解析显示分页条数据
+                build_page_nav_1(result);
+            }
+        });
+    })
+    //解析显示分页条，点击分页要能去下一页....
+    function build_page_nav_1(result){
+        //page_nav_area
+        $("#page_nav_area_1").empty();
+        var ul = $("<ul></ul>").addClass("pagination");
+        //构建元素
+        var firstPageLi = $("<li></li>").append($("<a></a>").append("首页").attr("href","#"));
+        var prePageLi = $("<li></li>").append($("<a></a>").append("&laquo;"));
+        if(result.extend.pageInfo.hasPreviousPage == false){
+            firstPageLi.addClass("disabled");
+            prePageLi.addClass("disabled");
+        }else{
+            //为元素添加点击翻页的事件
+            firstPageLi.click(function(){
+                to_page_1(1);
+            });
+            prePageLi.click(function(){
+                to_page_1(result.extend._1.pageNum -1);
+            });
+        }
+        var nextPageLi = $("<li></li>").append($("<a></a>").append("&raquo;"));
+        var lastPageLi = $("<li></li>").append($("<a></a>").append("末页").attr("href","#"));
+        if(result.extend.pageInfo.hasNextPage == false){
+            nextPageLi.addClass("disabled");
+            lastPageLi.addClass("disabled");
+        }else{
+            nextPageLi.click(function(){
+                to_page_1(result.extend.pageInfo.pageNum +1);
+            });
+            lastPageLi.click(function(){
+                to_page_1(result.extend.pageInfo.pages);
+            });
+        }
+        //添加首页和前一页 的提示
+        ul.append(firstPageLi).append(prePageLi);
+        //1,2，3遍历给ul中添加页码提示
+        $.each(result.extend.pageInfo.navigatepageNums,function(index,item){
+            var numLi = $("<li></li>").append($("<a></a>").append(item));
+            if(result.extend.pageInfo.pageNum == item){
+                numLi.addClass("active");
+            }
+            numLi.click(function(){
+                to_page_1(item);
+            });
+            ul.append(numLi);
+        });
+        //添加下一页和末页 的提示
+        ul.append(nextPageLi).append(lastPageLi);
+        //把ul加入到nav
+        var navEle = $("<nav></nav>").append(ul);
+        navEle.appendTo("#page_nav_area_1");
+    }
+    //查询所有猫
+    function to_page_cat(pn){
+        $.ajax({
+            url:"${pageContext.request.contextPath}/pet/cats",
+            data:"pn="+pn,
+            type:"GET",
+            success:function(result){
+                //1、解析并显示员工数据
+                build_cat_table(result);
+                //3、解析显示分页条数据
+                build_page_nav_cat(result);
+
+            }
+        });
+    }
+    //动态搭建样式
+    function build_cat_table(result){
+        //清空table表格
+        $("#ul_page_cat").empty();
+        //index：下标 user：单个对象
+        var pets=result.extend.pageInfo.list;//调用return Msg.success().add("pageInfo", page);
+        $.each(pets,function(index,pet){
+            var li_0 = $("<li></li>");
+            var a_1 = $("<a></a>").addClass("video_post").attr("href","${pageContext.request.contextPath}/pet/petMessage?user_id=${User.id}&pet_id="+pet.id);
+            var div_2_1 = $("<div></div>").addClass("video-post-thumbnail");
+            var div_2_2 = $("<div></div>").addClass("video-post-content");
+            var span_2_1_1 = $("<span></span>").addClass("video-post-count").append("1.4M");//还未调用值
+            var span_2_1_2 = $("<span></span>").addClass("video-post-time").append("1.4M");//还未调用值
+            var span_2_1_3 = $("<span></span>").addClass("btn-option");
+            var div_2_1_4 = $("<div></div>").addClass("dropdown-option-nav").attr("uk-dropdown","pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small");
+            var img_2_1_5 = $("<img/>").attr("src","${pageContext.request.contextPath}/animal/images/"+pet.pic).attr("alt","");
+            var h3_2_2_1 = $("<h3></h3>").append(pet.remark);
+            var img_2_2_2 = $("<img/>").attr("src","${pageContext.request.contextPath}/static/index/assets/images/avatars/avatar-3.jpg").attr("alt","");
+            var span_2_2_3 = $("<span></span>").addClass("video-post-user").append(pet.petName);//还未调用值
+            var span_2_2_4 = $("<span></span>").addClass("video-post-views").append(1);//还未调用值
+            var span_2_2_5 = $("<span></span>").addClass("video-post-date").append(2);//还未调用值
+            var i_2_1_3_1 = $("<i></i>").addClass("icon-feather-more-vertical");
+            var ul_2_1_4_1 = $("<ul></ul>");
+            var li_2_1_4_1_1 = $("<li></li>").append($("<span></span>").append($("<i></i>").addClass("uil-history")).append("第一行"));
+            var li_2_1_4_1_2 = $("<li></li>").append($("<span></span>").append($("<i></i>").addClass("uil-bookmark")).append("第二行"));
+            var li_2_1_4_1_3 = $("<li></li>").append($("<span></span>").append($("<i></i>").addClass("uil-share-alt")).append("第三行"));
+            li_0.append(a_1);
+            a_1.append(div_2_1).append(div_2_2);
+            div_2_1.append(span_2_1_1).append(span_2_1_2).append(span_2_1_3).append(div_2_1_4).append(img_2_1_5);
+            div_2_2.append(h3_2_2_1).append(img_2_2_2).append(span_2_2_3).append(span_2_2_4).append(span_2_2_5);
+            span_2_1_3.append(i_2_1_3_1);
+            div_2_1_4.append(ul_2_1_4_1);
+            ul_2_1_4_1.append(li_2_1_4_1_1).append(li_2_1_4_1_2).append(li_2_1_4_1_3);
+            li_0.appendTo("#ul_page_cat");
+        });
+    }
+    //模糊查询所有猫
+    $("#find_pet_cats_btn").click(function () {
+        var PetMessage = $("#find_pet_cats").val();
+        var pn = 1;
+        $.ajax({
+            url:"${pageContext.request.contextPath}/pet/like_pet_cats",
+            data: {"pn": pn, "petName": PetMessage},
+            type:"GET",
+            success: function (result) {
+                //1、解析并显示员工数据
+                build_cat_table(result);
+                //2、解析并显示分页信息
+                //build_page_info(result);
+                //3、解析显示分页条数据
+                build_page_nav_cat(result);
+            }
+        });
+    })
+    //解析显示分页条，点击分页要能去下一页....
+    function build_page_nav_cat(result){
+        //page_nav_area
+        $("#page_nav_area_cat").empty();
+        var ul = $("<ul></ul>").addClass("pagination");
+        //构建元素
+        var firstPageLi = $("<li></li>").append($("<a></a>").append("首页").attr("href","#"));
+        var prePageLi = $("<li></li>").append($("<a></a>").append("&laquo;"));
+        if(result.extend.pageInfo.hasPreviousPage == false){
+            firstPageLi.addClass("disabled");
+            prePageLi.addClass("disabled");
+        }else{
+            //为元素添加点击翻页的事件
+            firstPageLi.click(function(){
+                to_page_cat(1);
+            });
+            prePageLi.click(function(){
+                to_page_cat(result.extend._1.pageNum -1);
+            });
+        }
+        var nextPageLi = $("<li></li>").append($("<a></a>").append("&raquo;"));
+        var lastPageLi = $("<li></li>").append($("<a></a>").append("末页").attr("href","#"));
+        if(result.extend.pageInfo.hasNextPage == false){
+            nextPageLi.addClass("disabled");
+            lastPageLi.addClass("disabled");
+        }else{
+            nextPageLi.click(function(){
+                to_page_cat(result.extend.pageInfo.pageNum +1);
+            });
+            lastPageLi.click(function(){
+                to_page_cat(result.extend.pageInfo.pages);
+            });
+        }
+        //添加首页和前一页 的提示
+        ul.append(firstPageLi).append(prePageLi);
+        //1,2，3遍历给ul中添加页码提示
+        $.each(result.extend.pageInfo.navigatepageNums,function(index,item){
+            var numLi = $("<li></li>").append($("<a></a>").append(item));
+            if(result.extend.pageInfo.pageNum == item){
+                numLi.addClass("active");
+            }
+            numLi.click(function(){
+                to_page_cat(item);
+            });
+            ul.append(numLi);
+        });
+        //添加下一页和末页 的提示
+        ul.append(nextPageLi).append(lastPageLi);
+        //把ul加入到nav
+        var navEle = $("<nav></nav>").append(ul);
+        navEle.appendTo("#page_nav_area_cat");
+    }
+    //查询所有狗
+    function to_page_dog(pn){
+        $.ajax({
+            url:"${pageContext.request.contextPath}/pet/dogs",
+            data:"pn="+pn,
+            type:"GET",
+            success:function(result){
+                //1、解析并显示员工数据
+                build_dog_table(result);
+                //3、解析显示分页条数据
+                build_page_nav_dog(result);
+
+            }
+        });
+    }
+    //动态搭建样式
+    function build_dog_table(result){
+        //清空table表格
+        $("#ul_page_dog").empty();
+        //index：下标 user：单个对象
+        var pets=result.extend.pageInfo.list;//调用return Msg.success().add("pageInfo", page);
+        $.each(pets,function(index,pet){
+            var li_0 = $("<li></li>");
+            var a_1 = $("<a></a>").addClass("video_post").attr("href","${pageContext.request.contextPath}/pet/petMessage?user_id=${User.id}&pet_id="+pet.id);
+            var div_2_1 = $("<div></div>").addClass("video-post-thumbnail");
+            var div_2_2 = $("<div></div>").addClass("video-post-content");
+            var span_2_1_1 = $("<span></span>").addClass("video-post-count").append("1.4M");//还未调用值
+            var span_2_1_2 = $("<span></span>").addClass("video-post-time").append("1.4M");//还未调用值
+            var span_2_1_3 = $("<span></span>").addClass("btn-option");
+            var div_2_1_4 = $("<div></div>").addClass("dropdown-option-nav").attr("uk-dropdown","pos: bottom-right ;mode : hover ;animation: uk-animation-slide-bottom-small");
+            var img_2_1_5 = $("<img/>").attr("src","${pageContext.request.contextPath}/animal/images/"+pet.pic).attr("alt","");
+            var h3_2_2_1 = $("<h3></h3>").append(pet.remark);
+            var img_2_2_2 = $("<img/>").attr("src","${pageContext.request.contextPath}/static/index/assets/images/avatars/avatar-3.jpg").attr("alt","");
+            var span_2_2_3 = $("<span></span>").addClass("video-post-user").append(pet.petName);//还未调用值
+            var span_2_2_4 = $("<span></span>").addClass("video-post-views").append(1);//还未调用值
+            var span_2_2_5 = $("<span></span>").addClass("video-post-date").append(2);//还未调用值
+            var i_2_1_3_1 = $("<i></i>").addClass("icon-feather-more-vertical");
+            var ul_2_1_4_1 = $("<ul></ul>");
+            var li_2_1_4_1_1 = $("<li></li>").append($("<span></span>").append($("<i></i>").addClass("uil-history")).append("第一行"));
+            var li_2_1_4_1_2 = $("<li></li>").append($("<span></span>").append($("<i></i>").addClass("uil-bookmark")).append("第二行"));
+            var li_2_1_4_1_3 = $("<li></li>").append($("<span></span>").append($("<i></i>").addClass("uil-share-alt")).append("第三行"));
+            li_0.append(a_1);
+            a_1.append(div_2_1).append(div_2_2);
+            div_2_1.append(span_2_1_1).append(span_2_1_2).append(span_2_1_3).append(div_2_1_4).append(img_2_1_5);
+            div_2_2.append(h3_2_2_1).append(img_2_2_2).append(span_2_2_3).append(span_2_2_4).append(span_2_2_5);
+            span_2_1_3.append(i_2_1_3_1);
+            div_2_1_4.append(ul_2_1_4_1);
+            ul_2_1_4_1.append(li_2_1_4_1_1).append(li_2_1_4_1_2).append(li_2_1_4_1_3);
+            li_0.appendTo("#ul_page_dog");
+        });
+    }
+    //模糊查询所有狗
+    $("#find_pet_dogs_btn").click(function () {
+        var PetMessage = $("#find_pet_dogs").val();
+        var pn = 1;
+        $.ajax({
+            url:"${pageContext.request.contextPath}/pet/like_pet_dogs",
+            data: {"pn": pn, "petName": PetMessage},
+            type:"GET",
+            success: function (result) {
+                //1、解析并显示员工数据
+                build_dog_table(result);
+                //2、解析并显示分页信息
+                //build_page_info(result);
+                //3、解析显示分页条数据
+                build_page_nav_dog(result);
+            }
+        });
+    })
+    //解析显示分页条，点击分页要能去下一页....
+    function build_page_nav_dog(result){
+        //page_nav_area
+        $("#page_nav_area_dog").empty();
+        var ul = $("<ul></ul>").addClass("pagination");
+        //构建元素
+        var firstPageLi = $("<li></li>").append($("<a></a>").append("首页").attr("href","#"));
+        var prePageLi = $("<li></li>").append($("<a></a>").append("&laquo;"));
+        if(result.extend.pageInfo.hasPreviousPage == false){
+            firstPageLi.addClass("disabled");
+            prePageLi.addClass("disabled");
+        }else{
+            //为元素添加点击翻页的事件
+            firstPageLi.click(function(){
+                to_page_dog(1);
+            });
+            prePageLi.click(function(){
+                to_page_dog(result.extend._1.pageNum -1);
+            });
+        }
+        var nextPageLi = $("<li></li>").append($("<a></a>").append("&raquo;"));
+        var lastPageLi = $("<li></li>").append($("<a></a>").append("末页").attr("href","#"));
+        if(result.extend.pageInfo.hasNextPage == false){
+            nextPageLi.addClass("disabled");
+            lastPageLi.addClass("disabled");
+        }else{
+            nextPageLi.click(function(){
+                to_page_dog(result.extend.pageInfo.pageNum +1);
+            });
+            lastPageLi.click(function(){
+                to_page_dog(result.extend.pageInfo.pages);
+            });
+        }
+        //添加首页和前一页 的提示
+        ul.append(firstPageLi).append(prePageLi);
+        //1,2，3遍历给ul中添加页码提示
+        $.each(result.extend.pageInfo.navigatepageNums,function(index,item){
+            var numLi = $("<li></li>").append($("<a></a>").append(item));
+            if(result.extend.pageInfo.pageNum == item){
+                numLi.addClass("active");
+            }
+            numLi.click(function(){
+                to_page_dog(item);
+            });
+            ul.append(numLi);
+        });
+        //添加下一页和末页 的提示
+        ul.append(nextPageLi).append(lastPageLi);
+        //把ul加入到nav
+        var navEle = $("<nav></nav>").append(ul);
+        navEle.appendTo("#page_nav_area_dog");
+    }
 </script>
 </html>

@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<jsp:include page="home.jsp"></jsp:include>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -21,7 +20,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css" media="all">
     <!-- Owl-Carousel-CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all" />
-
+    <jsp:include page="ui.jsp"></jsp:include>
 </head>
 
 <body>

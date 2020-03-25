@@ -13,54 +13,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <%--<!-- 引入js文件 -->--%>
-    <!-- jQuery -->
-    <script type="text/javascript"
-            src="${pageContext.request.contextPath}/animal/JQuery/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/metisMenu.min.js"></script>
-    <!-- DataTables JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/jquery.dataTables.min.js"></script>
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/dataTables.bootstrap.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/sb-admin-2.js"></script>
-    <!-- 引入css样式文件 -->
-    <!-- Bootstrap Core CSS -->
-    <link href="${pageContext.request.contextPath}/animal/houtai/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="${pageContext.request.contextPath}/animal/houtai/css/metisMenu.min.css" rel="stylesheet">
-    <!-- DataTables CSS -->
-    <link href="${pageContext.request.contextPath}/animal/houtai/css/dataTables.bootstrap.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="${pageContext.request.contextPath}/animal/houtai/css/sb-admin-2.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="${pageContext.request.contextPath}/animal/houtai/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css">
-    <link href="${pageContext.request.contextPath}/animal/houtai/css/boot-crm.css" rel="stylesheet" type="text/css">
     <style>
-        .panel-group {
-            max-height: 770px;
-            overflow: auto;
-        }
-
-        .leftMenu {
-            margin: 10px;
-            margin-top: 5px;
-        }
-
-        .panel-heading {
-            background-color: #337ab7;
-            border-color: #2e6da4;
-            font-size: 14px;
-            padding-left: 20px;
-            height: 36px;
-            line-height: 36px;
-            color: white;
-            position: relative;
-            cursor: pointer;
-        }
 
         /*转成手形图标*/
         .panel-heading span {

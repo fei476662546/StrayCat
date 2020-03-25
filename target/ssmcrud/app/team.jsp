@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="home.jsp"></jsp:include>
+
     <meta charset="UTF-8">
     <title>Title</title>
     <!-- Meta tag Keywords -->
@@ -22,25 +22,17 @@
     <!--// Meta tag Keywords -->
     <!-- css files -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/bootstrap/css/bootstrap.css" type="text/css" media="all">
-    <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/font-awesome.css" type="text/css" media="all">
-    <!-- Font-Awesome-Icons-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/owl.carousel.css" type="text/css" media="all" />
-    <!-- Owl-Carousel-CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/animal/css/style.css" type="text/css" media="all" />
-    <link href="http://fonts.googleapis.com/css?family=Molle:400i&amp;subset=latin-ext" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext"
-          rel="stylesheet">
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
+    <jsp:include page="ui.jsp"></jsp:include>
+<%--    <script>--%>
+<%--        addEventListener("load", function () {--%>
+<%--            setTimeout(hideURLbar, 0);--%>
+<%--        }, false);--%>
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
+<%--        function hideURLbar() {--%>
+<%--            window.scrollTo(0, 1);--%>
+<%--        }--%>
+<%--    </script>--%>
     <!-- //web fonts -->
 
 </head>
@@ -48,17 +40,17 @@
 
 
 <!-- Team -->
-<div class="team" id="team">
+<div class="team" id="team" style="padding-left: 200px">
     <div class="container">
-        <h3 class="agile-title">Our Team</h3>
+        <h3 class="agile-title">我们的团队</h3>
         <div class="team-agileinfo agileits-w3layouts">
             <div class="col-md-6 team-grid w3-agileits">
                 <div class="team-grid-right">
                     <img src="${pageContext.request.contextPath}/animal/images/t1.jpg" alt=" " class="img-responsive" />
                 </div>
                 <div class="team-grid-left">
-                    <h4>Nathan Tim</h4>
-                    <p>Adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem</p>
+                    <h4>小明</h4>
+                    <p>励志于成为王牌驯养师的中国好青年</p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -68,7 +60,7 @@
                 </div>
                 <div class="team-grid-left non">
                     <h4>Keith Ryan</h4>
-                    <p>Adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem</p>
+                    <p>热爱动物，热爱抚养的国际志愿者</p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -80,8 +72,8 @@
                     <img src="${pageContext.request.contextPath}/animal/images/t3.jpg" alt=" " class="img-responsive" />
                 </div>
                 <div class="team-grid-left">
-                    <h4>Irene Jan</h4>
-                    <p>Adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem</p>
+                    <h4>阿美</h4>
+                    <p>业余时间来帮助我们的爱心大学生志愿者</p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -90,8 +82,8 @@
                     <img src="${pageContext.request.contextPath}/animal/images/t4.jpg" alt=" " class="img-responsive" />
                 </div>
                 <div class="team-grid-left non">
-                    <h4>Angela Leah</h4>
-                    <p>Adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem</p>
+                    <h4>夏天</h4>
+                    <p>热爱生活，富有爱心的小仙女</p>
                 </div>
 
                 <div class="clearfix"> </div>
@@ -158,7 +150,7 @@ q'o
 <!-- //smoothscroll -->
 
 <!-- start-smooth-scrolling -->
-<script src="${pageContext.request.contextPath}/animal/js/move-top.js"></script>
+<%--<script src="${pageContext.request.contextPath}/animal/js/move-top.js"></script>--%>
 <script src="${pageContext.request.contextPath}/animal/js/easing.js"></script>
 <script>
     jQuery(document).ready(function ($) {
@@ -174,39 +166,39 @@ q'o
 <!-- //end-smooth-scrolling -->
 
 <!-- smooth-scrolling-of-move-up -->
-<script>
-    $(document).ready(function () {
-        /*
-        var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear'
-        };
-        */
-        $().UItoTop({
-            easingType: 'easeOutQuart'
-        });
+<%--<script>--%>
+<%--    $(document).ready(function () {--%>
+<%--       --%>
+<%--        // var defaults = {--%>
+<%--        //     containerID: 'toTop', // fading element id--%>
+<%--        //     containerHoverID: 'toTopHover', // fading element hover id--%>
+<%--        //     scrollSpeed: 1200,--%>
+<%--        //     easingType: 'linear'--%>
+<%--        // };--%>
+<%--        //--%>
+<%--        // $().UItoTop({--%>
+<%--        //     easingType: 'easeOutQuart'--%>
+<%--        // });--%>
 
-    });
-</script>
+<%--    });--%>
+<%--</script>--%>
 <!-- //smooth-scrolling-of-move-up -->
 
 <!-- Owl-Carousel-JavaScript -->
 <script src="${pageContext.request.contextPath}/animal/js/owl.carousel.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#owl-demo").owlCarousel({
-            items: 3,
-            lazyLoad: true,
-            autoPlay: true,
-            pagination: true,
-        });
-    });
-</script>
+<%--<script>--%>
+<%--    $(document).ready(function () {--%>
+<%--        $("#owl-demo").owlCarousel({--%>
+<%--            items: 3,--%>
+<%--            lazyLoad: true,--%>
+<%--            autoPlay: true,--%>
+<%--            pagination: true,--%>
+<%--        });--%>
+<%--    });--%>
+<%--</script>--%>
 <!-- //Owl-Carousel-JavaScript -->
 <!-- contact -->
-<div class="contact" id="contact">
+<div class="contact" id="contact" style="padding-left: 200px">
     <div class="container">
         <h3 class="agile-title">加入我们</h3>
         <div class="col-md-9 col-sm-9 contact-right">

@@ -27,43 +27,43 @@ public class LoginFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
 
-        HttpServletRequest request = (HttpServletRequest) servletRequest;
-        HttpServletResponse response= (HttpServletResponse) servletResponse;
-        /*
-         * 判断在web.xml文件中是否配置了编码格式的信息
-         * 如果为空，则设置编码格式为配置文件中的编码格式
-         * 否则编码格式设置为utf-8
-         */
-        if(this.encode != null && !this.encode.equals("")){
-            request.setCharacterEncoding(this.encode);
-            response.setCharacterEncoding(this.encode);
-        }else{
-            request.setCharacterEncoding("utf-8");
-            response.setCharacterEncoding("utf-8");
-        }
-
-
-        String uri = request.getRequestURI();
-        User user = (User) request.getServletContext().getAttribute("User");
-        Admit admit = (Admit) request.getSession().getAttribute("Admit");
-        if (user == null && admit == null) {
-            if (uri.contains("/admitHome.jsp") || uri.contains("/adoptApply.jsp") || uri.contains("/petMessage.jsp")
-                    || uri.contains("/teamMessage.jsp") || uri.contains("/userComment.jsp") || uri.contains("/userMessage")
-                    || uri.contains("/show.jsp") ) {
-                request.getSession().setAttribute("handlerMsg", "请先登录");
-                request.getRequestDispatcher("/app/index.jsp").forward(servletRequest, servletResponse);
-            }
-        }
-        else if (user != null && admit == null) {
-            //获取全局变量登录名，判断是否登录！
-            if (uri.contains("/admitHome.jsp") || uri.contains("/adoptApply.jsp") || uri.contains("/petMessage.jsp")
-                    || uri.contains("/teamMessage.jsp") || uri.contains("/userComment.jsp") || uri.contains("/userMessage.jsp")) {
-                request.getSession().setAttribute("handlerMsg", "请先登录");
-                request.getRequestDispatcher("/app/index.jsp").forward(servletRequest, servletResponse);
-            } else {
-                chain.doFilter(servletRequest, servletResponse);
-            }
-        }
+//        HttpServletRequest request = (HttpServletRequest) servletRequest;
+//        HttpServletResponse response= (HttpServletResponse) servletResponse;
+//        /*
+//         * 判断在web.xml文件中是否配置了编码格式的信息
+//         * 如果为空，则设置编码格式为配置文件中的编码格式
+//         * 否则编码格式设置为utf-8
+//         */
+//        if(this.encode != null && !this.encode.equals("")){
+//            request.setCharacterEncoding(this.encode);
+//            response.setCharacterEncoding(this.encode);
+//        }else{
+//            request.setCharacterEncoding("utf-8");
+//            response.setCharacterEncoding("utf-8");
+//        }
+//
+//
+//        String uri = request.getRequestURI();
+//        User user = (User) request.getServletContext().getAttribute("User");
+//        Admit admit = (Admit) request.getSession().getAttribute("Admit");
+//        if (user == null && admit == null) {
+//            if (uri.contains("/admitHome.jsp") || uri.contains("/adoptApply.jsp") || uri.contains("/petMessage.jsp")
+//                    || uri.contains("/teamMessage.jsp") || uri.contains("/userComment.jsp") || uri.contains("/userMessage")
+//                    || uri.contains("/show.jsp") ) {
+//                request.getSession().setAttribute("handlerMsg", "请先登录");
+//                request.getRequestDispatcher("/app/index.jsp").forward(servletRequest, servletResponse);
+//            }
+//        }
+//        else if (user != null && admit == null) {
+//            //获取全局变量登录名，判断是否登录！
+//            if (uri.contains("/admitHome.jsp") || uri.contains("/adoptApply.jsp") || uri.contains("/petMessage.jsp")
+//                    || uri.contains("/teamMessage.jsp") || uri.contains("/userComment.jsp") || uri.contains("/userMessage.jsp")) {
+//                request.getSession().setAttribute("handlerMsg", "请先登录");
+//                request.getRequestDispatcher("/app/index.jsp").forward(servletRequest, servletResponse);
+//            } else {
+//                chain.doFilter(servletRequest, servletResponse);
+//            }
+//        }
         chain.doFilter(servletRequest, servletResponse);
     }
 

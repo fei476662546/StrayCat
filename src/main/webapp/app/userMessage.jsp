@@ -9,45 +9,24 @@
 <%
     pageContext.setAttribute("APP_PATH", request.getContextPath());
 %>
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <%--<!-- 引入js文件 -->--%>
-    <!-- jQuery -->
     <script type="text/javascript"
             src="${pageContext.request.contextPath}/animal/JQuery/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/metisMenu.min.js"></script>
-    <!-- DataTables JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/jquery.dataTables.min.js"></script>
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/dataTables.bootstrap.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="${pageContext.request.contextPath}/animal/houtai/js/sb-admin-2.js"></script>
-    <!-- 引入css样式文件 -->
+    <script src="${pageContext.request.contextPath}/animal/houtai/js/bootstrap.min.js"></script>
     <!-- Bootstrap Core CSS -->
-    <link href="${pageContext.request.contextPath}/animal/houtai/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="${pageContext.request.contextPath}/animal/houtai/css/metisMenu.min.css" rel="stylesheet">
-    <!-- DataTables CSS -->
-    <link href="${pageContext.request.contextPath}/animal/houtai/css/dataTables.bootstrap.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="${pageContext.request.contextPath}/animal/houtai/css/sb-admin-2.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="${pageContext.request.contextPath}/animal/houtai/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css">
-    <link href="${pageContext.request.contextPath}/animal/houtai/css/boot-crm.css" rel="stylesheet" type="text/css">
-    <style>
-        .panel-group {
-            max-height: 770px;
-            overflow: auto;
-        }
 
-        .leftMenu {
-            margin: 10px;
-            margin-top: 5px;
-        }
+    <link href="${pageContext.request.contextPath}/animal/houtai/css/bootstrap.min.css" rel="stylesheet">
+<%--<左侧后台样式--%>
+    <link href="${pageContext.request.contextPath}/animal/houtai/css/sb-admin-2.css" rel="stylesheet">
+<%--居中样式--%>
+    <link href="${pageContext.request.contextPath}/animal/houtai/css/boot-crm.css" rel="stylesheet" type="text/css">
+
+    <style>
 
         .panel-heading {
             background-color: #337ab7;
@@ -145,7 +124,7 @@
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="${pageContext.request.contextPath}/adopt/adoptApply">
+                            <a href="${pageContext.request.contextPath}/app/admin_adopt.jsp">
                                 <i class="fa fa-gamepad fa-fw"></i> 审核领养申请
                             </a>
                         </li>
@@ -190,16 +169,16 @@
                                 <input type="checkbox" id="check_all"/>
                             </th>
                             <th>#</th>
-                            <th>user</th>
-                            <th>pwd</th>
-                            <th>age</th>
-                            <th>sex</th>
-                            <th>tel</th>
-                            <th>email</th>
+                            <th>用户名</th>
+                            <th>密码</th>
+                            <th>年龄</th>
+                            <th>性别</th>
+                            <th>电话</th>
+                            <th>邮箱</th>
                             <%--                            <th>pic</th>--%>
-                            <th>address</th>
-                            <th>message</th>
-                            <th>atate</th>
+                            <th>地址</th>
+<%--                            <th>message</th>--%>
+                            <th>领养状态</th>
                             <th>操作</th>
                         </tr>
                         </thead>
@@ -214,12 +193,10 @@
                 <div class="col-md-6" id="page_info_area"></div>
                 <!-- 分页条信息 -->
                 <div class="col-md-6" id="page_nav_area">
-
                 </div>
             </div>
         </div>
     </div>
-
     <!-- 班级列表查询部分  end-->
 </div>
 
@@ -295,12 +272,12 @@
 
                         </div>
 
-                        <label class="col-sm-2 control-label">message</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="message" class="form-control" id="message_add_input"
-                                   placeholder="message">
+<%--                        <label class="col-sm-2 control-label">message</label>--%>
+<%--                        <div class="col-sm-10">--%>
+<%--                            <input type="text" name="message" class="form-control" id="message_add_input"--%>
+<%--                                   placeholder="message">--%>
 
-                        </div>
+<%--                        </div>--%>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">state</label>
@@ -398,12 +375,12 @@
                                    value="${user.address}" placeholder="address">
                             <span class="help-block"></span>
                         </div>
-                        <label class="col-sm-2 control-label">message</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="message" class="form-control" id="message_modify_input"
-                                   value="${user.message}" placeholder="message">
-                            <span class="help-block"></span>
-                        </div>
+<%--                        <label class="col-sm-2 control-label">message</label>--%>
+<%--                        <div class="col-sm-10">--%>
+<%--                            <input type="text" name="message" class="form-control" id="message_modify_input"--%>
+<%--                                   value="${user.message}" placeholder="message">--%>
+<%--                            <span class="help-block"></span>--%>
+<%--                        </div>--%>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">state</label>
@@ -444,7 +421,9 @@
     });
     $(function () {
         $("#findByName_btn").click(function () {
-            var findUserByName = document.getElementById("findByName").value;
+
+            var findUserByName=$("#findByName").val();
+
             var pn = 1;
             $.ajax({
                 url: "${pageContext.request.contextPath}/user/findUserByUsername",
@@ -497,7 +476,7 @@
             var emailTd = $("<td></td>").append(user.email);
             // var picTd = $("<td></td>").append(user.pic);
             var addressTd = $("<td></td>").append(user.address);
-            var messageTd = $("<td></td>").append(user.message);
+            // var messageTd = $("<td></td>").append(user.message);
             var stateTd = $("<td></td>").append(user.state);
 
 
@@ -522,7 +501,7 @@
                 .append(emailTd)
                 // .append(picTd)
                 .append(addressTd)
-                .append(messageTd)
+                // .append(messageTd)
                 .append(stateTd)
                 .append(btnTd)
                 .appendTo("#user_table tbody");
@@ -688,7 +667,7 @@
                 $("#email_modify_input").val(result.extend.user.email);
                 // $("#pic_modify_input").val(result.extend.user.pic);
                 $("#address_modify_input").val(result.extend.user.address);
-                $("#message_modify_input").val(result.extend.user.message);
+                // $("#message_modify_input").val(result.extend.user.message);
                 $("#state_modify_input").val(result.extend.user.state);
             }
         });

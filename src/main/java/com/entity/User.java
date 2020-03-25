@@ -18,6 +18,87 @@ public class User {
     private String message;
     private int state;
     private String remark;
+    private Pet pet;
+    private Integer pet_id ;//宠物的id
+    private Remind remind;
+    private int count = 0;//提醒个数
+    private int verification_id ;
+
+    public int getVerification_id() {
+        return verification_id;
+    }
+
+    public void setVerification_id(int verification_id) {
+        this.verification_id = verification_id;
+    }
+
+    private Verification verification;//实名验证
+
+    public Verification getVerification() {
+        return verification;
+    }
+
+    public void setVerification(Verification verification) {
+        this.verification = verification;
+    }
+
+    public Integer getPet_id() {
+        return pet_id;
+    }
+
+    public void setPet_id(Integer pet_id) {
+        this.pet_id = pet_id;
+    }
+
+
+    public User(Integer id, String username, String relName, String password, Integer age, Integer sex, String tel, String email, String pic, String address, String message, int state, String remark, Pet pet, Integer pet_id, Remind remind, int count, int verification_id, Verification verification) {
+        this.id = id;
+        this.username = username;
+        this.relName = relName;
+        this.password = password;
+        this.age = age;
+        this.sex = sex;
+        this.tel = tel;
+        this.email = email;
+        this.pic = pic;
+        this.address = address;
+        this.message = message;
+        this.state = state;
+        this.remark = remark;
+        this.pet = pet;
+        this.pet_id = pet_id;
+        this.remind = remind;
+        this.count = count;
+        this.verification_id = verification_id;
+        this.verification = verification;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public Remind getRemind() {
+        return remind;
+    }
+
+    public void setRemind(Remind remind) {
+        this.remind = remind;
+    }
+
+
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
+
 
     public String getRemark() {
         return remark;
@@ -38,21 +119,7 @@ public class User {
     public User() {
     }
 
-    public User(Integer id, String username, String relName, String password, Integer age, Integer sex, String tel, String email, String pic, String address, String message, int state, String remark) {
-        this.id = id;
-        this.username = username;
-        this.relName = relName;
-        this.password = password;
-        this.age = age;
-        this.sex = sex;
-        this.tel = tel;
-        this.email = email;
-        this.pic = pic;
-        this.address = address;
-        this.message = message;
-        this.state = state;
-        this.remark = remark;
-    }
+
 
     public int getState() {
         return state;
@@ -158,6 +225,12 @@ public class User {
                 ", message='" + message + '\'' +
                 ", state=" + state +
                 ", remark='" + remark + '\'' +
+                ", pet=" + pet +
+                ", pet_id=" + pet_id +
+                ", remind=" + remind +
+                ", count=" + count +
+                ", verification_id=" + verification_id +
+                ", verification=" + verification +
                 '}';
     }
 }

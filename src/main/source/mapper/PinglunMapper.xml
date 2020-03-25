@@ -4,13 +4,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mapper.PinglunMapper">
     <insert id="addPinglun" parameterType="com.entity.Pinglun" >
-        insert into pinglun (img,replyName,beReplyName,content,time,pinglunObj) values (#{img},#{replyName},#{beReplyName},#{content},#{time},#{pinglunObj})
+        insert into pinglun (img,replyName,beReplyName,content,time,pinglunObj,user_id,pet_id) values (#{img},#{replyName},#{beReplyName},#{content},#{time},#{pinglunObj},#{user_id},#{pet_id})
     </insert>
 <select id="getAllPinglun" resultType="com.entity.Pinglun">
     select * from pinglun
 </select>
     <select id="getPinglunByPetName" parameterType="String" resultType="com.entity.Pinglun" >
         select pinglun.* from pinglun,pet where pet.petName=pinglun.pinglunObj and pet.petName=#{pet.petName}
+    </select>
+    <select id="getPlsByPetId" parameterType="int" resultType="com.entity.Pinglun" >
+        select * from pinglun where pet_id =#{pet_id}
     </select>
     <delete id="delPinglunById" parameterType="int">
         delete from pinglun where id=#{id}
@@ -27,4 +30,16 @@
             #{id}
         </foreach>
     </delete>
+<!--    评论赞加1-->
+    <update id="pl_zan_count_add" parameterType="int">
+        update pinglun set zan = IFNULL(zan,0)+1 WHERE id=#{id}
+    </update>
+    <!--    评论赞加1-->
+    <update id="pl_zan_count_reduce" parameterType="int">
+        update pinglun set zan = IFNULL(zan,0)-1 WHERE id=#{id}
+    </update>
+<!--    查评论者-->
+    <select id="find_user_by_pl_id" parameterType="int" resultType="com.entity.User">
+        select users.* from users,pinglun where users.id=pinglun.user_id and pinglun.id = #{pinglun.id}
+    </select>
 </mapper>

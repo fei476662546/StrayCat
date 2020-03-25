@@ -23,7 +23,8 @@ public interface AdoptService {
     int delAdoptById(Integer id);
     Adopt getAdoptById(Integer id);
     int updateAdopt(Adopt adopt);
-    int findApplyByPetName(String petName);
+    //查找此用户是否申请过此动物
+    Adopt findApplyByPetIdAndUserId(@Param("user_id") Integer user_id,@Param("pet_id") Integer pet_id);
     List<Adopt> findPage(@Param("id") Integer id1,Integer id2);
     int updateUserRemark(User user);
 }

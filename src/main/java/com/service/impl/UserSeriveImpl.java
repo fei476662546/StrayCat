@@ -1,7 +1,9 @@
 package com.service.impl;
 
 
+import com.entity.Remind;
 import com.entity.User;
+import com.entity.Verification;
 import com.mapper.UserMapper;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,13 +67,83 @@ public class UserSeriveImpl implements UserService {
     }
 
     @Override
-    public  List<User> findUserByUsername(String username) {
-        return userMapper.findUserByUsername(username);
+    public  List<User> likeByUsername(String username) {
+        return userMapper.likeByUsername(username);
     }
 
     @Override
     public User findUserByusername(String name) {
         return userMapper.findUserByusername(name);
+    }
+
+    @Override
+    public int updatePassword(String password, Integer id) {
+        return userMapper.updatePassword(password,id);
+    }
+
+    @Override
+    public int remindCount(int id) {
+        return userMapper.remindCount(id);
+    }
+
+    @Override
+    public int remindAdd(Remind remind) {
+        return userMapper.remindAdd(remind);
+    }
+
+    @Override
+    public int remindDel(Integer id) {
+        return userMapper.remindDel(id);
+    }
+
+    @Override
+    public int verificationAdd(Verification verification) {
+        return userMapper.verificationAdd(verification);
+    }
+
+    @Override
+    public Verification findVerificationByUserId(Integer id) {
+        return userMapper.findVerificationByUserId(id);
+    }
+
+    @Override
+    public int addPetId(User user) {
+        return userMapper.addPetId(user);
+    }
+
+    @Override
+    public int UserRemindCountAdd(Integer id) {
+        return userMapper.UserRemindCountAdd(id);
+    }
+
+    @Override
+    public int UserRemindCountReduce(Integer id) {
+        return userMapper.UserRemindCountReduce(id);
+    }
+
+    @Override
+    public List<Remind> findAllRemind(Integer user_id) {
+        return userMapper.findAllRemind(user_id);
+    }
+
+    @Override
+    public Remind findRemindById(Integer id) {
+        return userMapper.findRemindById(id);
+    }
+
+    @Override
+    public int findRemindCount(Integer id) {
+        return userMapper.findRemindCount(id);
+    }
+
+    @Override
+    public int verificationToUsers(User user) {
+        return userMapper.verificationToUsers(user);
+    }
+
+    @Override
+    public int add_photo_by_verification(String photo,Integer id) {
+        return userMapper.add_photo_by_verification(photo,id);
     }
 
 

@@ -237,14 +237,14 @@
     $(function () {
         var img_btn=false;
         $("#findPic").click(function uploadPic() {
-            $("#photo").click();
+            $("#Photo").click();
             img_btn=true;
         });
         $("#person_btn").click(function () {
             if ( img_btn==true) {
                 var formData = new FormData();
                 // var name = $("input").val();
-                formData.append("file", $("#photo")[0].files[0]);
+                formData.append("file", $("#Photo")[0].files[0]);
                 // formData.append("name",name),
                 $.ajax({
                     url: "${pageContext.request.contextPath}/user/upload",

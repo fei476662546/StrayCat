@@ -2676,7 +2676,7 @@ input[type="search"] {
 }
 input[type="radio"][disabled],
 input[type="checkbox"][disabled],
-input[type="radio"].disabled,
+input[type="radio"].disabled.
 input[type="checkbox"].disabled,
 fieldset[disabled] input[type="radio"],
 fieldset[disabled] input[type="checkbox"] {

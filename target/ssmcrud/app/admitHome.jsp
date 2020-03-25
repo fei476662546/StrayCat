@@ -9,17 +9,35 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>学员关系管理系统CRM</title>
-    <!-- 引入js文件 -->
+    <title>后台管理</title>
+    <%--<!-- 引入js文件 -->--%>
+    <script type="text/javascript"
+            src="${pageContext.request.contextPath}/animal/JQuery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/animal/houtai/js/metisMenu.min.js"></script>
+    <script src="${pageContext.request.contextPath}/animal/houtai/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core CSS -->
+
+    <link href="${pageContext.request.contextPath}/animal/houtai/css/bootstrap.min.css" rel="stylesheet">
+    <%--<左侧后台样式--%>
+    <link href="${pageContext.request.contextPath}/animal/houtai/css/sb-admin-2.css" rel="stylesheet">
+    <%--居中样式--%>
+    <link href="${pageContext.request.contextPath}/animal/houtai/css/boot-crm.css" rel="stylesheet" type="text/css">
+    <title>用户信息</title>
     <!-- jQuery -->
     <script type="text/javascript"
             src="${pageContext.request.contextPath}/animal/JQuery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/metisMenu.min.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="${pageContext.request.contextPath}/animal/houtai/js/jquery.dataTables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/animal/houtai/js/dataTables.bootstrap.min.js"></script>
+    <!-- Custom Theme JavaScript -->
     <script src="${pageContext.request.contextPath}/animal/houtai/js/sb-admin-2.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- 引入css样式文件 -->
     <!-- Bootstrap Core CSS -->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="${pageContext.request.contextPath}/animal/houtai/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
     <link href="${pageContext.request.contextPath}/animal/houtai/css/metisMenu.min.css" rel="stylesheet">
@@ -32,16 +50,6 @@
           type="text/css">
     <link href="${pageContext.request.contextPath}/animal/houtai/css/boot-crm.css" rel="stylesheet" type="text/css">
     <style>
-        .panel-group {
-            max-height: 770px;
-            overflow: auto;
-        }
-
-        .leftMenu {
-            margin: 10px;
-            margin-top: 5px;
-        }
-
         .panel-heading {
             background-color: #337ab7;
             border-color: #2e6da4;
@@ -61,17 +69,6 @@
             top: 12px;
         }
 
-        .menu-item-left {
-            padding: 2px;
-            background: transparent;
-            border: 1px solid transparent;
-            border-radius: 6px;
-        }
-
-        .menu-item-left:hover {
-            background: #C4E3F3;
-            border: 1px solid #1E90FF;
-        }
     </style>
 
 </head>
@@ -80,7 +77,7 @@
     <!-- 导航栏部分 -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
-            <a class="navbar-brand" href="">流浪猫狗管理系统</a>
+            <a class="navbar-brand" href="">流浪猫狗管理系统</a><span style="float: right"><i class="uil-home-alt"></i>首页</span>
         </div>
         <!-- 导航栏右侧图标部分 -->
         <!-- 导航栏右侧图标部分 -->
@@ -139,7 +136,7 @@
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="${pageContext.request.contextPath}/adopt/adoptApply">
+                            <a href="${pageContext.request.contextPath}/app/admin_adopt.jsp">
                                 <i class="fa fa-gamepad fa-fw"></i> 审核领养申请
                             </a>
                         </li>

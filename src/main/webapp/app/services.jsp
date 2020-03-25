@@ -86,8 +86,9 @@
         $(".w3_agile_services_grids").empty();
         //index：下标 user：单个对象
         var pets=result.extend.pageInfo.list;//调用return Msg.success().add("pageInfo", page);
+        alert(pets);
         $.each(pets,function(index,pet){
-            console.log(index);
+
             var divTd=$("<div></div>").addClass("ih-item circle effect1 agile_services_grid");
             var headTd=$("<div></div>").addClass("spinner");
             var imgTd=$("<div></div>").addClass("img").append($("<img/>").addClass("img-responsive").attr("src","${pageContext.request.contextPath}/animal/images/"+pet.pic).attr("pet-id",pet.id));

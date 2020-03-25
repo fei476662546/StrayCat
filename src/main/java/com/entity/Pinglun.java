@@ -16,11 +16,22 @@ public class Pinglun {
     private String time;
     private String pinglunObj;//评论对象
     private Pinglun[] relyBody;
+    private Integer user_id;
+    private Integer pet_id;
+    private Integer zan;//评论点赞个数
 
     public Pinglun() {
     }
 
-    public Pinglun(Integer id, String img, String replyName, String beReplyName, String content, String time, String pinglunObj, Pinglun[] relyBody) {
+    public Integer getZan() {
+        return zan;
+    }
+
+    public void setZan(Integer zan) {
+        this.zan = zan;
+    }
+
+    public Pinglun(Integer id, String img, String replyName, String beReplyName, String content, String time, String pinglunObj, Pinglun[] relyBody, Integer user_id, Integer pet_id, Integer zan) {
         this.id = id;
         this.img = img;
         this.replyName = replyName;
@@ -29,6 +40,9 @@ public class Pinglun {
         this.time = time;
         this.pinglunObj = pinglunObj;
         this.relyBody = relyBody;
+        this.user_id = user_id;
+        this.pet_id = pet_id;
+        this.zan = zan;
     }
 
     public String getPinglunObj() {
@@ -94,6 +108,18 @@ public class Pinglun {
         this.relyBody = relyBody;
     }
 
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
+    }
+
+    public Integer getPet_id() {
+        return pet_id;
+    }
+
     @Override
     public String toString() {
         return "Pinglun{" +
@@ -105,6 +131,13 @@ public class Pinglun {
                 ", time='" + time + '\'' +
                 ", pinglunObj='" + pinglunObj + '\'' +
                 ", relyBody=" + Arrays.toString(relyBody) +
+                ", user_id=" + user_id +
+                ", pet_id=" + pet_id +
                 '}';
     }
+
+    public void setPet_id(Integer pet_id) {
+        this.pet_id = pet_id;
+    }
+
 }

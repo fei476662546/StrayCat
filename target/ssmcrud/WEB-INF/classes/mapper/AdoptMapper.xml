@@ -24,8 +24,9 @@
     <update id="updateApply" parameterType="com.entity.Adopt">
         update adopt set apply=#{apply} where id=#{id}
     </update>
+    <!--    //保存申请领养信息-->
     <insert id="addApplyAdopt" parameterType="com.entity.Adopt">
-        insert into adopt (user_id,petName,apply,time) values (#{user_id},#{petName},#{apply},#{time})
+        insert into adopt (user_id,pet_id,tel,address,reason,apply,time,relName) values (#{user_id},#{pet_id},#{tel},#{address},#{reason},#{apply},#{time},#{relName})
     </insert>
     <delete id="delAdoptById" parameterType="int">
        delete from adopt where id=#{id}
@@ -36,8 +37,9 @@
     <update id="updateAdopt" parameterType="com.entity.Adopt">
         update adopt set user_id=#{user_id}, petName=#{petName},apply=#{apply},time=#{time} where id=#{id}
     </update>
-    <select id="findApplyByPetName" resultType="int" parameterType="String">
-        select apply from adopt where petName=#{petName}
+<!--    //查询是否提交过此动物的申请-->
+    <select id="findApplyByPetIdAndUserId" resultType="com.entity.Adopt" parameterType="int">
+       SELECT a.* FROM adopt a,users u,pet p WHERE a.user_id = u.id and a.pet_id = p.id AND u.id =#{user_id} and p.id  = #{pet_id}
     </select>
     <select id="findPage" resultType="com.entity.Adopt">
         select * from adopt order by id limit #{id},#{id}
@@ -45,4 +47,5 @@
     <update id="updateUserRemark" parameterType="com.entity.User">
         update users set remark=#{remarek} where id=#{id}
     </update>
+
 </mapper>

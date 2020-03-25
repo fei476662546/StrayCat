@@ -19,10 +19,13 @@
  </delete>
     <!-- int updateUser(User user) -->
     <update id="updateUser" parameterType="com.entity.User" >
- update users set username=#{username},password=#{password},relName=#{relName},age=#{age},sex=#{sex},tel=#{tel},email=#{email},address=#{address},message=#{message},state=#{state},remark=#{remark} where id=#{id}
+ update users set username=#{username},password=#{password},relName=#{relName},age=#{age},sex=#{sex},tel=#{tel},email=#{email},address=#{address},message=#{message},pic=#{pic},state=#{state},remark=#{remark} where id=#{id}
  </update>
     <update id="updatePic" >
         update users set pic=#{pic} where id=#{id}
+    </update>
+    <update id="updatePassword" >
+        update users set password=#{password} where id=#{id}
     </update>
     <update id="updateRemark" >
         update users set remark=#{remark} where id=#{id}
@@ -36,11 +39,64 @@
         #{id}
     </foreach>
      </delete>
-    <select id="findUserByUsername" parameterType="String" resultType="com.entity.User">
+    <select id="likeByUsername" parameterType="String" resultType="com.entity.User">
        SELECT * FROM users WHERE username LIKE "%"#{name}"%"
     </select>
     <select id="findUserByusername" parameterType="String" resultType="com.entity.User">
        SELECT * FROM users WHERE username = #{username}
     </select>
+<!--    //查提醒个数-->
+    <select id="remindCount" parameterType="int" resultType="int">
+        SELECT count(*) FROM users,remind WHERE users.id=remind.user_id and users.id =#{id};
+    </select>
+<!--    //查用户的所有提醒-->
+    <select id="remindAll" parameterType="int" resultType="com.entity.Remind">
+        SELECT remind.* FROM users,remind WHERE users.id=remind.user_id and users.id =#{id};
+    </select>
+<!--    新增用户提醒-->
+    <insert id="remindAdd" parameterType="com.entity.Remind">
+         insert into remind(user_id,comment,time,url) values (#{user_id},#{comment},#{time},#{url})
+    </insert>
+<!--    删除用户提醒-->
+    <delete id="remindDel" parameterType="int">
+        delete from remind where id = #{id}
+    </delete>
+<!--    添加实名验证-->
+    <update id="verificationAdd" parameterType="com.entity.Verification">
+        update verification set id_card=#{id_card},relName= #{relName},tel=#{tel},address=#{address} where user_id = #{user_id}
+    </update>
+<!--    查询实名验证-->
+    <select id="findVerificationByUserId" parameterType="int" resultType="com.entity.Verification">
+        SELECT verification.* FROM verification,users WHERE verification.user_id = users.id AND users.id = ${id}
+    </select>
+<!--    //将实名添加到Users表-->
+    <update id="verificationToUsers" parameterType="com.entity.User">
+        update users set verification_id = #{verification_id} where id=#{id}
+    </update>
+    <!--    添加宠物ID-->
+    <update id="addPetId" parameterType="com.entity.User">
+       update users set pet_id =#{pet_id} ,state = #{state} where id = #{id}
+    </update>
+<!--    消息提示加一-->
+    <update id="UserRemindCountAdd" parameterType="int">
+        update users set count = IFNULL(count,0)+1 WHERE id=#{id}
+    </update>
+    <update id="UserRemindCountReduce" parameterType="int">
+        update users set count = IFNULL(count,0)-1 WHERE id=#{id}
+    </update>
+<!--    查询该用户所有的Remind-->
+    <select id="findAllRemind" resultType="com.entity.Remind" parameterType="int">
+        select * from remind where user_id = #{user_id}
+    </select>
+<!--    查Remind-->
+    <select id="findRemindById" parameterType="int" resultType="com.entity.Remind">
+        select * from remind where id = #{id}
+    </select>
+    <select id="findRemindCount" resultType="int" parameterType="int">
+        select count(*) from remind where user_id = #{user_id}
+    </select>
+    <insert id="add_photo_by_verification" >
+         insert into verification(user_id,id_card_photo) values (#{user_id},#{id_card_photo})
+    </insert>
 
 </mapper>

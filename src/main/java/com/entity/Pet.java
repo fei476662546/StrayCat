@@ -14,6 +14,66 @@ public class Pet {
     private String petType;
     private String remark;
     private String imgPath;//图片路径
+    private User master;//主人
+    private Integer user_id;// 主人的ID
+    private Integer counts;//点赞数
+
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
+    }
+
+    public Integer getCounts() {
+        return counts;
+    }
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "id=" + id +
+                ", petName='" + petName + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", pic='" + pic + '\'' +
+                ", state=" + state +
+                ", petType='" + petType + '\'' +
+                ", remark='" + remark + '\'' +
+                ", imgPath='" + imgPath + '\'' +
+                ", master=" + master +
+                ", user_id=" + user_id +
+                ", counts=" + counts +
+                '}';
+    }
+
+    public void setCounts(Integer counts) {
+        this.counts = counts;
+    }
+
+    public Pet(Integer id, String petName, Integer age, Integer sex, String pic, Integer state, String petType, String remark, String imgPath, User master, Integer user_id, Integer counts) {
+        this.id = id;
+        this.petName = petName;
+        this.age = age;
+        this.sex = sex;
+        this.pic = pic;
+        this.state = state;
+        this.petType = petType;
+        this.remark = remark;
+        this.imgPath = imgPath;
+        this.master = master;
+        this.user_id = user_id;
+        this.counts = counts;
+    }
+
+    public User getMaster() {
+        return master;
+    }
+
+    public void setMaster(User master) {
+        this.master = master;
+    }
 
     public String getImgPath() {
         return imgPath;
@@ -26,17 +86,7 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(Integer id, String petName, Integer age, Integer sex, String pic, Integer state, String petType, String remark,String imgPath) {
-        this.id = id;
-        this.petName = petName;
-        this.age = age;
-        this.sex = sex;
-        this.pic = pic;
-        this.state = state;
-        this.petType = petType;
-        this.remark = remark;
-        this.imgPath=imgPath;
-    }
+
 
     public Integer getId() {
         return id;
@@ -102,17 +152,4 @@ public class Pet {
         this.remark = remark;
     }
 
-    @Override
-    public String toString() {
-        return "Pet{" +
-                "id=" + id +
-                ", petName='" + petName + '\'' +
-                ", age=" + age +
-                ", sex=" + sex +
-                ", pic='" + pic + '\'' +
-                ", state=" + state +
-                ", petType='" + petType + '\'' +
-                ", remark='" + remark + '\'' +
-                '}';
-    }
 }

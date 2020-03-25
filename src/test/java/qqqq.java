@@ -1,5 +1,3 @@
-import java.awt.*;
-
 /**
  * Create by mysteriousTime
  * time on 2019/8/29  11:06
@@ -8,11 +6,11 @@ import java.awt.*;
 //    final String replyNickName = "喊美美啊";
 //    final String commentNickName ="欧巴沙拉呦";
 //    String replyContentStr = "你写的文章非常好，我很喜欢";
-    //用来标识在 Span 范围内的文本前后输入新的字符时是否把它们也应用这个效果
-    //Spanned.SPAN_EXCLUSIVE_EXCLUSIVE(前后都不包括)
-    //Spanned.SPAN_INCLUSIVE_EXCLUSIVE(前面包括，后面不包括)
-    //Spanned.SPAN_EXCLUSIVE_INCLUSIVE(前面不包括，后面包括)
-    //Spanned.SPAN_INCLUSIVE_INCLUSIVE(前后都包括)
+//用来标识在 Span 范围内的文本前后输入新的字符时是否把它们也应用这个效果
+//Spanned.SPAN_EXCLUSIVE_EXCLUSIVE(前后都不包括)
+//Spanned.SPAN_INCLUSIVE_EXCLUSIVE(前面包括，后面不包括)
+//Spanned.SPAN_EXCLUSIVE_INCLUSIVE(前面不包括，后面包括)
+//Spanned.SPAN_INCLUSIVE_INCLUSIVE(前后都包括)
 //    SpannableString ss = new SpannableString(replyNickName+"回复"+commentNickName
 //            +":"+replyContentStr);
 //    //为回复的人昵称添加点击事件

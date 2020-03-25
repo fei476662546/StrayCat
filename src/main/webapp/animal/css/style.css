@@ -2406,11 +2406,11 @@ section.footer-w3 ul.tweet-agile li p.tweet-p2 {
 .nav-links{
     width:1750px;
     background: rgba(78, 235, 60, 0.38);
-    position:fixed;/*固定作用*/
-    /*ie6下样式，加下划线表示只针对ie6 的hack */
-    _position: relative;/* 把导航栏位置定义为绝对位置 关键*/
+    /*position:fixed;!*固定作用*!*/
+    /*!*ie6下样式，加下划线表示只针对ie6 的hack *!*/
+    /*_position: relative;!* 把导航栏位置定义为绝对位置 关键*!*/
 
-    z-index:9999; /* 让导航栏浮在网页的高层位置，遇到flash和图片时候也能始终保持最外层 */
+    /*z-index:9999; !* 让导航栏浮在网页的高层位置，遇到flash和图片时候也能始终保持最外层 *!*/
 
 }
 .navigation_ul{

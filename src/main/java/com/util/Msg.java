@@ -55,8 +55,8 @@ public class Msg {
     public Map<String, Object> getExtend() {
         return extend;
     }
-
     public void setExtend(Map<String, Object> extend) {
         this.extend = extend;
     }
+
 }
